@@ -12,26 +12,17 @@ CREATE TABLE poi (
     info TEXT
 );
 
-CREATE TABLE routes (
-    route_id SERIAL NOT NULL CONSTRAINT route_pkey PRIMARY KEY
-);
-
 CREATE TABLE favorite_routes (
     user_id INT NOT NULL,
-    route_id INT NOT NULL,
-    route_order INT NOT NULL,
+    route_id SERIAL NOT NULL CONSTRAINT route_pkey PRIMARY KEY,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
-    FOREIGN KEY (route_id) REFERENCES routes(route_id),
-    PRIMARY KEY (user_id, route_id),
-    CONSTRAINT route_order_check CHECK (route_order > 0) 
+    PRIMARY KEY (user_id, route_id)
 );
 
 CREATE TABLE route_poi (
     route_id INT NOT NULL,
     poi_id INT NOT NULL,
-    poi_order INT NOT NULL,
-    FOREIGN KEY (route_id) REFERENCES routes(route_id),
+    FOREIGN KEY (route_id) REFERENCES favorite_routes(route_id),
     FOREIGN KEY (poi_id) REFERENCES poi(location_id),
-    PRIMARY KEY (route_id, poi_id),
-    CONSTRAINT poi_order_check CHECK (poi_order > 0) 
+    PRIMARY KEY (route_id, poi_id)
 );
