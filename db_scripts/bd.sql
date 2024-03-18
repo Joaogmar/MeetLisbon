@@ -22,7 +22,7 @@ CREATE TABLE favorite_routes (
     PRIMARY KEY (user_id, route_id)
 );
 
-CREATE TABLE route_poi (
+CREATE TABLE route (
     route_id INT NOT NULL,
     poi_id INT NOT NULL,
     FOREIGN KEY (route_id) REFERENCES favorite_routes(route_id),
