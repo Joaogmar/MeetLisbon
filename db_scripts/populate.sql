@@ -1,19 +1,19 @@
 -- Add Users
-insert into users (username, password) values ('maria', 'maria123');
-insert into users (username, password) values ('joao', 'joao123');
-insert into users (username, password) values ('afonso', 'afonso123');
-insert into users (username, password) values ('roberta', 'roberta123');
-insert into users (username, password) values ('rodrigo', 'rodrigo123');
-insert into users (username, password) values ('miguel', 'miguel123');
-insert into users (username, password) values ('cesar', 'cesar123');
-insert into users (username, password) values ('laura', 'laura123');
-insert into users (username, password) values ('joana', 'joana123');
-insert into users (username, password) values ('bernardo', 'bernardo123');
-insert into users (username, password) values ('sofia', 'sofia123');
-insert into users (username, password) values ('andre', 'andre123');
-insert into users (username, password) values ('goncalo', 'goncalo123');
-insert into users (username, password) values ('marta', 'marta123');
-insert into users (username, password) values ('martim', 'martim123');
+insert into users (username, password, role) values ('maria', 'maria123', 'admin');
+insert into users (username, password, role) values ('joao', 'joao123', 'admin');
+insert into users (username, password, role) values ('afonso', 'afonso123', 'admin');
+insert into users (username, password, role) values ('roberta', 'roberta123', 'admin');
+insert into users (username, password, role) values ('rodrigo', 'rodrigo123', 'admin');
+insert into users (username, password, role) values ('miguel', 'miguel123', 'users');
+insert into users (username, password, role) values ('cesar', 'cesar123', 'users');
+insert into users (username, password, role) values ('laura', 'laura123', 'users');
+insert into users (username, password, role) values ('joana', 'joana123', 'users');
+insert into users (username, password, role) values ('bernardo', 'bernardo123', 'users');
+insert into users (username, password, role) values ('sofia', 'sofia123', 'users');
+insert into users (username, password, role) values ('andre', 'andre123', 'users');
+insert into users (username, password, role) values ('goncalo', 'goncalo123', 'users');
+insert into users (username, password, role) values ('marta', 'marta123', 'users');
+insert into users (username, password, role) values ('martim', 'martim123', 'users');
 
 
 -- Add Poi
