@@ -1,15 +1,18 @@
 CREATE TABLE users (
     user_id SERIAL NOT NULL CONSTRAINT user_pkey PRIMARY KEY,
     username VARCHAR NOT NULL,
+    role VARCHAR NOT NULL,
     password VARCHAR NOT NULL
 );
 
 CREATE TABLE poi (
     location_id SERIAL NOT NULL CONSTRAINT location_pkey PRIMARY KEY,
     location_name VARCHAR NOT NULL,
+    location_address VARCHAR NOT NULL,
     longitude DECIMAL NOT NULL,
     latitude DECIMAL NOT NULL,
-    info TEXT
+    info TEXT,
+    image_url VARCHAR
 );
 
 CREATE TABLE favorite_routes (
