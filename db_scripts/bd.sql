@@ -18,6 +18,7 @@ CREATE TABLE poi (
 CREATE TABLE favorite_routes (
     user_id INT NOT NULL,
     route_id SERIAL NOT NULL CONSTRAINT route_pkey PRIMARY KEY,
+    route_name VARHAR NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     PRIMARY KEY (user_id, route_id)
 );
