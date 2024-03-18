@@ -29,3 +29,5 @@ CREATE TABLE route_poi (
     FOREIGN KEY (poi_id) REFERENCES poi(location_id),
     PRIMARY KEY (route_id, poi_id)
 );
+
+-- add wishlist de places
