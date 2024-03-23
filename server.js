@@ -1,10 +1,18 @@
 const express = require('express');
-const app = express();
+const path = require('path');
 
+const app = express();
+const PORT = process.env.PORT || 3000; // Porta que o servidor irá escutar
+
+// Define o diretório para arquivos estáticos (HTML, CSS, imagens, etc.)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Rota para sempre servir o arquivo login.html
 app.get('/', (req, res) => {
-    res.send('Hello, world!');
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+// Inicia o servidor
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
