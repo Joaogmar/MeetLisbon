@@ -14,8 +14,8 @@ body {
     width: 250px; 
     height: auto; 
     position: absolute;
-    top: 1px; 
-    right: 1px; 
+    top: -25px; 
+    right: -25px; 
 }
 
 .login-box {
