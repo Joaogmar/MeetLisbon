@@ -13,6 +13,6 @@ const pool = new Pool({
 module.exports = pool
 
 // em qualquer parte que precise de usar a bd tenho de pôr
-// const pool = require("../config/db"); -> no inicio do ficheiro para o import
+// const pool = require("../db"); -> no inicio do ficheiro para o import
 // utilizamos assim: const dbResult = await pool.query("SELECT * FROM modes");
 // para ir buscar o resultado : dbResult.rows
