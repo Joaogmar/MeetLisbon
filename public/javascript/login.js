@@ -14,8 +14,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify({ username, password })
             });
 
-            const data = await response.text();
-            alert(data); 
+            const data = await response.json();
+            alert(data.message); 
+
+            console.log('Response status:', response.status);
+            
+            if (response.ok) {
+                const role = data.role;
+                
+                if (role === 'admin') {
+                    console.log('Redirecting to admin.html');
+                    window.location.href = '/admin.html';
+                } else {
+                    console.log('Redirecting to user.html');
+                    window.location.href = '/user.html';
+                }
+            }
         } catch (error) {
             console.error('Error:', error);
         }

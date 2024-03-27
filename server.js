@@ -1,9 +1,17 @@
+require('dotenv').config();
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const routes = require('./routes/routes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(session({
+    secret: 'your_secret_key',
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); 

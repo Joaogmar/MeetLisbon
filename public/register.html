@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creat Account</title>
-    <link rel="stylesheet" href="stylesheets/account.css">
+    <link rel="stylesheet" href="stylesheets/register.css">
 </head>
 
 <body style="background-image: url('img/most.jpg'); background-size: cover;">
@@ -13,14 +13,14 @@
     <div class="container">
         <div class="account-box">
             <h2>Nova Conta</h2>
-            <form>
-                <input type="text" placeholder="Email" class="input-field">
-                <input type="text" placeholder="Username" class="input-field">
-                <input type="password" placeholder="Password" class="input-field">
-                <button type="submit">Criar Conta</button>
+            <form id="registerForm">
+                <input type="text" placeholder="Username" class="input-field" id="username">
+                <input type="password" placeholder="Password" class="input-field" id="password">
+                <button type="submit">Create Account</button>
             </form>
         </div>
     </div>
+    <script src="javascript/register.js"></script>
 </body>
 
 </html>
