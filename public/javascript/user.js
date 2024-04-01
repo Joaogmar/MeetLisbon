@@ -1,34 +1,44 @@
-document.addEventListener('DOMContentLoaded', async function () {
-    try {
-        const response = await fetch('/user', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
+function initMap() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var userCoords = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+  
+        var customIcon = {
+          url: "/img/user.png", 
+          scaledSize: new google.maps.Size(50, 50) 
+        };
+  
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: userCoords,
+          zoom: 15
         });
-        if (response.ok) {
-            const data = await response.json();
-            document.getElementById('username').textContent = data.username;
-            document.getElementById('userId').textContent = data.user_id;
-        } else {
-            console.error('Failed to fetch user information');
-        }
-    } catch (error) {
-        console.error('Error:', error);
+  
+        var marker = new google.maps.Marker({
+          position: userCoords,
+          map: map,
+          icon: customIcon
+        });
+  
+      }, function() {
+        console.error("Geolocation error: User denied location access.");
+  
+        var centerCoords = { lat: 40.7128, lng: -74.0060 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: centerCoords,
+          zoom: 10
+        });
+      });
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+  
+      var centerCoords = { lat: 40.7128, lng: -74.0060 };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: centerCoords,
+        zoom: 10
+      });
     }
-
-    document.getElementById('logoutBtn').addEventListener('click', async function () {
-        try {
-            const response = await fetch('/logout', {
-                method: 'POST'
-            });
-            if (response.ok) {
-                window.location.href = '/login.html'; 
-            } else {
-                console.error('Logout failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    });
-});
+  }
+  
