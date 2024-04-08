@@ -19,7 +19,7 @@ app.use(express.json());
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'user.html'));
+    res.sendFile(path.join(__dirname, 'public', 'places.html'));
 });
 
 app.listen(PORT, () => {
