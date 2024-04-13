@@ -31,4 +31,10 @@ CREATE TABLE route (
     PRIMARY KEY (route_id, poi_id)
 );
 
--- add wishlist de places
+CREATE TABLE favorite_places (
+    user_id INT NOT NULL, 
+    poi_id INT NOT NULL, 
+    FOREIGN KEY (user_id) REFERENCES users (user_id), 
+    FOREIGN KEY (poi_id) REFERENCES poi (location_id), 
+    PRIMARY KEY (user_id, poi_id)
+);
