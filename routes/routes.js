@@ -85,4 +85,14 @@ router.post('/registerUser', async (req, res) => {
     }
 });
 
+router.get('/locations', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM poi');
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error executing query', error);
+        res.status(500).send('Internal server error');
+    }
+});
+
 module.exports = router;
