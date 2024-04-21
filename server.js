@@ -19,7 +19,7 @@ app.use(express.json());
 app.use('/', routes);
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'wishlist.html'));
+    res.sendFile(path.join(__dirname, 'public', 'routes.html'));
 });
 
 app.listen(PORT, () => {
