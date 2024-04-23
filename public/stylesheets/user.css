@@ -6,13 +6,14 @@
 .button {
     position: absolute;
     border: none;
-    padding: 10px 20px;
+    padding: 20px 40px; /* Ajuste o padding para deixar os botões maiores */
     border-radius: 20px;
     background-color: white; 
     color: #333; 
     font-size: 16px;
     cursor: pointer;
 }
+
 
 #button-top-left {
     top: 10px;
