@@ -1,4 +1,4 @@
-var map;
+var map, directionsService, directionsRenderer;
 
 function initMap() {
     if (navigator.geolocation) {
@@ -13,9 +13,12 @@ function initMap() {
                 zoom: 15
             });
 
+            directionsService = new google.maps.DirectionsService();
+            directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
+
             var userIcon = {
                 url: "/img/user.png",
-                scaledSize: new google.maps.Size(50, 50) 
+                scaledSize: new google.maps.Size(50, 50)
             };
 
             var userMarker = new google.maps.Marker({
@@ -33,8 +36,16 @@ function initMap() {
                             map: map,
                         });
 
+                        var infoWindowContent = `
+                            <strong>${location.location_name}</strong><br>
+                            ${location.location_address}<br>
+                            <button onclick="showRouteToLocation(${parseFloat(location.latitude)}, ${parseFloat(location.longitude)})">
+                                Show Route
+                            </button>
+                        `;
+
                         var infoWindow = new google.maps.InfoWindow({
-                            content: `<strong>${location.location_name}</strong><br>${location.location_address}`
+                            content: infoWindowContent
                         });
 
                         marker.addListener('click', function() {
@@ -61,6 +72,41 @@ function initMap() {
             center: centerCoords,
             zoom: 10
         });
+    }
+}
+
+function showRouteToLocation(lat, lng) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var userCoords = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            var destinationCoords = {
+                lat: lat,
+                lng: lng
+            };
+
+            var request = {
+                origin: userCoords,
+                destination: destinationCoords,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    console.error('Error calculating route:', status);
+                }
+            });
+
+        }, function() {
+            console.error("Geolocation error: User denied location access.");
+        });
+    } else {
+        console.error("Geolocation is not supported by this browser.");
     }
 }
 
