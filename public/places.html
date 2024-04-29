@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,35 @@
   <link rel="stylesheet" href="stylesheets/places.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
 
-<div class="topnav">
-  <div class="logo">
-    <img class="logo" src="img/mt.png" alt="Logo MT">
+  <div class="topnav">
+    <div class="logo">
+      <img class="logo" src="img/mt.png" alt="Logo MT">
+    </div>
+    <div class="meet-lisbon">Meet Lisbon</div>
+    <div class="logout">
+      <button>Logout</button>
+    </div>
   </div>
-  <div class="meet-lisbon">Meet Lisbon</div>
-  <div class="logout">
-    <button>Logout</button>
-  </div>
-</div>
 
-<div class="container">
-  <button class="add-place">Places</button>
-  <div class="add-place-container">
-    <h3><a href="pdc.html">Padrão dos Descobrimentos</a><span class="material-icons add-icon">add_circle_outline</span></h3>
-    <h3><a href="torre.html">Torre de Belém</a><span class="material-icons add-icon">add_circle_outline</span></h3>
-    <h3><a href="adc.html">Armazéns do Chiado</a><span class="material-icons add-icon">add_circle_outline</span></h3>
-    <h3><a href="plc.html">Praça Luís de Camões</a><span class="material-icons add-icon">add_circle_outline</span></h3>
-    <h3><a href="tml.html">Timeout Market Lisboa</a><span class="material-icons add-icon">add_circle_outline</span></h3>
-    <h3><a href="fdb.html">Farol de Belém</a><span class="material-icons add-icon">add_circle_outline</span></h3>
+  <div class="container">
+    <button class="add-place">Places</button>
+    <div class="add-place-container">
+      <h3><a href="pdc.html">Padrão dos Descobrimentos</a><span class="material-icons add-icon" data-name="Padrão dos Descobrimentos">add_circle_outline</span></h3>
+      <h3><a href="torre.html">Torre de Belém</a><span class="material-icons add-icon" data-name="Torre de Belém">add_circle_outline</span></h3>
+      <h3><a href="adc.html">Armazéns do Chiado</a><span class="material-icons add-icon" data-name="Armazéns do Chiado">add_circle_outline</span></h3>
+      <h3><a href="plc.html">Praça Luís de Camões</a><span class="material-icons add-icon" data-name="Praça Luís de Camões">add_circle_outline</span></h3>
+      <h3><a href="tml.html">Timeout Market Lisboa</a><span class="material-icons add-icon" data-name="Timeout Market Lisboa">add_circle_outline</span></h3>
+      <h3><a href="fdb.html">Farol de Belém</a><span class="material-icons add-icon" data-name="Farol de Belém">add_circle_outline</span></h3>
+    </div>
+  
+    <div id="wishlist"></div>
   </div>
-</div>
+
+  <script src="javascript/places.js"></script>
 
 </body>
-</html>
 
+</html>
