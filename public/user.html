@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
     <link rel="stylesheet" href="stylesheets/user.css">
@@ -13,8 +14,26 @@
     <button class="button" id="button-top-left">Places</button>
     <button class="button" id="button-top-right">Logout</button>
     <button class="button" id="button-bottom-left">Wishlist</button>
-    <button class="button" id="button-bottom-right">Routes</button>
+    <button class="button" id="button-bottom-right">Favourite Routes</button>
     <button class="button" id="button-bottom-center">Locate me</button>
+    <button class="button" id="button-top-center">Custom Route</button>
+
+    <div id="location-dropdown" class="dropdown-content">
+        <!-- Dropdown will be populated dynamically -->
+        <button id="create-route-button">Create Route</button>
+    </div>
+
+    <!-- Add a modal for creating the route -->
+    <div id="route-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h3>Create Route</h3>
+            <ul id="route-list">
+                <!-- Route list items will be populated dynamically -->
+            </ul>
+            <button id="confirm-route-button">Confirm Route</button>
+        </div>
+    </div>
 
     <script src="javascript/user.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap"></script>
