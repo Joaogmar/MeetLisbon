@@ -2,6 +2,14 @@
 var map, directionsService, directionsRenderer;
 var routeModal, routeList, confirmRouteButton, closeModalButton, locationDropdown, selectedList;
 
+document.addEventListener("DOMContentLoaded", function() {
+    var favRoutesButton = document.getElementById("button-bottom-right");
+
+    favRoutesButton.addEventListener("click", function() {
+        window.location.href = "favroutes.html";
+    });
+});
+
 // Initialize the map and related services
 function initMap() {
     // Use geolocation to center the map on the user's current location

@@ -21,6 +21,8 @@ router.post('/login', async (req, res) => {
         if (result.rows.length > 0) {
             const user = result.rows[0];
             req.session.user = { username: user.username, user_id: user.user_id, role: user.role };
+            console.log('Session created:', req.sessionID); // Log session ID
+            console.log('Session data:', req.session); // Log session data
             res.json({ message: 'Login successful', role: user.role });
         } else {
             res.status(401).json({ message: 'Invalid username or password' });
@@ -28,12 +30,6 @@ router.post('/login', async (req, res) => {
     } catch (error) {
         console.error('Error executing query', error);
         res.status(500).json({ message: 'Internal server error' });
-    }
-
-    if (req.session) {
-        console.log('Session created:', req.sessionID);
-    } else {
-        console.log('Session not created');
     }
 });
 
@@ -65,6 +61,7 @@ router.get('/admin', (req, res) => {
 
 router.get('/user', (req, res) => {
     if (req.session && req.session.user) {
+        console.log('User information:', req.session.user);
         const { username, user_id } = req.session.user;
         res.json({ username, user_id });
     } else {
@@ -92,6 +89,43 @@ router.get('/locations', async (req, res) => {
     } catch (error) {
         console.error('Error executing query', error);
         res.status(500).send('Internal server error');
+    }
+});
+
+router.post('/favoriteRoutes', async (req, res) => {
+    const { user_id, route_name, route_points } = req.body; 
+    try {
+        const insertRouteQuery = 'INSERT INTO favorite_routes (user_id, route_name, route_points) VALUES ($1, $2, $3)';
+        await pool.query(insertRouteQuery, [user_id, route_name, route_points]);
+
+        res.status(201).json({ message: 'Favorite route created successfully' });
+    } catch (error) {
+        console.error('Error creating favorite route:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+
+router.get('/debugroutes', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM favorite_routes');
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error executing query', error);
+        res.status(500).send('Internal server error');
+    }
+});
+
+router.get('/debug', (req, res) => {
+    console.log('Session data:', req.session);
+    res.send('Session data logged to console');
+});
+
+router.get('/sessionInfo', (req, res) => {
+    if (req.session && req.session.user) {
+        res.json(req.session.user);
+    } else {
+        res.status(401).json({ message: 'Not logged in' });
     }
 });
 

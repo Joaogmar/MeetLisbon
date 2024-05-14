@@ -16,19 +16,11 @@ CREATE TABLE poi (
 );
 
 CREATE TABLE favorite_routes (
-    user_id INT NOT NULL, 
-    route_id INT NOT NULL, 
-    route_name VARCHAR NOT NULL, 
-    FOREIGN KEY (user_id) REFERENCES users (user_id), 
-    PRIMARY KEY (user_id, route_id)
-);
-
-CREATE TABLE route (
-    route_id INT NOT NULL, 
-    poi_id INT NOT NULL, 
-    FOREIGN KEY (route_id) REFERENCES favorite_routes (route_id), 
-    FOREIGN KEY (poi_id) REFERENCES poi (location_id), 
-    PRIMARY KEY (route_id, poi_id)
+    user_id INT NOT NULL,
+    route_name VARCHAR NOT NULL,
+    route_points INT[] NOT NULL, -- Array of POI IDs representing the route
+    FOREIGN KEY (user_id) REFERENCES users (user_id),
+    PRIMARY KEY (user_id, route_name)
 );
 
 CREATE TABLE favorite_places (

@@ -1,71 +1,211 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Populate the points dropdown
-    const pointsDropdown = document.getElementById('points');
-    const points = [
-      { id: 1, name: 'Padrão dos Descobrimentos' },
-      { id: 2, name: 'Torre de Belém' },
-      { id: 3, name: 'Armazéns do Chiado' },
-      { id: 4, name: 'Lisboa Story Centre' },
-      { id: 5, name: 'Praça Luís de Camões' },
-      { id: 6, name: 'Farol de Belém' },
-      { id: 7, name: 'Timeout Market Lisboa' },
-      { id: 8, name: 'Arco do Triunfo' },
-      { id: 9, name: 'Estátua D. José I' },
-      { id: 10, name: 'IADE' },
-      { id: 11, name: 'Rua cor de Rosa' },
-      { id: 12, name: 'Teatro da Trindade INATEL' },
-    ];
-    points.forEach((point) => {
-      const option = document.createElement('option');
-      option.value = point.id;
-      option.textContent = point.name;
-      pointsDropdown.appendChild(option);
-    });
-  
-    // Populate the routes table
-    const routesTable = document.getElementById('routes-table');
-    const routes = [
-      { id: 1, name: 'Route 1' },
-      { id: 2, name: 'Route 2' },
-      { id: 3, name: 'Route 3' },
-    ];
-    routes.forEach((route) => {
-      const row = document.createElement('tr');
-      const routeCell = document.createElement('td');
-      routeCell.textContent = route.name;
-      const deleteCell = document.createElement('td');
-      const deleteButton = document.createElement('button');
-      deleteButton.textContent = 'X';
-      deleteButton.addEventListener('click', () => {
-        // Delete route from database and table
-        console.log(`Delete route ${route.id}`);
-      });
-      deleteCell.appendChild(deleteButton);
-      row.appendChild(routeCell);
-      row.appendChild(deleteCell);
-      routesTable.tBodies[0].appendChild(row);
-    });
-  
-    // Add event listener for creating a new route
-    const newRouteButton = document.getElementById('new-route-button');
-    newRouteButton.addEventListener('click', () => {
-      const newRoutePopup = document.getElementById('new-route-popup');
-      newRoutePopup.style.display = 'block';
-    });
-  
-    // Add event listener for closing the new route popup
-    const closeBtn = document.querySelector('.close-btn');
-    closeBtn.addEventListener('click', () => {
-      const newRoutePopup = document.getElementById('new-route-popup');
-      newRoutePopup.style.display = 'none';
-    });
-  
-    // Add event listener for submitting the new route form
-    const newRouteForm = document.getElementById('new-route-form');
-    newRouteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const pointsSelected = Array.from(pointsDropdown.selectedOptions, (option) => option.value);
-      console.log(`Create new route with points: ${pointsSelected}`);
-      // Create new route in database
-    });
+document.addEventListener("DOMContentLoaded", async function () {
+  const newRouteBtn = document.getElementById("new-route-btn");
+  const selectPointsPopup = document.getElementById("select-points-popup");
+  const pointsList = document.getElementById("points-list");
+  const confirmBtn = document.getElementById("confirm-btn");
+  const logoutBtn = document.querySelector(".logout button");
+  const saveRouteBtn = document.getElementById("save-create-route-btn");
+  const routeNameInput = document.getElementById("route-name");
+  const sessionInfoDiv = document.getElementById("session-info");
+
+  let points;
+  let sessionData; // Variable to store session information
+
+  // Function to fetch user session information from the server
+  async function fetchSessionInfo() {
+      try {
+          const response = await fetch("/sessionInfo", {
+              method: "GET",
+              credentials: "include" // Include credentials to send cookies
+          });
+          if (response.ok) {
+              sessionData = await response.json(); // Save session information
+              console.log("Session data received:", sessionData); // Log session data received from server
+              displaySessionInfo(sessionData);
+          } else {
+              console.error("Error fetching session information:", response.statusText);
+          }
+      } catch (error) {
+          console.error("Error fetching session information:", error);
+      }
+  }
+
+  // Function to display session information on the page
+  function displaySessionInfo(sessionData) {
+      if (sessionData) {
+          sessionInfoDiv.innerHTML = `
+              <p>Username: ${sessionData.username}</p>
+              <p>User ID: ${sessionData.user_id}</p>
+              <p>Role: ${sessionData.role}</p>
+          `;
+      } else {
+          sessionInfoDiv.innerHTML = "<p>No user session information found</p>";
+      }
+  }
+
+  // Call fetchSessionInfo when the page loads
+  fetchSessionInfo();
+
+  // Function to retrieve user ID from session
+  function getUserIdFromSession() {
+      // Retrieve user object from session
+      if (sessionData) {
+          // Return the user ID
+          return sessionData.user_id;
+      } else {
+          // Handle case where user object is not found in session
+          console.error('User object not found in session');
+          return null;
+      }
+  }
+
+  newRouteBtn.addEventListener("click", async function () {
+      try {
+          const response = await fetch("/locations");
+          points = await response.json();
+
+          pointsList.innerHTML = "";
+
+          points.forEach((point) => {
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.name = "point";
+              checkbox.value = point.location_id;
+
+              const label = document.createElement("label");
+              label.textContent = point.location_name;
+
+              const div = document.createElement("div");
+              div.appendChild(checkbox);
+              div.appendChild(label);
+
+              pointsList.appendChild(div);
+          });
+
+          selectPointsPopup.style.display = "block";
+      } catch (error) {
+          console.error("Error fetching points:", error);
+      }
   });
+
+  selectPointsPopup
+      .querySelector(".close-btn")
+      .addEventListener("click", function () {
+          selectPointsPopup.style.display = "none";
+      });
+
+  confirmBtn.addEventListener("click", function () {
+      selectPointsPopup.style.display = "none";
+      const createRoutePopup = document.getElementById("create-route-popup");
+      createRoutePopup.style.display = "block";
+
+      const selectedLocationsList = document.getElementById(
+          "selected-locations-list"
+      );
+      selectedLocationsList.innerHTML = "";
+      const selectedPoints = Array.from(
+          pointsList.querySelectorAll('input[type="checkbox"]:checked')
+      ).map((checkbox) => parseInt(checkbox.value));
+      selectedPoints.forEach((point) => {
+        const listItem = document.createElement("li");
+        const foundPoint = points.find((p) => p.location_id === point);
+        listItem.textContent = foundPoint.location_name; // Display name of the location
+        listItem.setAttribute("data-location-id", foundPoint.location_id); // Store location ID as a data attribute
+        listItem.draggable = true;
+        selectedLocationsList.appendChild(listItem); // Append <li> to the "selected-locations-list"
+    });
+
+      setUpDragAndDrop(selectedLocationsList);
+  });
+
+  saveRouteBtn.addEventListener("click", async function () {
+      const routeName = routeNameInput.value.trim();
+      const sortedPointIds = getSortedPointIdsFromDragAndDrop();
+      
+      // Retrieve user ID from session
+      const userId = getUserIdFromSession(); // Replace this with actual method to get user ID from session
+      
+      console.log("Route Name:", routeName);
+      console.log("Sorted Point IDs:", sortedPointIds);
+      console.log("User ID:", userId);
+      
+      try {
+          console.log("Sending request to add favorite route:", {
+              user_id: userId,
+              route_name: routeName,
+              route_points: sortedPointIds,
+          });
+          const response = await fetch("/favoriteRoutes", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  user_id: userId,
+                  route_name: routeName,
+                  route_points: sortedPointIds,
+              }),
+          });
+          const data = await response.json();
+          console.log("Favorite route added:", data);
+      } catch (error) {
+          console.error("Error adding favorite route:", error);
+      }
+  });
+
+  logoutBtn.addEventListener("click", function () {
+      console.log("Logout button clicked");
+  });
+});
+
+function setUpDragAndDrop(selectedLocationsList) {
+  const listItems = selectedLocationsList.querySelectorAll("li");
+
+  listItems.forEach((listItem) => {
+      listItem.addEventListener("dragstart", handleDragStart);
+      listItem.addEventListener("dragover", handleDragOver);
+      listItem.addEventListener("drop", handleDrop);
+  });
+}
+
+function handleDragStart(event) {
+  event.dataTransfer.setData("text/plain", event.target.textContent);
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.setDragImage(event.target, 10, 10);
+}
+
+function handleDragOver(event) {
+  event.preventDefault();
+  event.dataTransfer.dropEffect = "move";
+}
+
+function handleDrop(event) {
+  event.preventDefault();
+
+  const draggedText = event.dataTransfer.getData("text/plain");
+
+  let draggedElement;
+  for (let i = 0; i < event.target.parentNode.children.length; i++) {
+      if (event.target.parentNode.children[i].textContent === draggedText) {
+          draggedElement = event.target.parentNode.children[i];
+          break;
+      }
+  }
+
+  if (draggedElement && event.target.tagName === "LI") {
+      event.target.parentNode.insertBefore(draggedElement, event.target);
+  }
+}
+
+function getSortedPointIdsFromDragAndDrop() {
+    const selectedLocationsList = document.getElementById("selected-locations-list");
+    const listItems = selectedLocationsList.querySelectorAll("li");
+
+    const sortedPointIds = [];
+    listItems.forEach((listItem) => {
+        const pointId = parseInt(listItem.getAttribute("data-location-id")); // Retrieve location ID from data attribute
+        sortedPointIds.push(pointId);
+    });
+
+    return sortedPointIds;
+}

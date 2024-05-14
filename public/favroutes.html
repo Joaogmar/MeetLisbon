@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meet Lisbon</title>
-  <link rel="stylesheet" href="stylesheets/favroutes.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Lisbon</title>
+    <link rel="stylesheet" href="stylesheets/favroutes.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
+    <div class="topnav">
+        <div class="logo">
+            <img class="logo" src="img/mt.png" alt="Logo MT">
+        </div>
+        <div class="meet-lisbon">Meet Lisbon</div>
+        <div class="logout">
+            <button>Logout</button>
+        </div>
+    </div>
 
-<div class="topnav">
-  <div class="logo">
-    <img class="logo" src="img/mt.png" alt="Logo MT">
-  </div>
-  <div class="meet-lisbon">Meet Lisbon</div>
-  <div class="logout">
-    <button>Logout</button>
-  </div>
-</div>
+    <h1>Session Information</h1>
+    <div id="session-info"></div>
 
-<div class="container">
-  <button class="remove-route">Routes <span class="material-icons add-icon">add_circle_outline</span></button>
-  <div class="remove-route-container">
-    <table id="routes-table">
-      <thead>
-        <tr>
-          <th>Route</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Routes will be populated here -->
-      </tbody>
-    </table>
-  </div>
-</div>
+    <div class="container">
+        <h2>Your Favorite Routes</h2>
+        <table id="routes-table">
+            <thead>
+                <tr>
+                    <th>Route</th>
+                </tr>
+            </thead>
+            <tbody id="routes-body"></tbody>
+        </table>
+        <button id="new-route-btn">Create New Route</button>
+    </div>
 
-<!-- Popup for creating a new route -->
-<div id="new-route-popup" class="popup">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <h2>Create a new route</h2>
-    <form id="new-route-form">
-      <label for="points">Points:</label>
-      <select id="points" multiple>
-        <!-- Points will be populated here -->
-      </select>
-      <button type="submit">Create Route</button>
-    </form>
-  </div>
-</div>
+    <div id="select-points-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Select which points to add to the route</h2>
+            <div id="points-list"></div>
+            <button id="confirm-btn">Confirm</button>
+        </div>
+    </div>
 
-<script src="javascript/favroutes.js"></script>
+    <div id="create-route-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>Create Route</h2>
+            <div id="selected-locations-list"></div>
+            <input type="text" id="route-name" placeholder="Enter route name">
+            <div id="route-order" class="sortable-list"></div>
+            <button id="save-create-route-btn">Save Route</button>
+        </div>
+    </div>
+
+    <script src="javascript/favroutes.js"></script>
 </body>
 </html>

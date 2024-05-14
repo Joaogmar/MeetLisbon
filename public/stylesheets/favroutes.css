@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #76BAD7;
 }
-  
+
 .topnav {
     overflow: hidden;
     background-color: #56B24B;
@@ -14,7 +14,7 @@ body {
     height: 60px;
     margin: 0;
 }
-  
+
 .meet-lisbon {
     color: #f2f2f2;
     font-size: 20px;
@@ -24,7 +24,7 @@ body {
     font-weight: bold;
     margin-right: 50px;
 }
-  
+
 .logo {
     color: #f2f2f2;
     text-decoration: none;
@@ -33,18 +33,18 @@ body {
     align-items: center;
     margin-right: 10px;
 }
-  
+
 .logo img {
     max-height: 100px;
     width: auto;
     margin-right: 10px;
 }
-  
+
 .logout {
     display: flex;
     align-items: center;
 }
-  
+
 .logout button {
     background-color: transparent;
     border: none;
@@ -52,65 +52,59 @@ body {
     cursor: pointer;
     font-size: 17px;
 }
-  
+
 .container {
     text-align: center;
     margin-top: 50px;
+    width: 80%; 
+    margin-left: auto; 
+    margin-right: auto; 
 }
-  
-.remove-route {
-    background-color: #56B24B;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+#routes-body {
+    background-color: #ffffff; 
 }
-  
-.remove-route:hover {
-    background-color: #4CAF50;
+
+#routes-table {
+    border-collapse: collapse; 
+    width: 100%;
+    margin: 0 auto; 
 }
-  
-.remove-route-container {
+
+#routes-table th, #routes-table td {
+    border: 1px solid #dddddd;
+    padding: 8px; 
+    text-align: center; 
+}
+
+#routes-table th {
+    background-color: #f2f2f2;
+}
+
+#new-route-btn {
+    margin-top: 10px; 
+}
+
+.popup {
+    display: none; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .popup-content {
     text-align: center;
-    margin: 20px auto;
-}
-
-.remove-route-container h3 {
-    margin-top: 0;
-}
-
-.remove-route-container .add-icon {
-    font-size: 24px;
-    color: #56B24B;
-    margin-left: 5px;
-    vertical-align: middle;
-    margin-bottom: -2px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
-}
-
-.remove-route {
-    background-color: #56B24B;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 auto; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-
-.add-icon {
-    margin-left: 5px; 
-}
+  }
