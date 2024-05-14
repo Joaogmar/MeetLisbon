@@ -6,22 +6,75 @@ document.addEventListener("DOMContentLoaded", async function () {
   const logoutBtn = document.querySelector(".logout button");
   const saveRouteBtn = document.getElementById("save-create-route-btn");
   const routeNameInput = document.getElementById("route-name");
-  const sessionInfoDiv = document.getElementById("session-info");
+  const routesTable = document.getElementById("routes-body");
 
   let points;
-  let sessionData; // Variable to store session information
+  let sessionData;
 
-  // Function to fetch user session information from the server
+  async function fetchFavoriteRoutes() {
+    try {
+        const response = await fetch("/favoriteRoutes");
+        if (response.ok) {
+            const favoriteRoutes = await response.json();
+            displayFavoriteRoutes(favoriteRoutes);
+        } else {
+            console.error("Error fetching favorite routes:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching favorite routes:", error);
+    }
+}
+
+function displayFavoriteRoutes(favoriteRoutes) {
+    routesTable.innerHTML = "";
+    favoriteRoutes.forEach(route => {
+        const row = document.createElement("tr");
+
+        const routeNameCell = document.createElement("td");
+        routeNameCell.textContent = route.route_name;
+        row.appendChild(routeNameCell);
+
+        const deleteButtonCell = document.createElement("td");
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+            deleteFavoriteRoute(route.user_id, route.route_name); 
+        });
+        deleteButtonCell.appendChild(deleteButton);
+        row.appendChild(deleteButtonCell);
+
+        routesTable.appendChild(row);
+    });
+}
+
+async function deleteFavoriteRoute(user_id, route_name) {
+    try {
+        const response = await fetch(`/favoriteRoutes/${user_id}/${encodeURIComponent(route_name)}`, {
+            method: "DELETE"
+        });
+        if (response.ok) {
+            const data = await response.json();
+            console.log("Favorite route deleted:", data);
+            fetchFavoriteRoutes();
+        } else {
+            console.error("Error deleting favorite route:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error deleting favorite route:", error);
+    }
+}
+
+fetchFavoriteRoutes();
+
   async function fetchSessionInfo() {
       try {
           const response = await fetch("/sessionInfo", {
               method: "GET",
-              credentials: "include" // Include credentials to send cookies
+              credentials: "include"
           });
           if (response.ok) {
-              sessionData = await response.json(); // Save session information
-              console.log("Session data received:", sessionData); // Log session data received from server
-              displaySessionInfo(sessionData);
+              sessionData = await response.json();
+              console.log("Session data received:", sessionData);
           } else {
               console.error("Error fetching session information:", response.statusText);
           }
@@ -30,30 +83,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
   }
 
-  // Function to display session information on the page
-  function displaySessionInfo(sessionData) {
-      if (sessionData) {
-          sessionInfoDiv.innerHTML = `
-              <p>Username: ${sessionData.username}</p>
-              <p>User ID: ${sessionData.user_id}</p>
-              <p>Role: ${sessionData.role}</p>
-          `;
-      } else {
-          sessionInfoDiv.innerHTML = "<p>No user session information found</p>";
-      }
-  }
-
-  // Call fetchSessionInfo when the page loads
   fetchSessionInfo();
 
-  // Function to retrieve user ID from session
   function getUserIdFromSession() {
-      // Retrieve user object from session
       if (sessionData) {
-          // Return the user ID
           return sessionData.user_id;
       } else {
-          // Handle case where user object is not found in session
           console.error('User object not found in session');
           return null;
       }
@@ -109,10 +144,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       selectedPoints.forEach((point) => {
         const listItem = document.createElement("li");
         const foundPoint = points.find((p) => p.location_id === point);
-        listItem.textContent = foundPoint.location_name; // Display name of the location
-        listItem.setAttribute("data-location-id", foundPoint.location_id); // Store location ID as a data attribute
+        listItem.textContent = foundPoint.location_name;
+        listItem.setAttribute("data-location-id", foundPoint.location_id);
         listItem.draggable = true;
-        selectedLocationsList.appendChild(listItem); // Append <li> to the "selected-locations-list"
+        selectedLocationsList.appendChild(listItem);
     });
 
       setUpDragAndDrop(selectedLocationsList);
@@ -121,20 +156,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   saveRouteBtn.addEventListener("click", async function () {
       const routeName = routeNameInput.value.trim();
       const sortedPointIds = getSortedPointIdsFromDragAndDrop();
-      
-      // Retrieve user ID from session
-      const userId = getUserIdFromSession(); // Replace this with actual method to get user ID from session
-      
-      console.log("Route Name:", routeName);
-      console.log("Sorted Point IDs:", sortedPointIds);
-      console.log("User ID:", userId);
-      
+      const userId = getUserIdFromSession();
+
       try {
-          console.log("Sending request to add favorite route:", {
-              user_id: userId,
-              route_name: routeName,
-              route_points: sortedPointIds,
-          });
           const response = await fetch("/favoriteRoutes", {
               method: "POST",
               headers: {
@@ -146,8 +170,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                   route_points: sortedPointIds,
               }),
           });
-          const data = await response.json();
-          console.log("Favorite route added:", data);
+          if (response.ok) {
+              const data = await response.json();
+              console.log("Favorite route added:", data);
+              const createRoutePopup = document.getElementById("create-route-popup");
+              createRoutePopup.style.display = "none";
+              alert("Route created successfully");
+              fetchFavoriteRoutes();
+          } else {
+              console.error("Error adding favorite route:", response.statusText);
+          }
       } catch (error) {
           console.error("Error adding favorite route:", error);
       }
@@ -203,7 +235,7 @@ function getSortedPointIdsFromDragAndDrop() {
 
     const sortedPointIds = [];
     listItems.forEach((listItem) => {
-        const pointId = parseInt(listItem.getAttribute("data-location-id")); // Retrieve location ID from data attribute
+        const pointId = parseInt(listItem.getAttribute("data-location-id"));
         sortedPointIds.push(pointId);
     });
 

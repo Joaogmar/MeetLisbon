@@ -129,4 +129,27 @@ router.get('/sessionInfo', (req, res) => {
     }
 });
 
+router.get('/favoriteRoutes', async (req, res) => {
+    try {
+        const userId = req.session.user.user_id;
+        
+        const result = await pool.query('SELECT * FROM favorite_routes WHERE user_id = $1', [userId]);
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Error executing query', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.delete('/favoriteRoutes/:user_id/:route_name', async (req, res) => {
+    const { user_id, route_name } = req.params;
+    try {
+        await pool.query('DELETE FROM favorite_routes WHERE user_id = $1 AND route_name = $2', [user_id, route_name]);
+        res.json({ message: 'Favorite route deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting favorite route:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
 module.exports = router;
