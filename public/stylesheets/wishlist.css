@@ -3,7 +3,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #76BAD7;
 }
-  
+
 .topnav {
     overflow: hidden;
     background-color: #56B24B;
@@ -14,7 +14,7 @@ body {
     height: 60px;
     margin: 0;
 }
-  
+
 .meet-lisbon {
     color: #f2f2f2;
     font-size: 20px;
@@ -24,7 +24,7 @@ body {
     font-weight: bold;
     margin-right: 50px;
 }
-  
+
 .logo {
     color: #f2f2f2;
     text-decoration: none;
@@ -33,18 +33,18 @@ body {
     align-items: center;
     margin-right: 10px;
 }
-  
+
 .logo img {
     max-height: 100px;
     width: auto;
     margin-right: 10px;
 }
-  
+
 .logout {
     display: flex;
     align-items: center;
 }
-  
+
 .logout button {
     background-color: transparent;
     border: none;
@@ -52,12 +52,12 @@ body {
     cursor: pointer;
     font-size: 17px;
 }
-  
+
 .container {
     text-align: center;
     margin-top: 50px;
 }
-  
+
 .remove-place {
     background-color: #56B24B;
     color: white;
@@ -68,11 +68,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
+
 .remove-place:hover {
     background-color: #4CAF50;
 }
-  
+
 .remove-place-container {
     background-color: white;
     padding: 20px;
@@ -94,4 +94,24 @@ body {
     vertical-align: middle;
     margin-bottom: -2px;
     cursor: pointer;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    background-color: #f2f2f2;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.navigation button.active {
+    background-color: #56B24B;
+    color: white;
 }

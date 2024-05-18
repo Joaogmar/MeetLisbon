@@ -2,10 +2,10 @@
 var map, directionsService, directionsRenderer;
 var routeModal, routeList, confirmRouteButton, closeModalButton, locationDropdown, selectedList;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var favRoutesButton = document.getElementById("button-bottom-right");
 
-    favRoutesButton.addEventListener("click", function() {
+    favRoutesButton.addEventListener("click", function () {
         window.location.href = "favroutes.html";
     });
 });
@@ -105,8 +105,11 @@ function addLocationsToMap(locations) {
             content: infoWindowContent
         });
 
-        marker.addListener('click', function() {
-            infoWindow.open(map, marker);
+        // marker.addListener('click', function () {
+        //     infoWindow.open(map, marker);
+        // });
+        marker.addListener("click", () => {
+            fetchPlaceInfo(location.location_id);
         });
     });
 }
@@ -253,7 +256,7 @@ function confirmRoute() {
 
     // Get the user's current location
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             // Set the origin to the user's current location
             origin = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -282,7 +285,7 @@ function confirmRoute() {
             };
 
             // Calculate the route
-            directionsService.route(request, function(result, status) {
+            directionsService.route(request, function (result, status) {
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsRenderer.setDirections(result);
                 } else {
@@ -309,7 +312,7 @@ function closeRouteModal() {
 // Show route to a location
 function showRouteToLocation(lat, lng) {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var userCoords = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
@@ -326,7 +329,7 @@ function showRouteToLocation(lat, lng) {
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
-            directionsService.route(request, function(result, status) {
+            directionsService.route(request, function (result, status) {
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsRenderer.setDirections(result);
                 } else {
@@ -352,7 +355,7 @@ function resetDropdownAndCheckboxes() {
 
 function locateUser() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             // Get the user's current position
             var userCoords = {
                 lat: position.coords.latitude,
@@ -361,7 +364,7 @@ function locateUser() {
 
             // Pan the map to the user's current location
             map.setCenter(userCoords);
-        }, function() {
+        }, function () {
             console.error("Geolocation error: User denied location access.");
         });
     } else {
@@ -370,7 +373,7 @@ function locateUser() {
 }
 
 // Initialize the map and set up event listeners
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Initialize modal components
     routeModal = document.getElementById("route-modal");
     routeList = document.getElementById("route-list");
@@ -384,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Event listener for opening the location dropdown menu
     var locationButton = document.getElementById("button-top-center");
-    locationButton.addEventListener("click", function() {
+    locationButton.addEventListener("click", function () {
         var isDropdownVisible = locationDropdown && locationDropdown.style.display === "block";
         locationDropdown.style.display = isDropdownVisible ? "none" : "block";
     });
@@ -396,3 +399,26 @@ document.addEventListener("DOMContentLoaded", function() {
     // Initialize the map when the DOM is ready
     initMap();
 });
+
+async function fetchPlaceInfo(placeId) {
+    const response = await fetch(`/locations/${placeId}`);
+    const place = await response.json();
+    displayPlaceInfo(place);
+}
+
+function displayPlaceInfo(place) {
+    const popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.innerHTML = `
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>${place.location_name}</h2>
+        <p>${place.info}</p>
+        <img src="${place.image_url}" alt="${place.location_name}">
+      </div>
+    `;
+    document.body.appendChild(popup);
+    popup.querySelector(".close-btn").addEventListener("click", () => {
+        popup.remove();
+    });
+}

@@ -11,9 +11,9 @@
 
 <body>
     <div id="map"></div>
-    <button class="button" id="button-top-left">Places</button>
+    <button class="button" onclick="location.href='/places.html'" id="button-top-left">Places</button>
     <button class="button" id="button-top-right">Logout</button>
-    <button class="button" id="button-bottom-left">Wishlist</button>
+    <button class="button" onclick="location.href='/wishlist.html'" id="button-bottom-left">Wishlist</button>
     <button class="button" id="button-bottom-right">Favourite Routes</button>
     <button class="button" id="button-bottom-center">Locate me</button>
     <button class="button" id="button-top-center">Custom Route</button>
@@ -36,7 +36,8 @@
     </div>
 
     <script src="javascript/user.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap"></script>
 </body>
 
 </html>

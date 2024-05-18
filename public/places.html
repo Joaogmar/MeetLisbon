@@ -22,19 +22,25 @@
   </div>
 
   <div class="container">
-    <button class="add-place">Places</button>
-    <div class="add-place-container">
-      <h3><a href="pdc.html">Padrão dos Descobrimentos</a><span class="material-icons add-icon" data-name="Padrão dos Descobrimentos">add_circle_outline</span></h3>
-      <h3><a href="torre.html">Torre de Belém</a><span class="material-icons add-icon" data-name="Torre de Belém">add_circle_outline</span></h3>
-      <h3><a href="adc.html">Armazéns do Chiado</a><span class="material-icons add-icon" data-name="Armazéns do Chiado">add_circle_outline</span></h3>
-      <h3><a href="plc.html">Praça Luís de Camões</a><span class="material-icons add-icon" data-name="Praça Luís de Camões">add_circle_outline</span></h3>
-      <h3><a href="tml.html">Timeout Market Lisboa</a><span class="material-icons add-icon" data-name="Timeout Market Lisboa">add_circle_outline</span></h3>
-      <h3><a href="fdb.html">Farol de Belém</a><span class="material-icons add-icon" data-name="Farol de Belém">add_circle_outline</span></h3>
+    <div class="navigation">
+      <button class="active" onclick="location.href='places.html'">Places</button>
+      <button onclick="location.href='wishlist.html'">Wishlist</button>
     </div>
-  
+    <div id="place-popup" class="popup">
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="popup-name"></h2>
+        <p id="popup-info"></p>
+        <img id="popup-image" alt="Place Image">
+      </div>
+    </div>
+
+    <div class="add-place-container">
+      <div id="place-list"></div>
+    </div>
+
     <div id="wishlist"></div>
   </div>
-
   <script src="javascript/places.js"></script>
 
 </body>

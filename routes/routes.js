@@ -5,13 +5,43 @@ const router = express.Router();
 
 router.get('/users', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM users');
-        res.json(result.rows);
+        // req.session.user = { username: user.username, user_id: user.user_id, role: user.role };
+        let { username, user_id, role } = req.session.user;
+        console.log(username);
+        console.log(role);
+        if (role == 'admin') {
+            const result = await pool.query('SELECT * FROM users');
+            res.json(result.rows);
+        }
     } catch (error) {
         console.error('Error executing query', error);
         res.status(500).send('Internal server error');
     }
     //codigo de teste nao removam por favor 
+});
+
+router.get('/locations/:placeId', async (req, res) => {
+    const placeId = req.params.placeId;
+    const result = await pool.query('SELECT * FROM poi WHERE location_id = $1', [placeId]);
+    res.json(result.rows[0]);
+});
+
+router.post('/locations', async (req, res) => {
+    if (req.session && req.session.user) {
+        const { role } = req.session.user;
+        if (role == 'admin') {
+            const { location_name, location_address, longitude, latitude, info, image_url } = req.body;
+            await pool.query(
+                'INSERT INTO poi (location_name, location_address, longitude, latitude, info, image_url) VALUES ($1, $2, $3, $4, $5, $6)',
+                [location_name, location_address, longitude, latitude, info, image_url]
+            );
+            res.sendStatus(201);
+        } else {
+            res.sendStatus(401);
+        }
+    } else {
+        res.sendStatus(401);
+    }
 });
 
 router.post('/login', async (req, res) => {
@@ -54,7 +84,7 @@ router.get('/admin', (req, res) => {
         const { username, user_id } = req.session.user;
         res.send(`Username: ${username}<br>User ID: ${user_id}<br>`);
     } else {
-        res.redirect('/login.html'); 
+        res.redirect('/login.html');
     }
     //codigo de teste nao removam
 });
@@ -93,7 +123,7 @@ router.get('/locations', async (req, res) => {
 });
 
 router.post('/favoriteRoutes', async (req, res) => {
-    const { user_id, route_name, route_points } = req.body; 
+    const { user_id, route_name, route_points } = req.body;
     try {
         const insertRouteQuery = 'INSERT INTO favorite_routes (user_id, route_name, route_points) VALUES ($1, $2, $3)';
         await pool.query(insertRouteQuery, [user_id, route_name, route_points]);
@@ -132,12 +162,27 @@ router.get('/sessionInfo', (req, res) => {
 router.get('/favoriteRoutes', async (req, res) => {
     try {
         const userId = req.session.user.user_id;
-        
+
         const result = await pool.query('SELECT * FROM favorite_routes WHERE user_id = $1', [userId]);
         res.json(result.rows);
     } catch (error) {
         console.error('Error executing query', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.delete('/users/:userId', async (req, res) => {
+    if (req.session && req.session.user) {
+        const { role } = req.session.user;
+        if (role == 'admin') {
+            const userId = req.params.userId;
+            await pool.query('DELETE FROM users WHERE user_id = $1', [userId]);
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
+    } else {
+        res.sendStatus(401);
     }
 });
 
@@ -149,6 +194,21 @@ router.delete('/favoriteRoutes/:user_id/:route_name', async (req, res) => {
     } catch (error) {
         console.error('Error deleting favorite route:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+router.delete('/locations/:placeId', async (req, res) => {
+    if (req.session && req.session.user) {
+        const { role } = req.session.user;
+        if (role == 'admin') {
+            const placeId = req.params.placeId;
+            await pool.query('DELETE FROM poi WHERE location_id = $1', [placeId]);
+            res.sendStatus(200);
+        } else {
+            res.sendStatus(401);
+        }
+    } else {
+        res.sendStatus(401);
     }
 });
 

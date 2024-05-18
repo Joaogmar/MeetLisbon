@@ -53,53 +53,55 @@ body {
     font-size: 17px;
 }
 
-.centered-img {
-    display: block;
-    margin: 140px 0 0 60px;
-    max-width: 510px;
-    border-radius: 15px;
-}
-
 .container {
-    position: absolute;
-    top: 58%;
-    right: 50px;
-    transform: translateY(-50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-    width: 500px;
-    height: 340px;
-    max-width: calc(100% - 120px);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.text-box {
-    color: black;
-    margin-top: 60px;
-    text-align: justify;
-    text-align: center;
+.search-container {
+    margin-bottom: 20px;
 }
 
-.green-box {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: green;
-    color: white;
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+#users-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+#users-list-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+#search-input {
+    width: 100%;
     padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.g-box {
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: green;
+.user-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-user {
+    background-color: #ff4d4d;
     color: white;
-    padding: 2px 4px;
+    border: none;
+    padding: 5px 10px;
     border-radius: 3px;
-    z-index: 1;
-    font-size: 14px;
+    cursor: pointer;
 }

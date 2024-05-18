@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +8,30 @@
   <link rel="stylesheet" href="stylesheets/wishlist.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+
 <body>
 
-<div class="topnav">
-  <div class="logo">
-    <img class="logo" src="img/mt.png" alt="Logo MT">
+  <div class="topnav">
+    <div class="logo">
+      <img class="logo" src="img/mt.png" alt="Logo MT">
+    </div>
+    <div class="meet-lisbon">Meet Lisbon</div>
+    <div class="logout">
+      <button>Logout</button>
+    </div>
   </div>
-  <div class="meet-lisbon">Meet Lisbon</div>
-  <div class="logout">
-    <button>Logout</button>
-  </div>
-</div>
 
-<div class="container">
-  <button class="remove-place">Wishlist</button>
-  <div class="remove-place-container">
+  <div class="container">
+    <div class="navigation">
+      <button onclick="location.href='places.html'">Places</button>
+      <button class="active" onclick="location.href='wishlist.html'">Wishlist</button>
+    </div>
+    <div class="remove-place-container">
+    </div>
   </div>
-</div>
 
-<script src="javascript/wishlist.js"></script>
+  <script src="javascript/wishlist.js"></script>
 
 </body>
+
 </html>
