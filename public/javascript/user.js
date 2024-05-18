@@ -4,10 +4,13 @@ var routeModal, routeList, confirmRouteButton, closeModalButton, locationDropdow
 
 document.addEventListener("DOMContentLoaded", function () {
     var favRoutesButton = document.getElementById("button-bottom-right");
+    var logoutButton = document.getElementById("button-top-right");
 
     favRoutesButton.addEventListener("click", function () {
         window.location.href = "favroutes.html";
     });
+
+    logoutButton.addEventListener("click", handleLogout);
 });
 
 // Initialize the map and related services
@@ -420,5 +423,25 @@ function displayPlaceInfo(place) {
     document.body.appendChild(popup);
     popup.querySelector(".close-btn").addEventListener("click", () => {
         popup.remove();
+    });
+}
+
+function handleLogout() {
+    fetch('/logout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Logout successful') {
+            window.location.href = '/login.html'; 
+        } else {
+            console.error('Logout failed:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error during logout:', error);
     });
 }
