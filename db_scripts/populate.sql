@@ -1,4 +1,3 @@
--- Add Users
 insert into users (username, password, role) values ('maria', 'maria123', 'admin');
 insert into users (username, password, role) values ('joao', 'joao123', 'admin');
 insert into users (username, password, role) values ('afonso', 'afonso123', 'admin');
@@ -16,7 +15,6 @@ insert into users (username, password, role) values ('marta', 'marta123', 'users
 insert into users (username, password, role) values ('martim', 'martim123', 'users');
 
 
--- Add Poi
 insert into poi (location_name, location_address, longitude, latitude, info, image_url) values ('Padrão dos Descobrimentos', 'Av. Brasília, 1400-038 Lisboa', '-9.205737120817991', '38.693684904994186', 'O Padrão dos Descobrimentos, com 56 metros de altura, é uma homenagem ao Infante d. Henrique que tem a sua própria estátua com um total de 9 metros. <br>
         Este monumento evoca a expansão ultramarina portuguesa com o seu formato de caravela, a figura do Infante e os seus companheiros de viagem. <br>
         Foi construído a primeira vez em 1940 e foi depois deitado a baixo e reconstruído em 1960, por ocasião dos 500 anos da morte do Infante. <br>', 'https://i.imgur.com/n7Q4HHM.jpg');

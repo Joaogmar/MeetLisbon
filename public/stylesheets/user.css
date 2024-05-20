@@ -83,7 +83,7 @@
 }
 
 .modal {
-    display: none; /* Initially hidden */
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -119,4 +119,45 @@
     border: 1px solid #ccc;
     cursor: move;
     margin-bottom: 5px;
+}
+
+/* Styles for the Favourite Routes Modal */
+#fav-routes-modal .modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#close-fav-routes-modal {
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}
+
+#fav-routes-list {
+    list-style: none;
+    padding: 0;
+}
+
+#fav-routes-list li {
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+
+#manage-fav-routes-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #56B24B;
+    color: white;
+    cursor: pointer;
+}
+
+#manage-fav-routes-button:hover {
+    background-color: #76BAD7;
 }

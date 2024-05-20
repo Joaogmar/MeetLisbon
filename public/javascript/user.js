@@ -1,21 +1,49 @@
-// Define global variables
-var map, directionsService, directionsRenderer;
-var routeModal, routeList, confirmRouteButton, closeModalButton, locationDropdown, selectedList;
-
 document.addEventListener("DOMContentLoaded", function () {
     var favRoutesButton = document.getElementById("button-bottom-right");
-    var logoutButton = document.getElementById("button-top-right");
+    favRoutesButton.addEventListener("click", openFavRoutesModal);
+    initializeComponents();
+    initMap();
+});
 
-    favRoutesButton.addEventListener("click", function () {
+function initializeComponents() {
+    routeModal = document.getElementById("route-modal");
+    routeList = document.getElementById("route-list");
+    confirmRouteButton = document.getElementById("confirm-route-button");
+    closeModalButton = document.getElementById("close-modal");
+    locationDropdown = document.getElementById("location-dropdown");
+
+    confirmRouteButton.addEventListener("click", confirmRoute);
+    closeModalButton.addEventListener("click", closeRouteModal);
+
+    var locationButton = document.getElementById("button-top-center");
+    locationButton.addEventListener("click", function () {
+        toggleDropdown(locationDropdown);
+    });
+
+    var logoutButton = document.getElementById("button-top-right");
+    logoutButton.addEventListener("click", handleLogout);
+
+    var locateMeButton = document.getElementById("button-bottom-center");
+    locateMeButton.addEventListener("click", locateUser);
+
+    favRoutesModal = document.getElementById("fav-routes-modal");
+    favRoutesList = document.getElementById("fav-routes-list");
+    manageFavRoutesButton = document.getElementById("manage-fav-routes-button");
+    closeFavRoutesModalButton = document.getElementById("close-fav-routes-modal");
+
+    manageFavRoutesButton.addEventListener("click", function () {
         window.location.href = "favroutes.html";
     });
 
-    logoutButton.addEventListener("click", handleLogout);
-});
+    closeFavRoutesModalButton.addEventListener("click", closeFavRoutesModal);
+}
 
-// Initialize the map and related services
+function toggleDropdown(dropdown) {
+    var isDropdownVisible = dropdown && dropdown.style.display === "block";
+    dropdown.style.display = isDropdownVisible ? "none" : "block";
+}
+
 function initMap() {
-    // Use geolocation to center the map on the user's current location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(initializeMapWithUserLocation, handleGeolocationError);
     } else {
@@ -24,7 +52,6 @@ function initMap() {
     }
 }
 
-// Initialize the map with the user's current location
 function initializeMapWithUserLocation(position) {
     var userCoords = {
         lat: position.coords.latitude,
@@ -39,29 +66,23 @@ function initializeMapWithUserLocation(position) {
     directionsService = new google.maps.DirectionsService();
     directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
 
-    // Add a marker for the user's location
     addUserMarker(userCoords);
-
-    // Fetch and add locations as markers on the map
     fetchLocationsAndAddToMap();
 }
 
-// Handle geolocation error
 function handleGeolocationError() {
     console.error("Geolocation error: User denied location access.");
     initializeMapWithDefaultLocation();
 }
 
-// Initialize the map with a default location
 function initializeMapWithDefaultLocation() {
-    var defaultCoords = { lat: 40.7128, lng: -74.0060 }; // Default location (New York City)
+    var defaultCoords = { lat: 40.7128, lng: -74.0060 }; 
     map = new google.maps.Map(document.getElementById('map'), {
         center: defaultCoords,
         zoom: 10
     });
 }
 
-// Add a marker for the user's location
 function addUserMarker(userCoords) {
     var userIcon = {
         url: "/img/user.png",
@@ -75,7 +96,6 @@ function addUserMarker(userCoords) {
     });
 }
 
-// Fetch locations and add them as markers on the map
 function fetchLocationsAndAddToMap() {
     fetch('/locations')
         .then(response => response.json())
@@ -88,7 +108,6 @@ function fetchLocationsAndAddToMap() {
         });
 }
 
-// Add locations as markers on the map
 function addLocationsToMap(locations) {
     locations.forEach(location => {
         var marker = new google.maps.Marker({
@@ -96,43 +115,24 @@ function addLocationsToMap(locations) {
             map: map
         });
 
-        var infoWindowContent = `
-            <strong>${location.location_name}</strong><br>
-            ${location.location_address}<br>
-            <button onclick="showRouteToLocation(${parseFloat(location.latitude)}, ${parseFloat(location.longitude)})">
-                Show Route
-            </button>
-        `;
-
-        var infoWindow = new google.maps.InfoWindow({
-            content: infoWindowContent
-        });
-
-        // marker.addListener('click', function () {
-        //     infoWindow.open(map, marker);
-        // });
         marker.addListener("click", () => {
             fetchPlaceInfo(location.location_id);
         });
     });
 }
 
-// Populate the dropdown menu with locations and checkboxes
 function populateDropdown(locations) {
-    locationDropdown = document.getElementById("location-dropdown");
-    locationDropdown.innerHTML = ""; // Clear any previous items
+    locationDropdown.innerHTML = "";
 
     locations.forEach(location => {
         var dropdownItem = createDropdownCheckboxItem(location);
         locationDropdown.appendChild(dropdownItem);
     });
 
-    // Add the "Create Route" button to the dropdown menu
     var createRouteButton = createRouteButtonElement();
     locationDropdown.appendChild(createRouteButton);
 }
 
-// Create a dropdown item with a checkbox for a location
 function createDropdownCheckboxItem(location) {
     var container = document.createElement("div");
 
@@ -146,7 +146,6 @@ function createDropdownCheckboxItem(location) {
 
     container.appendChild(checkbox);
 
-    // Add a label for the checkbox
     var label = document.createElement("label");
     label.htmlFor = `location-${location.location_name}`;
     label.textContent = location.location_name;
@@ -156,26 +155,21 @@ function createDropdownCheckboxItem(location) {
     return container;
 }
 
-// Create a button element for creating a route
 function createRouteButtonElement() {
     var createRouteButton = document.createElement("button");
     createRouteButton.id = "create-route-button";
     createRouteButton.textContent = "Create Route";
-
     createRouteButton.addEventListener("click", openRouteModal);
 
     return createRouteButton;
 }
 
-// Open the route modal and populate it with selected locations
 function openRouteModal() {
     routeModal.style.display = "block";
-    routeList.innerHTML = ""; // Clear the current list
+    routeList.innerHTML = "";
 
-    // Collect selected checkboxes
     var selectedCheckboxes = document.querySelectorAll('.location-checkbox:checked');
 
-    // Populate the route list with the selected locations
     selectedCheckboxes.forEach(checkbox => {
         var location = {
             name: checkbox.dataset.name,
@@ -186,24 +180,19 @@ function openRouteModal() {
         routeList.appendChild(listItem);
     });
 
-    // Attach drag-and-drop event listeners
     setUpDragAndDrop();
 }
 
-// Create a list item for the route list
 function createRouteListItem(location) {
     var listItem = document.createElement("li");
     listItem.textContent = location.name;
     listItem.dataset.lat = location.lat;
     listItem.dataset.lng = location.lng;
-
-    // Make the list item draggable
     listItem.draggable = true;
 
     return listItem;
 }
 
-// Set up drag-and-drop event listeners for the list items
 function setUpDragAndDrop() {
     var listItems = Array.from(routeList.children);
 
@@ -214,27 +203,21 @@ function setUpDragAndDrop() {
     });
 }
 
-// Handle the drag start event
 function handleDragStart(event) {
     event.dataTransfer.setData("text/plain", event.target.textContent);
     event.dataTransfer.effectAllowed = "move";
     event.dataTransfer.setDragImage(event.target, 10, 10);
 }
 
-// Handle the drag over event
 function handleDragOver(event) {
-    event.preventDefault(); // Allow dropping
+    event.preventDefault();
     event.dataTransfer.dropEffect = "move";
 }
 
-// Handle the drop event
 function handleDrop(event) {
     event.preventDefault();
 
-    // Get the dragged element's text
     var draggedText = event.dataTransfer.getData("text/plain");
-
-    // Find the dragged element and remove it
     var draggedElement;
     for (var i = 0; i < routeList.children.length; i++) {
         if (routeList.children[i].textContent === draggedText) {
@@ -243,27 +226,21 @@ function handleDrop(event) {
         }
     }
 
-    // Insert the dragged element at the drop position
     if (draggedElement && event.target.tagName === "LI") {
         routeList.insertBefore(draggedElement, event.target);
     }
 }
 
-// Confirm the route and calculate the path
 function confirmRoute() {
     var waypoints = [];
     var origin, destination;
 
-    // Collect selected locations from the route list
     var selectedItems = Array.from(routeList.children);
 
-    // Get the user's current location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            // Set the origin to the user's current location
             origin = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-            // Set the destination to the last selected location
             if (selectedItems.length > 0) {
                 destination = new google.maps.LatLng(parseFloat(selectedItems[selectedItems.length - 1].dataset.lat), parseFloat(selectedItems[selectedItems.length - 1].dataset.lng));
             } else {
@@ -271,7 +248,6 @@ function confirmRoute() {
                 return;
             }
 
-            // Collect waypoints between origin and destination
             for (var i = 0; i < selectedItems.length - 1; i++) {
                 waypoints.push({
                     location: new google.maps.LatLng(parseFloat(selectedItems[i].dataset.lat), parseFloat(selectedItems[i].dataset.lng)),
@@ -279,7 +255,6 @@ function confirmRoute() {
                 });
             }
 
-            // Create the request for the route
             var request = {
                 origin: origin,
                 destination: destination,
@@ -287,7 +262,6 @@ function confirmRoute() {
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
-            // Calculate the route
             directionsService.route(request, function (result, status) {
                 if (status === google.maps.DirectionsStatus.OK) {
                     directionsRenderer.setDirections(result);
@@ -296,10 +270,7 @@ function confirmRoute() {
                 }
             });
 
-            // Close the modal after confirming the route
             closeRouteModal();
-
-            // Reset the dropdown and checkboxes
             resetDropdownAndCheckboxes();
         });
     } else {
@@ -307,28 +278,19 @@ function confirmRoute() {
     }
 }
 
-// Close the route modal
 function closeRouteModal() {
     routeModal.style.display = "none";
 }
 
-// Show route to a location
 function showRouteToLocation(lat, lng) {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            var userCoords = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            var destinationCoords = {
-                lat: lat,
-                lng: lng
-            };
+            var userCoords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            var destinationCoords = new google.maps.LatLng(lat, lng);
 
             var request = {
-                origin: new google.maps.LatLng(userCoords.lat, userCoords.lng),
-                destination: new google.maps.LatLng(destinationCoords.lat, destinationCoords.lng),
+                origin: userCoords,
+                destination: destinationCoords,
                 travelMode: google.maps.TravelMode.DRIVING
             };
 
@@ -345,103 +307,213 @@ function showRouteToLocation(lat, lng) {
     }
 }
 
-function resetDropdownAndCheckboxes() {
-    // Hide the dropdown
-    locationDropdown.style.display = "none";
-
-    // Clear all checkboxes in the dropdown
-    const checkboxes = locationDropdown.querySelectorAll(".location-checkbox");
-    checkboxes.forEach((checkbox) => {
-        checkbox.checked = false;
-    });
-}
-
 function locateUser() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            // Get the user's current position
             var userCoords = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
 
-            // Pan the map to the user's current location
             map.setCenter(userCoords);
-        }, function () {
-            console.error("Geolocation error: User denied location access.");
+
+            var userMarker = new google.maps.Marker({
+                position: userCoords,
+                map: map,
+                icon: {
+                    url: "/img/user.png",
+                    scaledSize: new google.maps.Size(50, 50)
+                }
+            });
+
+            fetchLocationsAndAddToMap();
         });
     } else {
         console.error("Geolocation is not supported by this browser.");
     }
 }
 
-// Initialize the map and set up event listeners
-document.addEventListener("DOMContentLoaded", function () {
-    // Initialize modal components
-    routeModal = document.getElementById("route-modal");
-    routeList = document.getElementById("route-list");
-    confirmRouteButton = document.getElementById("confirm-route-button");
-    closeModalButton = document.getElementById("close-modal");
-    locationDropdown = document.getElementById("location-dropdown");
-
-    // Attach event listeners
-    confirmRouteButton.addEventListener("click", confirmRoute);
-    closeModalButton.addEventListener("click", closeRouteModal);
-
-    // Event listener for opening the location dropdown menu
-    var locationButton = document.getElementById("button-top-center");
-    locationButton.addEventListener("click", function () {
-        var isDropdownVisible = locationDropdown && locationDropdown.style.display === "block";
-        locationDropdown.style.display = isDropdownVisible ? "none" : "block";
-    });
-
-    var locateMeButton = document.getElementById("button-bottom-center");
-
-    locateMeButton.addEventListener("click", locateUser);
-
-    // Initialize the map when the DOM is ready
-    initMap();
-});
-
-async function fetchPlaceInfo(placeId) {
-    const response = await fetch(`/locations/${placeId}`);
-    const place = await response.json();
-    displayPlaceInfo(place);
-}
-
-function displayPlaceInfo(place) {
-    const popup = document.createElement("div");
-    popup.classList.add("popup");
-    popup.innerHTML = `
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h2>${place.location_name}</h2>
-        <p>${place.info}</p>
-        <img src="${place.image_url}" alt="${place.location_name}">
-      </div>
-    `;
-    document.body.appendChild(popup);
-    popup.querySelector(".close-btn").addEventListener("click", () => {
-        popup.remove();
+function resetDropdownAndCheckboxes() {
+    locationDropdown.style.display = "none";
+    var checkboxes = document.querySelectorAll('.location-checkbox');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
     });
 }
 
 function handleLogout() {
-    fetch('/logout', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
+    fetch('/logout', { method: 'POST' })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = 'login.html';
+            } else {
+                console.error('Logout failed');
+            }
+        })
+        .catch(error => {
+            console.error('Logout error:', error);
+        });
+}
+
+function fetchPlaceInfo(locationId) {
+    fetch(`/locations/${locationId}`)
+        .then(response => response.json())
+        .then(data => {
+            displayPlaceInfo(data);
+        })
+        .catch(error => {
+            console.error('Error fetching place info:', error);
+        });
+}
+
+function displayPlaceInfo(data) {
+    var infoWindow = new google.maps.InfoWindow({
+        content: `<h1>${data.name}</h1><p>${data.description}</p>`
+    });
+
+    var marker = new google.maps.Marker({
+        position: { lat: parseFloat(data.latitude), lng: parseFloat(data.longitude) },
+        map: map
+    });
+
+    marker.addListener('click', function () {
+        infoWindow.open(map, marker);
+    });
+
+    infoWindow.open(map, marker);
+}
+
+async function openFavRoutesModal() {
+    try {
+        const response = await fetch('/favoriteRoutes');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.message === 'Logout successful') {
-            window.location.href = '/login.html'; 
+        const routes = await response.json();
+        populateFavRoutesList(routes);
+        favRoutesModal.style.display = "block";
+    } catch (error) {
+        console.error('Error fetching favourite routes:', error);
+    }
+}
+
+function populateFavRoutesList(routes) {
+    favRoutesList.innerHTML = '';
+
+    routes.forEach(route => {
+        const li = document.createElement('li');
+        li.textContent = route.route_name;
+        li.addEventListener("click", function() {
+            displayRouteOnMap(route);
+        });
+        favRoutesList.appendChild(li);
+    });
+}
+
+function populateFavRoutesList(routes) {
+    const favRoutesList = document.getElementById('fav-routes-list');
+    favRoutesList.innerHTML = '';
+
+    routes.forEach(route => {
+        const li = createFavRouteListItem(route);
+        favRoutesList.appendChild(li);
+    });
+}
+
+function createFavRouteListItem(route) {
+    var listItem = document.createElement("li");
+    listItem.textContent = route.route_name;
+
+    listItem.addEventListener("click", function () {
+        fetchRouteDetailsAndDisplay(route.user_id, route.route_points);
+    });
+
+    return listItem;
+}
+
+async function fetchRouteDetailsAndDisplay(userId, routePoints) {
+    try {
+        const promises = routePoints.map(async (locationId) => {
+            const response = await fetch(`/locations/${locationId}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch location details');
+            }
+            const location = await response.json();
+            return { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) };
+        });
+
+        const waypoints = await Promise.all(promises);
+
+        const userPosition = await getCurrentUserPosition();
+
+        const origin = userPosition;
+        const destination = waypoints.pop();
+
+        const request = {
+            origin: new google.maps.LatLng(origin.lat, origin.lng),
+            destination: new google.maps.LatLng(destination.lat, destination.lng),
+            waypoints: waypoints.map(waypoint => ({
+                location: new google.maps.LatLng(waypoint.lat, waypoint.lng),
+                stopover: true
+            })),
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+        directionsService.route(request, function (result, status) {
+            if (status === google.maps.DirectionsStatus.OK) {
+                directionsRenderer.setDirections(result);
+                closeFavRoutesModal(); 
+            } else {
+                console.error("Error displaying favorite route:", status);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching route details:', error);
+    }
+}
+
+async function getCurrentUserPosition() {
+    return new Promise((resolve, reject) => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const userCoords = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                resolve(userCoords);
+            }, error => {
+                console.error("Error getting user's current position:", error);
+                reject(error);
+            });
         } else {
-            console.error('Logout failed:', data.message);
+            console.error("Geolocation is not supported by this browser.");
+            reject(new Error("Geolocation is not supported by this browser."));
         }
-    })
-    .catch(error => {
-        console.error('Error during logout:', error);
+    });
+}
+
+function closeFavRoutesModal() {
+    favRoutesModal.style.display = "none";
+}
+
+function displayRouteOnMap(route) {
+    var waypoints = route.waypoints.map(point => ({
+        location: new google.maps.LatLng(point.latitude, point.longitude),
+        stopover: true
+    }));
+
+    var request = {
+        origin: new google.maps.LatLng(route.origin.latitude, route.origin.longitude),
+        destination: new google.maps.LatLng(route.destination.latitude, route.destination.longitude),
+        waypoints: waypoints,
+        travelMode: google.maps.TravelMode.DRIVING
+    };
+
+    directionsService.route(request, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+            directionsRenderer.setDirections(result);
+        } else {
+            console.error("Error displaying route:", status);
+        }
     });
 }

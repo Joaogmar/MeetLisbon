@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.get('/users', async (req, res) => {
     try {
-        // req.session.user = { username: user.username, user_id: user.user_id, role: user.role };
         let { username, user_id, role } = req.session.user;
         console.log(username);
         console.log(role);
@@ -17,7 +16,6 @@ router.get('/users', async (req, res) => {
         console.error('Error executing query', error);
         res.status(500).send('Internal server error');
     }
-    //codigo de teste nao removam por favor 
 });
 
 router.get('/locations/:placeId', async (req, res) => {
@@ -86,7 +84,6 @@ router.get('/admin', (req, res) => {
     } else {
         res.redirect('/login.html');
     }
-    //codigo de teste nao removam
 });
 
 router.get('/user', (req, res) => {
@@ -97,7 +94,6 @@ router.get('/user', (req, res) => {
     } else {
         res.status(401).json({ message: 'Not logged in' });
     }
-    //Codigo teste nao apaguem
 });
 
 router.post('/registerUser', async (req, res) => {
@@ -134,7 +130,6 @@ router.post('/favoriteRoutes', async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 });
-
 
 router.get('/debugroutes', async (req, res) => {
     try {

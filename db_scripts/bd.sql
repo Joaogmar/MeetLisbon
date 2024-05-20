@@ -21,7 +21,7 @@ CREATE TABLE poi (
 CREATE TABLE favorite_routes (
     user_id INT NOT NULL,
     route_name VARCHAR NOT NULL,
-    route_points INT NOT NULL, -- Array of POI IDs representing the route
+    route_points INT NOT NULL, 
     FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE,
     PRIMARY KEY (user_id, route_name)
 );

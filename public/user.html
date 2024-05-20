@@ -19,19 +19,25 @@
     <button class="button" id="button-top-center">Custom Route</button>
 
     <div id="location-dropdown" class="dropdown-content">
-        <!-- Dropdown will be populated dynamically -->
         <button id="create-route-button">Create Route</button>
     </div>
 
-    <!-- Add a modal for creating the route -->
     <div id="route-modal" class="modal">
         <div class="modal-content">
             <span class="close-button" id="close-modal">&times;</span>
             <h3>Create Route</h3>
             <ul id="route-list">
-                <!-- Route list items will be populated dynamically -->
             </ul>
             <button id="confirm-route-button">Confirm Route</button>
+        </div>
+    </div>
+
+    <div id="fav-routes-modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-fav-routes-modal" class="close">&times;</span>
+            <h2>Favourite Routes</h2>
+            <ul id="fav-routes-list"></ul>
+            <button id="manage-fav-routes-button">Manage Favourite Routes</button>
         </div>
     </div>
 
