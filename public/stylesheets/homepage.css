@@ -1,0 +1,70 @@
+/* General body styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --azulejos-blue: #0076A8; /* Primary for headers and accents */
+    --azulejos-white: #FAF5EF; /* Background color */
+    --slate-grey: #4A4A4A; /* Text color */
+    --terracotta: #D27F38; /* Buttons and highlights */
+    --muted-olive: #5B7F45; /* Secondary accents */
+}
+
+/* Full-screen background image setup */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('../img/skyline.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Overlay to darken the background image */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Dark overlay with transparency */
+}
+
+/* Title styling */
+.hero-title {
+    font-size: 10vw;
+    color: var(--azulejos-white);
+    text-shadow: 0.2vh 0.2vh 0.5vh rgba(0, 0, 0, 0.7); /* Ensures readability */
+    position: relative; /* Required for correct stacking context */
+
+}
+
+/* Button styling */
+.hero-button {
+    margin-top: 2vh;
+    padding: 1vh 3vh;
+    font-size: 2.5vh;
+    background-color: var(--azulejos-blue);
+    color: var(--azulejos-white);
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.3);
+    position: relative; /* Required for correct stacking context */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.hero-button:hover {
+    background-color: var(--azulejos-white);
+    color: var(--azulejos-blue);
+}
