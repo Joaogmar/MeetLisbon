@@ -38,7 +38,7 @@ CREATE TABLE favorite_places (
 CREATE TABLE Route_History (
     route_id INT NOT NULL,
     rh_action VARCHAR NOT NULL,
-    date TIMESTAMP NOT NULL 
+    date TIMESTAMP NOT NULL, 
     metrica VARCHAR NOT NULL,
     user_id INT NOT NULL,
     poi_id INT NOT NULL,
