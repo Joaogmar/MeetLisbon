@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Page</title>
     <link rel="stylesheet" href="stylesheets/user.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+    <!-- Navbar container -->
+    <div class="navbar">
+        <!-- Avatar/Icon section -->
+        <div class="avatar">
+            <img src="img/avatar.jpg" alt="Avatar" class="avatar-img">
+        </div>
+        
+        <!-- Navigation buttons with icons -->
+        <div class="nav-buttons">
+            <div class="nav-item" onclick="location.href='/places.html'">
+                <span class="material-icons icon">place</span>
+                <span class="nav-text">Places</span>
+            </div>
+            <div class="nav-item" onclick="location.href='/favourite-routes.html'">
+                <span class="material-icons icon">favorite</span>
+                <span class="nav-text">Favourite Routes</span>
+            </div>
+            <div class="nav-item" onclick="location.href='/custom-route.html'">
+                <span class="material-icons icon">edit_road</span>
+                <span class="nav-text">Custom Route</span>
+            </div>
+            <div class="nav-item" onclick="location.href='/wishlist.html'">
+                <span class="material-icons icon">list_alt</span>
+                <span class="nav-text">Wishlist</span>
+            </div>
+        </div>
+        
+        <!-- Logout button positioned at the bottom -->
+        <div class="nav-item logout" onclick="location.href='/logout'">
+            <span class="material-icons icon">logout</span>
+            <span class="nav-text">Logout</span>
+        </div>
+    </div>
+    
+    <!-- Map and Locate Me button -->
     <div id="map"></div>
-    <button class="button" onclick="location.href='/places.html'" id="button-top-left">Places</button>
-    <button class="button" id="button-top-right">Logout</button>
-    <button class="button" onclick="location.href='/wishlist.html'" id="button-bottom-left">Wishlist</button>
-    <button class="button" id="button-bottom-right">Favourite Routes</button>
-    <button class="button" id="button-bottom-center">Locate me</button>
-    <button class="button" id="button-top-center">Custom Route</button>
-
-    <div id="location-dropdown" class="dropdown-content">
-        <button id="create-route-button">Create Route</button>
-    </div>
-
-    <div id="route-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="close-modal">&times;</span>
-            <h3>Create Route</h3>
-            <ul id="route-list">
-            </ul>
-            <button id="confirm-route-button">Confirm Route</button>
-        </div>
-    </div>
-
-    <div id="fav-routes-modal" style="display:none;">
-        <div class="modal-content">
-            <span id="close-fav-routes-modal" class="close">&times;</span>
-            <h2>Favourite Routes</h2>
-            <ul id="fav-routes-list"></ul>
-            <button id="manage-fav-routes-button">Manage Favourite Routes</button>
-        </div>
-    </div>
+    <button class="button-locate" id="button-bottom-center">Locate me</button>
 
     <script src="javascript/user.js"></script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap">
+    </script>
 </body>
-
 </html>
