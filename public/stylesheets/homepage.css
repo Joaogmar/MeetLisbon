@@ -1,9 +1,18 @@
-/* General body styles */
-body, html {
+body {
+    overflow-y: auto; /* Permite rolagem no corpo */
+    -ms-overflow-style: none; /* Para Internet Explorer e Edge */
     margin: 0;
     padding: 0;
-    height: 100%;
     font-family: 'Poppins', sans-serif;
+}
+
+html {
+    overflow-y: auto; /* Permite rolagem */
+    scrollbar-width: none; /* Oculta a barra no Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari e Edge */
 }
 
 :root {
@@ -14,33 +23,37 @@ body, html {
     --muted-olive: #5B7F45; /* Secondary accents */
 }
 
-/* Full-screen background image setup */
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full viewport height */
-    background-image: url('../img/skyline.jpg'); /* Replace with your image */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.container {
     text-align: center;
+    color: #fff;
+    margin-top: 30vh;
 }
 
-/* Overlay to darken the background image */
-.overlay {
-    position: absolute;
+.background-image {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* Dark overlay with transparency */
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.5);
 }
 
-/* Title styling */
-.hero-title {
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ml-title {
     font-size: 10vw;
     color: var(--azulejos-white);
     text-shadow: 0.2vh 0.2vh 0.5vh rgba(0, 0, 0, 0.7); /* Ensures readability */
@@ -48,8 +61,7 @@ body, html {
 
 }
 
-/* Button styling */
-.hero-button {
+.ml-button {
     margin-top: 2vh;
     padding: 1vh 3vh;
     font-size: 2.5vh;
@@ -63,8 +75,130 @@ body, html {
     transition: background-color 0.3s ease;
 }
 
-/* Hover effect for the button */
-.hero-button:hover {
+.ml-button:hover {
     background-color: var(--azulejos-white);
     color: var(--azulejos-blue);
+}
+
+.tent-title {
+    text-align: center;
+    color: #ffffff;
+    margin-top: -3vh;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
+    font-size: 2vh
+}
+
+.our-mission-des {
+    display: flex;          
+    align-items: center;    
+    justify-content: flex-start; 
+    gap: 10vh;              
+    margin-top: 5vh;
+}
+
+.our-mission-img {
+    max-width: 15%;        
+    height: auto;          
+    margin-left: 35vh;
+}
+
+.our-mission-text {
+    display: flex;               
+    justify-content: center;     
+    gap: 10vh;                
+}
+
+.our-mission-box {
+    background-color: rgba(0, 118, 168, 0.8);
+    padding: 5vh;
+    text-align: center;
+    margin-top: 20vh;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.team-box {
+    background-color: rgba(0, 118, 168, 0.8); /* Definindo a cor de fundo com opacidade */
+    padding: 5vh;
+    text-align: center;
+    margin-top: 15vh;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
+    margin-bottom: 10vh;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+}
+
+.team-member {
+    background-color: rgba(200, 195, 195, 0.5);
+    padding: 4vh;
+    margin-bottom: 3vh;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    margin-top: 2vh;
+    width: 18vh;
+}
+
+.team-member img {
+    width: 13vh;
+    height: 13vh;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
+}
+
+.team-member:hover {
+    transform: translateY(-0.5vh);
+}
+
+.member-name {
+    font-size: 2vh;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
+    color: var(--azulejos-white);
+}
+
+.team-box h2 {
+    color: var(--azulejos-white);
+    margin-top: -2vh;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
+    font-size: 2.8vh;
+}
+
+.contact-box {
+    background-color: rgba(0, 118, 168, 0.8); /* Definindo a cor de fundo com opacidade */
+    padding: 3vh;
+    text-align: center;
+    margin-top: 6vh;
+    border-radius: 1vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
+}
+
+.contact-box h2 {
+    color: var(--azulejos-white);
+    font-size: 2.8vh;
+    margin-bottom: 2.5vh;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
+}
+
+.contact-info {
+    color: var(--azulejos-white);
+    font-size: 1.8vh;
+    line-height: 1.6;
+    margin-bottom: 2vh;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
+}
+
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
