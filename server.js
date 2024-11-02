@@ -1,25 +1,23 @@
 require('dotenv').config();
 const express = require('express');
-const session = require('express-session');
 const path = require('path');
-const routes = require('./routes/routes');
+const authRoutes = require('./routes/authRoutes');
+const { authenticateToken } = require('./middleware/authMiddleware'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true
-}));
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json()); 
 
-app.use('/', routes);
+app.use('/api/auth', authRoutes); 
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'homepage.html'));
+});
+
+app.get('/api/userinfo', authenticateToken, (req, res) => {
+    res.json({ message: 'User specific information', userId: req.user.userId });
 });
 
 app.listen(PORT, () => {

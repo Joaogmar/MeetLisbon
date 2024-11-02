@@ -1,7 +1,7 @@
 CREATE TABLE users (
     user_id SERIAL NOT NULL,
     username VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     role VARCHAR(50) NOT NULL,
     age_group VARCHAR(20),
     gender VARCHAR(10),
