@@ -4,14 +4,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'maria',
         'maria123',
         'admin',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Lisboa'
     );
 
 insert into
@@ -20,14 +24,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'joao',
         'joao123',
         'admin',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Setúbal'
     );
 
 insert into
@@ -36,14 +44,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'afonso',
         'afonso123',
         'admin',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Lisboa'
     );
 
 insert into
@@ -52,14 +64,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'roberta',
         'roberta123',
         'admin',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Setúbal'
     );
 
 insert into
@@ -68,14 +84,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'rodrigo',
         'rodrigo123',
         'admin',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Lisboa'
     );
 
 insert into
@@ -84,14 +104,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'miguel',
         'miguel123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Faro'
     );
 
 insert into
@@ -100,14 +124,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'cesar',
         'cesar123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Santarém'
     );
 
 insert into
@@ -116,14 +144,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'laura',
         'laura123',
         'users',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Coimbra'
     );
 
 insert into
@@ -132,14 +164,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'joana',
         'joana123',
         'users',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Coimbra'
     );
 
 insert into
@@ -148,14 +184,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'bernardo',
         'bernardo123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Cambridge'
     );
 
 insert into
@@ -164,14 +204,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'sofia',
         'sofia123',
         'users',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '35-44',
+        'Évora'
     );
 
 insert into
@@ -180,14 +224,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'andre',
         'andre123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Porto'
     );
 
 insert into
@@ -196,14 +244,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'goncalo',
         'goncalo123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Madrid'
     );
 
 insert into
@@ -212,14 +264,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'marta',
         'marta123',
         'users',
         'F',
-        'portuguesa'
+        'portuguesa',
+        '25-34',
+        'Sevilla'
     );
 
 insert into
@@ -228,14 +284,18 @@ insert into
         password,
         role,
         gender,
-        nationality
+        nationality,
+        age_group,
+        location
     )
 values (
         'martim',
         'martim123',
         'users',
         'M',
-        'portuguesa'
+        'portuguesa',
+        '18-24',
+        'Barcelona'
     );
 
 insert into
