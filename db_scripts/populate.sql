@@ -1,312 +1,49 @@
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'maria',
-        'maria123',
-        'admin',
-        'F',
-        'portuguesa',
-        '18-24',
-        'Lisboa'
-    );
+insert into users (username, password, role, gender, nationality, age_group,location)
+values ('maria', 'maria123', 'admin', 'F', 'portuguesa', '18-24', 'Lisboa');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'joao',
-        'joao123',
-        'admin',
-        'M',
-        'portuguesa',
-        '18-24',
-        'Setúbal'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('joao', 'joao123', 'admin', 'M', 'portuguesa', '18-24', 'Setúbal');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'afonso',
-        'afonso123',
-        'admin',
-        'M',
-        'portuguesa',
-        '18-24',
-        'Lisboa'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('afonso', 'afonso123', 'admin', 'M', 'portuguesa', '18-24', 'Lisboa');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'roberta',
-        'roberta123',
-        'admin',
-        'F',
-        'portuguesa',
-        '18-24',
-        'Setúbal'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('roberta', 'roberta123', 'admin', 'F', 'portuguesa', '18-24', 'Setúbal');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'rodrigo',
-        'rodrigo123',
-        'admin',
-        'M',
-        'portuguesa',
-        '18-24',
-        'Lisboa'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('rodrigo', 'rodrigo123', 'admin', 'M', 'portuguesa', '18-24', 'Lisboa');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'miguel',
-        'miguel123',
-        'users',
-        'M',
-        'portuguesa',
-        '25-34',
-        'Faro'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('miguel', 'miguel123', 'users', 'M', 'portuguesa', '25-34', 'Faro');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'cesar',
-        'cesar123',
-        'users',
-        'M',
-        'portuguesa',
-        '25-34',
-        'Santarém'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('cesar', 'cesar123', 'users', 'M', 'portuguesa', '25-34', 'Santarém');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'laura',
-        'laura123',
-        'users',
-        'F',
-        'portuguesa',
-        '18-24',
-        'Coimbra'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('laura', 'laura123', 'users', 'F', 'portuguesa', '18-24', 'Coimbra');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'joana',
-        'joana123',
-        'users',
-        'F',
-        'portuguesa',
-        '25-34',
-        'Coimbra'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('joana', 'joana123', 'users', 'F', 'portuguesa', '25-34', 'Coimbra');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'bernardo',
-        'bernardo123',
-        'users',
-        'M',
-        'portuguesa',
-        '25-34',
-        'Cambridge'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('bernardo', 'bernardo123', 'users', 'M', 'portuguesa', '25-34', 'Cambridge'    );
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'sofia',
-        'sofia123',
-        'users',
-        'F',
-        'portuguesa',
-        '35-44',
-        'Évora'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('sofia', 'sofia123', 'users', 'F', 'portuguesa', '35-44', 'Évora');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'andre',
-        'andre123',
-        'users',
-        'M',
-        'portuguesa',
-        '25-34',
-        'Porto'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('andre', 'andre123', 'users', 'M', 'portuguesa', '25-34', 'Porto');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'goncalo',
-        'goncalo123',
-        'users',
-        'M',
-        'portuguesa',
-        '18-24',
-        'Madrid'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('goncalo', 'goncalo123', 'users', 'M', 'portuguesa', '18-24','Madrid');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'marta',
-        'marta123',
-        'users',
-        'F',
-        'portuguesa',
-        '25-34',
-        'Sevilla'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('marta', 'marta123', 'users', 'F', 'portuguesa', '25-34', 'Sevilla');
 
-insert into
-    users (
-        username,
-        password,
-        role,
-        gender,
-        nationality,
-        age_group,
-        location
-    )
-values (
-        'martim',
-        'martim123',
-        'users',
-        'M',
-        'portuguesa',
-        '18-24',
-        'Barcelona'
-    );
+insert into users (username, password, role, gender, nationality, age_group, location)
+values ('martim', 'martim123', 'users', 'M', 'portuguesa', '18-24', 'Barcelona');
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Padrão dos Descobrimentos',
         'Av. Brasília, 1400-038 Lisboa',
@@ -318,15 +55,7 @@ values (
         'https://i.imgur.com/n7Q4HHM.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Torre de Belém',
         'Av. Brasília, 1400-038 Lisboa',
@@ -339,15 +68,7 @@ values (
         'https://i.imgur.com/KN7EF21.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Armazéns do Chiado',
         'R. do Carmo, 1200-094 Lisboa',
@@ -359,15 +80,7 @@ values (
         'https://i.imgur.com/NXLLEv4.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Lisboa Story Centre',
         'Praça do Comércio 78, 1100-148 Lisboa',
@@ -379,15 +92,7 @@ values (
         'https://i.imgur.com/HQ28gm7.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Praça Luís de Camões',
         'Largo Luís de Camões, 1200-243 Lisboa',
@@ -399,15 +104,7 @@ values (
         'https://i.imgur.com/8NZp3Kf.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Farol de Belém',
         'Av. Brasília, 1400-038 Lisboa',
@@ -419,15 +116,7 @@ values (
         'https://i.imgur.com/OeB656k.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Timeout Market Lisboa',
         'Av. 24 de Julho 49, 1200-479 Lisboa',
@@ -438,15 +127,7 @@ values (
         'https://i.imgur.com/gE5UNHa.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Arco do Triunfo',
         'R. Augusta 2, 1100-053 Lisboa',
@@ -457,15 +138,7 @@ values (
         'https://i.imgur.com/PpQSuXD.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Estátua D. José I',
         'Praça do Comércio MB, 1100-148 Lisboa',
@@ -477,15 +150,7 @@ values (
         'https://i.imgur.com/X5okuwp.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'IADE',
         'Av. Dom Carlos i 4, 1200-649 Lisboa',
@@ -497,15 +162,7 @@ values (
         'https://i.imgur.com/YzVHqOJ.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
 values (
         'Rua cor de Rosa',
         'R. Nova do Carvalho, 1200-370 Lisboa',
@@ -516,18 +173,8 @@ values (
         'https://i.imgur.com/rK37VGk.jpg'
     );
 
-insert into
-    poi (
-        location_name,
-        location_address,
-        longitude,
-        latitude,
-        info,
-        image_url
-    )
-values (
-        'Teatro da Trindade INATEL',
-        'R. Nova da Trindade 9, 1200-301 Lisboa',
+insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+values ('Teatro da Trindade INATEL', 'R. Nova da Trindade 9, 1200-301 Lisboa',
         '-9.14248954471498',
         '38.71202888351289',
         'Em 1866, Francisco Palha, escritor e dramaturgo, decidiu construir o seu próprio teatro. <br>
