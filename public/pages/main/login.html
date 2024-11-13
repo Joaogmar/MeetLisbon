@@ -4,24 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Lisbon</title>
-    <link rel="stylesheet" href="../../stylesheets/main/login.css">
+    <title>Meet Lisbon - Login</title>
+    <link rel="stylesheet" href="/stylesheets/main/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-<body style="background-image: url('../img/most.jpg'); background-size: cover;">
-    <div class="container">
-        <img class="logo" src="../img/mt.png" alt="Logo MT">
-        <div class="login-box">
-            <h2>Aceder</h2>
+<body>
+    <img class="background-image" src="/img/lisnight.jpg" alt="background">
+    <div class="text-container">
+        <h1>MEET LISBON</h1>
+    </div>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>LOGIN</h2>
             <form id="login-form">
-                <input type="text" placeholder="Username" class="input-field" id="username">
-                <input type="password" placeholder="Password" class="input-field" id="password">
-                <button type="submit">Login</button>
+                <div class="input-container">
+                    <input type="text" placeholder="Username" class="input-field" id="username" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" placeholder="Password" class="input-field" id="password" required>
+                </div>
+                <button type="submit" class="login-button">Iniciar sessão</button>
             </form>
-            <a href="register.html" class="create-account">Criar Conta</a>
+            <p class="register-text">Ainda não possui conta? <a href="register.html">Registe-se</a></p>
         </div>
     </div>
-    <script src="../../javascript/main/login.js"></script>
+
+    <script src="/javascript/main/login.js"></script>
+
 </body>
 
 </html>
