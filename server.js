@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes); 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'homepage.html'));
+    res.sendFile(path.join(__dirname, 'public', 'pages', 'main', 'homepage.html'));
 });
 
 app.get('/api/userinfo', authenticateToken, (req, res) => {

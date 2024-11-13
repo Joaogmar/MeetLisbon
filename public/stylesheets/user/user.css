@@ -1,0 +1,145 @@
+/* Reset de margens e preenchimento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define que o corpo ocupe a altura e largura completas da janela */
+html, body {
+    height: 100%;
+    overflow: hidden; /* Remove a barra de rolagem */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6.2vh; /* Collapsed width */
+    background-color: #0076A8;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    z-index: 10; /* Mantém a navbar acima do mapa */
+}
+
+.navbar:hover {
+    width: 20vh; /* Expanded width */
+}
+
+/* Avatar styling */
+.avatar {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza o conteúdo */
+    padding: 1.7vh;
+    transition: padding 0.3s; /* Transição suave ao espaçamento */
+}
+
+.avatar-img {
+    width: 4.5vh; /* Tamanho padrão do avatar */
+    height: 4.5vh;
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s; /* Transição suave ao aumentar */
+}
+
+/* Estilo do nome do usuário */
+.user-name {
+    display: none; /* Oculta por padrão */
+    font-size: 1.7vh; /* Tamanho do texto */
+    color: white; /* Cor do texto */
+    margin-top: 0.7vh; /* Espaço entre o avatar e o nome */
+}
+
+/* Mostrar nome do usuário ao expandir a navbar */
+.navbar:hover .user-name {
+    display: block; /* Mostra o nome quando a navbar está expandida */
+}
+
+/* Classe para aumentar o tamanho do avatar ao expandir a navbar */
+.navbar:hover .avatar-img {
+    width: 8vh; /* Tamanho do avatar quando a navbar está expandida */
+    height: 8vh; 
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    margin-top: 4vh;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #D27F38;
+}
+
+.icon {
+    font-size: 2.5vh;
+    margin-right: 1.1vh;
+}
+
+.nav-text {
+    display: none; /* Hide text initially */
+    font-size: 1.7vh;
+}
+
+.navbar:hover .nav-text {
+    display: inline; /* Show text on hover */
+}
+
+/* Logout button styling */
+.logout {
+    position: absolute;
+    bottom: 2.2vh; /* Distância do fundo da navbar */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+}
+
+.logout:hover {
+    background-color: #D27F38;
+}
+
+/* Main styling for the map */
+#map {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Estilo para o botão "Locate me" */
+.button-locate {
+    position: absolute;
+    bottom: 6vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.3vh 2.8vh; /* Aumente o padding para tornar o botão maior */
+    font-size: 1.7vh; /* Aumente o tamanho da fonte para melhorar a legibilidade */
+    border-radius: 1vh;
+    background-color: #D27F38;
+    color: white;
+    cursor: pointer;
+    z-index: 20; /* Mantém o botão acima do mapa e da navbar */
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button-locate:hover {
+    background-color: #b66e2f;
+}

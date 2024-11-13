@@ -1,0 +1,359 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #76BAD7;
+}
+
+/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6.2vh; /* Collapsed width */
+    background-color: #0076A8;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    z-index: 10; /* Mantém a navbar acima do mapa */
+}
+
+.navbar:hover {
+    width: 20vh; /* Expanded width */
+}
+
+/* Avatar styling */
+.avatar {
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    align-items: center; /* Centraliza o conteúdo */
+    padding: 1.7vh;
+    transition: padding 0.3s; /* Transição suave ao espaçamento */
+}
+
+.avatar-img {
+    width: 4.5vh; /* Tamanho padrão do avatar */
+    height: 4.5vh;
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s; /* Transição suave ao aumentar */
+}
+
+/* Estilo do nome do usuário */
+.user-name {
+    display: none; /* Oculta por padrão */
+    font-size: 1.7vh; /* Tamanho do texto */
+    color: white; /* Cor do texto */
+    margin-top: 0.7vh; /* Espaço entre o avatar e o nome */
+}
+
+/* Mostrar nome do usuário ao expandir a navbar */
+.navbar:hover .user-name {
+    display: block; /* Mostra o nome quando a navbar está expandida */
+}
+
+/* Classe para aumentar o tamanho do avatar ao expandir a navbar */
+.navbar:hover .avatar-img {
+    width: 8vh; /* Tamanho do avatar quando a navbar está expandida */
+    height: 8vh; 
+}
+
+/* Navigation buttons */
+.nav-buttons {
+    margin-top: 4vh;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+.nav-item:hover {
+    background-color: #D27F38;
+}
+
+.icon {
+    font-size: 2.5vh;
+    margin-right: 1.1vh;
+}
+
+.nav-text {
+    display: none; /* Hide text initially */
+    font-size: 1.7vh;
+}
+
+.navbar:hover .nav-text {
+    display: inline; /* Show text on hover */
+}
+
+/* Logout button styling */
+.logout {
+    position: absolute;
+    bottom: 2.2vh; /* Distância do fundo da navbar */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+}
+
+.logout:hover {
+    background-color: #D27F38;
+}
+
+.meet-lisbon {
+    color: #f2f2f2;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.logo {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.logo img {
+    max-height: 100px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+}
+
+.logout button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.add-place {
+    background-color: #56B24B;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-place:hover {
+    background-color: #4CAF50;
+}
+
+.add-place-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: fit-content;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.add-place-container h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-place-container .icons {
+    display: flex;
+    align-items: center;
+}
+
+.add-place-container .add-icon,
+.add-place-container .delete-icon {
+    margin-left: 10px;
+}
+
+.add-place-container .add-icon {
+    font-size: 24px;
+    color: #56B24B;
+    margin-left: 5px;
+    vertical-align: middle;
+    margin-bottom: -2px;
+    cursor: pointer;
+}
+
+.add-place-container .delete-icon {
+    font-size: 24px;
+    color: #140f0f;
+    margin-left: 0px;
+    vertical-align: middle;
+    margin-bottom: -2px;
+    cursor: pointer;
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.popup-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    margin-top: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-place-form {
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.add-place-form input,
+.add-place-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    background-color: #f2f2f2;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.navigation button.active {
+    background-color: #56B24B;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal h3 {
+    margin-top: 0;
+}
+
+.modal input,
+.modal textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
