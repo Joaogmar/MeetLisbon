@@ -1,18 +1,107 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #76BAD7;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.topnav {
+html, body {
+    height: 100%;
     overflow: hidden;
-    background-color: #56B24B;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6.2vh;
+    background-color: #0076A8;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    z-index: 10;
+}
+
+.navbar-admin:hover {
+    width: 20vh;
+}
+
+.avatar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0 20px;
-    height: 60px;
-    margin: 0;
+    padding: 1.7vh;
+    transition: padding 0.3s;
+}
+
+.avatar-img {
+    width: 4.5vh;
+    height: 4.5vh;
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s;
+}
+
+.admin-name {
+    display: none;
+    font-size: 1.7vh;
+    color: white;
+    margin-top: 0.7vh;
+}
+
+.navbar-admin:hover .admin-name {
+    display: block;
+}
+
+.navbar-admin:hover .avatar-img {
+    width: 8vh;
+    height: 8vh; 
+}
+
+.nav-buttons-admin {
+    margin-top: 4vh;
+}
+
+.nav-item-admin {
+    display: flex;
+    align-items: center;
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+    transition: background 0.2s;
+}
+
+.nav-item-admin:hover {
+    background-color: #D27F38;
+}
+
+.icon {
+    font-size: 2.5vh;
+    margin-right: 1.1vh;
+}
+
+.nav-text {
+    display: none;
+    font-size: 1.7vh;
+}
+
+.navbar-admin:hover .nav-text {
+    display: inline;
+}
+
+.logout {
+    position: absolute;
+    bottom: 2.2vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1vh;
+    cursor: pointer;
+    color: white;
+}
+
+.logout:hover {
+    background-color: #D27F38;
 }
 
 .meet-lisbon {

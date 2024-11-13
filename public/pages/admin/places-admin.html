@@ -5,21 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet Lisbon</title>
-    <link rel="stylesheet" href="stylesheets/places.css">
+    <link rel="stylesheet" href="/stylesheets/admin/places-admin.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"rel="stylesheet">
 </head>
 
 <body>
-
-    <div class="topnav">
-        <div class="logo">
-            <a href="admin.html">
-                <img class="logo" src="img/mt.png" alt="Logo MT">
-            </a>
+    <div class="navbar-admin">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" alt="Avatar" class="avatar-img">
+            <span class="admin-name">Admin</span>
         </div>
-        <div class="meet-lisbon">Meet Lisbon</div>
-        <div class="logout">
-            <button>Logout</button>
+        
+        <div class="nav-buttons-admin">
+            <div class="nav-item-admin" onclick="location.href='admin.html'">
+                <span class="material-icons icon">map</span>
+                <span class="nav-text">Admin</span>
+            </div>
+            <div class="nav-item-admin" onclick="location.href='places-admin.html'">
+                <span class="material-icons icon">place</span>
+                <span class="nav-text">Places</span>
+            </div>
+            <div class="nav-item-admin" onclick="location.href='users.html'">
+                <span class="material-icons icon">manage_accounts</span>
+                <span class="nav-text">Users Management</span>
+            </div>
+        
+            <div class="nav-item-admin logout" onclick="location.href=''">
+                <span class="material-icons icon">logout</span>
+                <span class="nav-text">Logout</span>
+            </div>
         </div>
     </div>
 
@@ -70,7 +85,7 @@
         </div>
     </div>
 
-    <script src="javascript/places_admin.js"></script>
+    <script src="/javascript/admin/places_admin.js"></script>
 
 </body>
 

@@ -10,7 +10,7 @@ html, body {
     font-family: 'Poppins', sans-serif;
 }
 
-.navbar {
+.navbar-admin {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@ html, body {
     z-index: 10;
 }
 
-.navbar:hover {
+.navbar-admin:hover {
     width: 20vh;
 }
 
@@ -41,27 +41,27 @@ html, body {
     transition: width 0.3s, height 0.3s;
 }
 
-.user-name {
+.admin-name {
     display: none;
     font-size: 1.7vh;
     color: white;
     margin-top: 0.7vh;
 }
 
-.navbar:hover .user-name {
+.navbar-admin:hover .admin-name {
     display: block;
 }
 
-.navbar:hover .avatar-img {
+.navbar-admin:hover .avatar-img {
     width: 8vh;
     height: 8vh; 
 }
 
-.nav-buttons {
+.nav-buttons-admin {
     margin-top: 4vh;
 }
 
-.nav-item {
+.nav-item-admin {
     display: flex;
     align-items: center;
     padding: 1.1vh;
@@ -70,7 +70,7 @@ html, body {
     transition: background 0.2s;
 }
 
-.nav-item:hover {
+.nav-item-admin:hover {
     background-color: #D27F38;
 }
 
@@ -84,7 +84,7 @@ html, body {
     font-size: 1.7vh;
 }
 
-.navbar:hover .nav-text {
+.navbar-admin:hover .nav-text {
     display: inline;
 }
 
@@ -111,24 +111,4 @@ html, body {
     top: 0;
     left: 0;
     z-index: 1;
-}
-
-.button-locate {
-    position: absolute;
-    bottom: 6vh;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1.3vh 2.8vh;
-    font-size: 1.7vh; 
-    border-radius: 1vh;
-    background-color: #D27F38;
-    color: white;
-    cursor: pointer;
-    z-index: 20;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-}
-
-.button-locate:hover {
-    background-color: #b66e2f;
 }

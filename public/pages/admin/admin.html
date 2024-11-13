@@ -5,19 +5,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Page</title>
-    <link rel="stylesheet" href="stylesheets/user.css">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="/stylesheets/admin/admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"rel="stylesheet">
 </head>
 
 <body>
-    <div id="map"></div>
-    <button class="button" onclick="location.href='places-admin.html'" id="button-top-left">Places</button>
-    <button class="button" onclick="location.href='users.html'" id="button-top-center">Users</button>
-    <button class="button" id="button-top-right">Logout</button>
+    <div class="navbar-admin">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" alt="Avatar" class="avatar-img">
+            <span class="admin-name">Admin</span>
+        </div>
+        
+        <div class="nav-buttons-admin">
+            <div class="nav-item-admin" onclick="location.href='admin.html'">
+                <span class="material-icons icon">map</span>
+                <span class="nav-text">Admin</span>
+            </div>
+            <div class="nav-item-admin" onclick="location.href='places-admin.html'">
+                <span class="material-icons icon">place</span>
+                <span class="nav-text">Places</span>
+            </div>
+            <div class="nav-item-admin" onclick="location.href='users.html'">
+                <span class="material-icons icon">manage_accounts</span>
+                <span class="nav-text">Users Management</span>
+            </div>
+        
+            <div class="nav-item-admin logout" onclick="location.href=''">
+                <span class="material-icons icon">logout</span>
+                <span class="nav-text">Logout</span>
+            </div>
+        </div>
+    </div>
 
-    <script src="javascript/admin.js"></script>
+    <div id="map"></div>
+
+    <script src="/javascript/admin.js"></script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe7Cu0OhbTKUuqzfbodCqv0i87d5qcSA0&callback=initMap">
+        </script>
 </body>
 
 </html>
