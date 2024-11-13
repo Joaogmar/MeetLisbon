@@ -1,18 +1,18 @@
 body {
-    overflow-y: auto; /* Permite rolagem no corpo */
-    -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+    overflow-y: auto;
+    -ms-overflow-style: none;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
 
 html {
-    overflow-y: auto; /* Permite rolagem */
-    scrollbar-width: none; /* Oculta a barra no Firefox */
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Safari e Edge */
+    display: none;
 }
 
 :root {
@@ -56,8 +56,8 @@ body::-webkit-scrollbar {
 .ml-title {
     font-size: 10vw;
     color: var(--azulejos-white);
-    text-shadow: 0.2vh 0.2vh 0.5vh rgba(0, 0, 0, 0.7); /* Ensures readability */
-    position: relative; /* Required for correct stacking context */
+    text-shadow: 0.2vh 0.2vh 0.5vh rgba(0, 0, 0, 0.7);
+    position: relative;
 
 }
 
@@ -71,8 +71,10 @@ body::-webkit-scrollbar {
     border-radius: 1vh;
     cursor: pointer;
     box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.3);
-    position: relative; /* Required for correct stacking context */
+    position: relative;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-shadow: 0.1vh 0.1vh 0.2vh rgba(0, 0, 0, 0.2);
 }
 
 .ml-button:hover {
@@ -119,7 +121,7 @@ body::-webkit-scrollbar {
 }
 
 .team-box {
-    background-color: rgba(0, 118, 168, 0.8); /* Definindo a cor de fundo com opacidade */
+    background-color: rgba(0, 118, 168, 0.8);
     padding: 5vh;
     text-align: center;
     margin-top: 15vh;
@@ -174,7 +176,7 @@ body::-webkit-scrollbar {
 }
 
 .contact-box {
-    background-color: rgba(0, 118, 168, 0.8); /* Definindo a cor de fundo com opacidade */
+    background-color: rgba(0, 118, 168, 0.8);
     padding: 3vh;
     text-align: center;
     margin-top: 6vh;
