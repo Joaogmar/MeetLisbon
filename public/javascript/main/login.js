@@ -5,7 +5,7 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("/login", {
+        const response = await fetch("/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -19,9 +19,9 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
             localStorage.setItem("token", data.token);
 
             if (data.role === "admin") {
-                window.location.href = "admin.html";
+                window.location.href = "/pages/admin/admin.html";
             } else if (data.role === "user") {
-                window.location.href = "user.html";
+                window.location.href = "/pages/user/user.html";
             }
         } else {
             alert(data.message || "Login failed. Please try again.");

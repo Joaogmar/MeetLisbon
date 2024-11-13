@@ -1,8 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const startButton = document.querySelector(".start-button");
-    if (startButton) {
-        startButton.addEventListener("click", () => {
-            window.location.href = "login.html"; 
-        });
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const exploreButton = document.querySelector('.ml-button');
+    exploreButton.addEventListener('click', function() {
+        window.location.href = '/pages/main/login.html';
+    });
 });
