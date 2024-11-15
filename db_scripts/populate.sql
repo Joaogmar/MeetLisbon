@@ -2314,3 +2314,344 @@ values (
         Escolheu aquela zona da cidade pela sua antiga vocação cultural e recreativa - aí funcionara, em meados do século XVIII, a Academia da Trindade, o primeiro Teatro Popular de Ópera.<br>',
         'https://i.imgur.com/iV2dPdL.jpg'
     );
+
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+        'Mosteiro dos Jerónimos',
+        'Praça do Império, 1400-206 Lisboa',
+        '-9.206481',
+        '38.697168',
+        'Monumento histórico em estilo manuelino, construído no século XVI, e um dos mais importantes de Portugal. Foi declarado Património Mundial pela UNESCO em 1983.',
+        'https://i.imgur.com/lQ6mXs0.jpeg'
+    ),
+
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Praça do Comércio',
+        'Praça do Comércio, 1100-148 Lisboa',
+        '-9.136591',
+        '38.707252',
+        'Uma das maiores praças da Europa, localizada junto ao rio Tejo. É o símbolo da reconstrução de Lisboa após o terramoto de 1755.',
+        'https://www.vounajanela.com/wp-content/uploads/2020/10/lisboa-praca-do-comercio-3-1024x584.jpg'
+    ),
+
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Castelo de São Jorge',
+        'Rua de Santa Cruz do Castelo, 1100-129 Lisboa',
+        '-9.133475',
+        '38.713909',
+        'Um dos monumentos mais emblemáticos de Lisboa, com vistas panorâmicas sobre a cidade. Foi construído pelos muçulmanos no século XI.',
+        'https://viagemparalisboa.com/wp-content/uploads/2018/11/castelo-de-sao-jorge-lisboa-1.jpg'
+    ),
+
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Oceanário de Lisboa',
+        'Esplanada Dom Carlos I, s/nº, 1990-005 Lisboa',
+        '-9.093713',
+        '38.763790',
+        'Um dos maiores aquários do mundo, com uma vasta coleção de espécies marinhas. Localizado no Parque das Nações, foi inaugurado durante a Expo 98.',
+        'https://www.lisboa.net/f/portugal/lisboa/guia/oceanario-m.jpg'
+
+    insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values ( 
+    'Museu Nacional do Azulejo',
+        'Rua da Madre de Deus 4, 1900-312 Lisboa',
+        '-9.116644',
+        '38.724104',
+        'Museu dedicado à preservação e exibição da arte do azulejo, uma tradição portuguesa que remonta ao século XV.',
+        'https://www.jf-alfragide.pt/wp-content/uploads/2022/08/Museu-do-Azulejo.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Parque Eduardo VII',
+        'Parque Eduardo VII, 1070-051 Lisboa',
+        '-9.153777',
+        '38.727123',
+        'Um dos maiores parques de Lisboa, oferecendo belas vistas da cidade e do rio Tejo. Frequentemente utilizado para eventos e exposições.',
+        'https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/39/80/c0.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+    'Elevador de Santa Justa',
+        'R. do Ouro, 1150-060 Lisboa',
+        '-9.139348',
+        '38.712285',
+        'Elevador em estilo neogótico que conecta a Baixa ao Bairro Alto. Projetado por Raoul Mesnier du Ponsard, foi inaugurado em 1902.',
+        'https://www.portugalvisitor.com/images/content_images/santa-justa-20191.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+    'Miradouro da Senhora do Monte',
+        'Largo Monte, 1170-107 Lisboa',
+        '-9.132372',
+        '38.720478',
+        'Oferece uma das vistas panorâmicas mais impressionantes sobre Lisboa. Ideal para observar o pôr do sol.',
+        'https://lisbonlisboaportugal.com/images/650-alfama/miradouro-da-senhora-do-monte-lisbon.jpg'
+     ),
+    
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+    'Sé de Lisboa',
+        'Largo da Sé, 1100-585 Lisboa',
+        '-9.133334',
+        '38.710830',
+        'A Catedral de Lisboa, construída no século XII, é um exemplo de arquitetura românica. Um dos monumentos religiosos mais antigos da cidade.',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Lisboa_May_2013-1.jpg/1200px-Lisboa_May_2013-1.jpg'
+     ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+    'Fundação Calouste Gulbenkian',
+        'Av. de Berna 45A, 1067-001 Lisboa',
+        '-9.154587',
+        '38.737454',
+        'Museu e centro cultural que alberga uma vasta coleção de arte, desde a antiguidade até aos dias de hoje. É também sede de concertos e exposições.',
+        'https://www.coolture.pt/wp-content/uploads/2020/03/FUNDACAO-CALOUSTE-GULBENKIAN-ENCERRA-ATIVIDADES-ABERTAS-AO-PUBLICO.jpg'
+    );
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Museu do Fado',
+        'Largo do Chafariz de Dentro 1, 1100-139 Lisboa',
+        '-9.123418',
+        '38.712594',
+        'Dedicado ao Fado, a música tradicional portuguesa, o museu conta com exposições sobre a história do Fado e oferece audições e apresentações regulares.',
+        'https://www.portugaldenorteasul.pt/uploads/20190713215540_asada.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+      'LX Factory',
+        'R. Rodrigues de Faria 103, 1300-501 Lisboa',
+        '-9.179546',
+        '38.702938',
+        'Antiga área industrial transformada em um espaço vibrante com restaurantes, bares, lojas, e exposições de arte. É um dos pontos culturais mais populares de Lisboa.',
+        'https://www.discover-portugal.com/wp-content/uploads/2023/11/LX-Factory-Lisbon-4-1-683x1024.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+    'Jardim Botânico de Lisboa',
+        'R. da Escola Politécnica 54, 1250-102 Lisboa',
+        '-9.150830',
+        '38.716050',
+        'Um dos mais antigos jardins botânicos de Lisboa, fundado no século XIX. Abriga uma coleção diversificada de plantas de várias partes do mundo.',
+        'https://lisbonshopping.com/wp-content/uploads/2021/09/LisbonShopping_JardimBotAjuda_1600x1200_cred-CML.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Museu Nacional de Arte Antiga',
+        'R. das Janelas Verdes, 1249-017 Lisboa',
+        '-9.154453',
+        '38.707587',
+        'Museu que abriga a mais importante coleção pública de arte de Portugal, incluindo obras de pintores como Bosch e Dürer.',
+        'https://www.jf-estrela.pt/images/galerias/291/galeria_291_photo_1969.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Parque das Nações',
+        'Av. Dom João II, 1990-231 Lisboa',
+        '-9.093475',
+        '38.763226',
+        'Área moderna de Lisboa com arquitetura contemporânea, pavilhões de exposições, restaurantes e o Oceanário de Lisboa. Foi o local da Expo 98.',
+        'https://www.olissippohotels.com/Images/Artigos_Blog_Olissippo_redacao_bestguide/parque-na%C3%A7oes-vista-geral.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+      'Palácio da Ajuda',
+        'Largo Ajuda, 1349-021 Lisboa',
+        '-9.193644',
+        '38.711184',
+        'Antiga residência da família real portuguesa, este palácio oferece uma vista impressionante sobre o rio Tejo e exibe uma rica coleção de arte decorativa.',
+        'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGxeXMkVMVHDDb-6S7U_zFDfw6JAgh18ZcYJwmFn0ygvu5khZa-SXTeer1U7-jl8znP0GxBSEmfgpShqWYUqjwsgjX3PzMt5vIKNszlo_CsjuDtp7z8utgqLr_rLKzCWyT9My1EzXjtQAU/s1600/palacio-da-ajuda.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+      'Basílica da Estrela',
+        'Praça da Estrela, 1200-667 Lisboa',
+        '-9.157564',
+        '38.713587',
+        'Uma das igrejas mais bonitas de Lisboa, com uma cúpula impressionante e um interior decorado em mármore. Construída no século XVIII por ordem da Rainha D. Maria I.',
+        'https://i.pinimg.com/originals/62/a5/fb/62a5fb9e516dd2c8f7393bcf4eb15a8e.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+     'Panteão Nacional',
+        'Campo de Santa Clara, 1100-471 Lisboa',
+        '-9.122669',
+        '38.715585',
+        'Local onde estão sepultadas figuras importantes da história de Portugal, como Amália Rodrigues e Eusébio. Oferece vistas panorâmicas sobre Lisboa.',
+        'https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2022/03/08092303/panteao-nacional-3.jpg'
+    ),
+
+ insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+      'Museu da Marioneta',
+        'Convento das Bernardas, R. da Esperança 146, 1200-660 Lisboa',
+        '-9.154227',
+        '38.710312',
+        'Museu dedicado à arte das marionetas, com uma coleção de marionetas tradicionais de Portugal e de outras partes do mundo.',
+        'https://offloadmedia.feverup.com/lisboasecreta.co/wp-content/uploads/2020/05/16095416/museu-da-marioneta-%40egeac.jpg'
+    );
