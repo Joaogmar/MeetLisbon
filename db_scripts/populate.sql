@@ -2385,6 +2385,7 @@ values (
         '38.763790',
         'Um dos maiores aquários do mundo, com uma vasta coleção de espécies marinhas. Localizado no Parque das Nações, foi inaugurado durante a Expo 98.',
         'https://www.lisboa.net/f/portugal/lisboa/guia/oceanario-m.jpg'
+     ),
 
     insert into
     poi (
