@@ -1,49 +1,2092 @@
-insert into users (username, password, role, gender, nationality, age_group,location)
-values ('maria', 'maria123', 'admin', 'F', 'portuguesa', '18-24', 'Lisboa');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'maria',
+        'maria123',
+        'admin',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Lisboa'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('joao', 'joao123', 'admin', 'M', 'portuguesa', '18-24', 'Setúbal');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'joao',
+        'joao123',
+        'admin',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Setúbal'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('afonso', 'afonso123', 'admin', 'M', 'portuguesa', '18-24', 'Lisboa');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'afonso',
+        'afonso123',
+        'admin',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Lisboa'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('roberta', 'roberta123', 'admin', 'F', 'portuguesa', '18-24', 'Setúbal');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'roberta',
+        'roberta123',
+        'admin',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Setúbal'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('rodrigo', 'rodrigo123', 'admin', 'M', 'portuguesa', '18-24', 'Lisboa');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'rodrigo',
+        'rodrigo123',
+        'admin',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Lisboa'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('miguel', 'miguel123', 'users', 'M', 'portuguesa', '25-34', 'Faro');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'miguel',
+        'miguel123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Faro'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('cesar', 'cesar123', 'users', 'M', 'portuguesa', '25-34', 'Santarém');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'cesar',
+        'cesar123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Santarém'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('laura', 'laura123', 'users', 'F', 'portuguesa', '18-24', 'Coimbra');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'laura',
+        'laura123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Coimbra'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('joana', 'joana123', 'users', 'F', 'portuguesa', '25-34', 'Coimbra');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'joana',
+        'joana123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Coimbra'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('bernardo', 'bernardo123', 'users', 'M', 'portuguesa', '25-34', 'Cambridge'    );
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'bernardo',
+        'bernardo123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Cambridge'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('sofia', 'sofia123', 'users', 'F', 'portuguesa', '35-44', 'Évora');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'sofia',
+        'sofia123',
+        'users',
+        'F',
+        'portuguesa',
+        '35-44',
+        'Évora'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('andre', 'andre123', 'users', 'M', 'portuguesa', '25-34', 'Porto');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'andre',
+        'andre123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Porto'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('goncalo', 'goncalo123', 'users', 'M', 'portuguesa', '18-24','Madrid');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'goncalo',
+        'goncalo123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Madrid'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('marta', 'marta123', 'users', 'F', 'portuguesa', '25-34', 'Sevilla');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'marta',
+        'marta123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Sevilla'
+    );
 
-insert into users (username, password, role, gender, nationality, age_group, location)
-values ('martim', 'martim123', 'users', 'M', 'portuguesa', '18-24', 'Barcelona');
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'martim',
+        'martim123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Barcelona'
+    );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'anabela',
+        'anabela123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Porto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'luis',
+        'luis123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Lisboa'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'diana',
+        'diana123',
+        'users',
+        'F',
+        'portuguesa',
+        '35-44',
+        'Braga'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'pedro',
+        'pedro123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Coimbra'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'carlos',
+        'carlos123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Faro'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'teresa',
+        'teresa123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Aveiro'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'filipa',
+        'filipa123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Viseu'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'eduardo',
+        'eduardo123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Braga'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'fernanda',
+        'fernanda123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Évora'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'victor',
+        'victor123',
+        'users',
+        'M',
+        'portuguesa',
+        '35-44',
+        'Santarém'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'beatriz',
+        'beatriz123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Lisboa'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'tiago',
+        'tiago123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Setúbal'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'ines',
+        'ines123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Porto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'rui',
+        'rui123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Guarda'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'clara',
+        'clara123',
+        'users',
+        'F',
+        'portuguesa',
+        '35-44',
+        'Bragança'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'david',
+        'david123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Lisboa'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'raquel',
+        'raquel123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Leiria'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'gabriel',
+        'gabriel123',
+        'users',
+        'M',
+        'portuguesa',
+        '35-44',
+        'Albufeira'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'matilde',
+        'matilde123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Porto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'leandro',
+        'leandro123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Viana do Castelo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'patricia',
+        'patricia123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Setúbal'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'ricardo',
+        'ricardo123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Lisboa'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'mariana',
+        'mariana123',
+        'users',
+        'F',
+        'portuguesa',
+        '35-44',
+        'Faro'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'henrique',
+        'henrique123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Coimbra'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'catarina',
+        'catarina123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Santarém'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'joel',
+        'joel123',
+        'users',
+        'M',
+        'portuguesa',
+        '18-24',
+        'Porto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'adriana',
+        'adriana123',
+        'users',
+        'F',
+        'portuguesa',
+        '25-34',
+        'Lisboa'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'francisco',
+        'francisco123',
+        'users',
+        'M',
+        'portuguesa',
+        '25-34',
+        'Porto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'veronica',
+        'veronica123',
+        'users',
+        'F',
+        'portuguesa',
+        '18-24',
+        'Faro'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'anna',
+        'anna123',
+        'users',
+        'F',
+        'alemã',
+        '18-24',
+        'Berlim'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'sebastian',
+        'sebastian123',
+        'users',
+        'M',
+        'alemão',
+        '25-34',
+        'Munique'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'amelia',
+        'amelia123',
+        'users',
+        'F',
+        'espanhola',
+        '18-24',
+        'Madrid'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'javier',
+        'javier123',
+        'users',
+        'M',
+        'espanhol',
+        '25-34',
+        'Barcelona'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'chiara',
+        'chiara123',
+        'users',
+        'F',
+        'italiana',
+        '35-44',
+        'Roma'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'luca',
+        'luca123',
+        'users',
+        'M',
+        'italiano',
+        '25-34',
+        'Milão'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'emma',
+        'emma123',
+        'users',
+        'F',
+        'francesa',
+        '18-24',
+        'Paris'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'thomas',
+        'thomas123',
+        'users',
+        'M',
+        'francês',
+        '25-34',
+        'Lyon'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'sofia',
+        'sofia123',
+        'users',
+        'F',
+        'brasileira',
+        '18-24',
+        'São Paulo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'gabriel',
+        'gabriel123',
+        'users',
+        'M',
+        'brasileiro',
+        '25-34',
+        'Rio de Janeiro'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'lucas',
+        'lucas123',
+        'users',
+        'M',
+        'argentino',
+        '25-34',
+        'Buenos Aires'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'valentina',
+        'valentina123',
+        'users',
+        'F',
+        'argentina',
+        '18-24',
+        'Rosário'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'olivia',
+        'olivia123',
+        'users',
+        'F',
+        'americana',
+        '25-34',
+        'Nova York'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'michael',
+        'michael123',
+        'users',
+        'M',
+        'americano',
+        '35-44',
+        'Los Angeles'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'li',
+        'li123',
+        'users',
+        'M',
+        'chinês',
+        '18-24',
+        'Pequim'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'mei',
+        'mei123',
+        'users',
+        'F',
+        'chinesa',
+        '25-34',
+        'Xangai'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'hiroshi',
+        'hiroshi123',
+        'users',
+        'M',
+        'japonês',
+        '35-44',
+        'Tóquio'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'sakura',
+        'sakura123',
+        'users',
+        'F',
+        'japonesa',
+        '25-34',
+        'Osaka'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'emma',
+        'emma_it123',
+        'users',
+        'F',
+        'italiana',
+        '25-34',
+        'Nápoles'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'daniel',
+        'daniel123',
+        'users',
+        'M',
+        'canadense',
+        '18-24',
+        'Toronto'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'amelie',
+        'amelie123',
+        'users',
+        'F',
+        'canadense',
+        '25-34',
+        'Montreal'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'simon',
+        'simon123',
+        'users',
+        'M',
+        'inglês',
+        '18-24',
+        'Londres'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'elizabeth',
+        'elizabeth123',
+        'users',
+        'F',
+        'inglesa',
+        '25-34',
+        'Manchester'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'maria',
+        'maria_sp123',
+        'users',
+        'F',
+        'espanhola',
+        '35-44',
+        'Sevilha'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'diego',
+        'diego123',
+        'users',
+        'M',
+        'mexicano',
+        '25-34',
+        'Cidade do México'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'sofia',
+        'sofia_arg123',
+        'users',
+        'F',
+        'argentina',
+        '25-34',
+        'Córdoba'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'mario',
+        'mario123',
+        'users',
+        'M',
+        'italiano',
+        '35-44',
+        'Turim'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'ines',
+        'ines_br123',
+        'users',
+        'F',
+        'brasileira',
+        '18-24',
+        'Brasília'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'samuel',
+        'samuel123',
+        'users',
+        'M',
+        'americano',
+        '25-34',
+        'Chicago'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'victoria',
+        'victoria123',
+        'users',
+        'F',
+        'inglesa',
+        '25-34',
+        'Liverpool'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'hans',
+        'hans123',
+        'users',
+        'M',
+        'alemão',
+        '18-24',
+        'Hamburgo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'lena',
+        'lena123',
+        'users',
+        'F',
+        'alemã',
+        '25-34',
+        'Frankfurt'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'pierre',
+        'pierre123',
+        'users',
+        'M',
+        'francês',
+        '35-44',
+        'Marselha'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'claire',
+        'claire123',
+        'users',
+        'F',
+        'francesa',
+        '18-24',
+        'Nice'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'antonio',
+        'antonio123',
+        'users',
+        'M',
+        'italiano',
+        '25-34',
+        'Gênova'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'alessandra',
+        'alessandra123',
+        'users',
+        'F',
+        'italiana',
+        '18-24',
+        'Florença'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'miguel',
+        'miguel_sp123',
+        'users',
+        'M',
+        'espanhol',
+        '25-34',
+        'Valência'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'carmen',
+        'carmen123',
+        'users',
+        'F',
+        'espanhola',
+        '35-44',
+        'Granada'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'oliver',
+        'oliver123',
+        'users',
+        'M',
+        'inglês',
+        '25-34',
+        'Edimburgo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'amelia',
+        'amelia_uk123',
+        'users',
+        'F',
+        'inglesa',
+        '18-24',
+        'Oxford'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'liam',
+        'liam123',
+        'users',
+        'M',
+        'irlandês',
+        '25-34',
+        'Dublin'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'aoife',
+        'aoife123',
+        'users',
+        'F',
+        'irlandesa',
+        '35-44',
+        'Galway'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'yuki',
+        'yuki123',
+        'users',
+        'M',
+        'japonês',
+        '18-24',
+        'Yokohama'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'hanako',
+        'hanako123',
+        'users',
+        'F',
+        'japonesa',
+        '25-34',
+        'Hiroshima'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'chang',
+        'chang123',
+        'users',
+        'M',
+        'chinês',
+        '35-44',
+        'Cantão'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'xin',
+        'xin123',
+        'users',
+        'F',
+        'chinesa',
+        '18-24',
+        'Chengdu'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'dmitry',
+        'dmitry123',
+        'users',
+        'M',
+        'russo',
+        '25-34',
+        'Moscou'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'anastasia',
+        'anastasia123',
+        'users',
+        'F',
+        'russa',
+        '35-44',
+        'São Petersburgo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'rahul',
+        'rahul123',
+        'users',
+        'M',
+        'indiano',
+        '18-24',
+        'Mumbai'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'isha',
+        'isha123',
+        'users',
+        'F',
+        'indiana',
+        '25-34',
+        'Nova Deli'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'ali',
+        'ali123',
+        'users',
+        'M',
+        'paquistanês',
+        '35-44',
+        'Lahore'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'zara',
+        'zara123',
+        'users',
+        'F',
+        'paquistanesa',
+        '18-24',
+        'Islamabad'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'lucas',
+        'lucas_mx123',
+        'users',
+        'M',
+        'mexicano',
+        '25-34',
+        'Guadalajara'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'isabella',
+        'isabella123',
+        'users',
+        'F',
+        'mexicana',
+        '35-44',
+        'Monterrey'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'gustav',
+        'gustav123',
+        'users',
+        'M',
+        'sueco',
+        '18-24',
+        'Estocolmo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'elin',
+        'elin123',
+        'users',
+        'F',
+        'sueca',
+        '25-34',
+        'Gotemburgo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'niklas',
+        'niklas123',
+        'users',
+        'M',
+        'norueguês',
+        '35-44',
+        'Oslo'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'solveig',
+        'solveig123',
+        'users',
+        'F',
+        'norueguesa',
+        '18-24',
+        'Bergen'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'pedro',
+        'pedro_bo123',
+        'users',
+        'M',
+        'boliviano',
+        '25-34',
+        'La Paz'
+    );
+
+insert into
+    users (
+        username,
+        password,
+        role,
+        gender,
+        nationality,
+        age_group,
+        location
+    )
+values (
+        'camila',
+        'camila123',
+        'users',
+        'F',
+        'boliviana',
+        '35-44',
+        'Santa Cruz'
+    );
+
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Padrão dos Descobrimentos',
         'Av. Brasília, 1400-038 Lisboa',
@@ -55,7 +2098,15 @@ values (
         'https://i.imgur.com/n7Q4HHM.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Torre de Belém',
         'Av. Brasília, 1400-038 Lisboa',
@@ -68,7 +2119,15 @@ values (
         'https://i.imgur.com/KN7EF21.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Armazéns do Chiado',
         'R. do Carmo, 1200-094 Lisboa',
@@ -80,7 +2139,15 @@ values (
         'https://i.imgur.com/NXLLEv4.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Lisboa Story Centre',
         'Praça do Comércio 78, 1100-148 Lisboa',
@@ -92,7 +2159,15 @@ values (
         'https://i.imgur.com/HQ28gm7.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Praça Luís de Camões',
         'Largo Luís de Camões, 1200-243 Lisboa',
@@ -104,7 +2179,15 @@ values (
         'https://i.imgur.com/8NZp3Kf.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Farol de Belém',
         'Av. Brasília, 1400-038 Lisboa',
@@ -116,7 +2199,15 @@ values (
         'https://i.imgur.com/OeB656k.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Timeout Market Lisboa',
         'Av. 24 de Julho 49, 1200-479 Lisboa',
@@ -127,7 +2218,15 @@ values (
         'https://i.imgur.com/gE5UNHa.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Arco do Triunfo',
         'R. Augusta 2, 1100-053 Lisboa',
@@ -138,7 +2237,15 @@ values (
         'https://i.imgur.com/PpQSuXD.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Estátua D. José I',
         'Praça do Comércio MB, 1100-148 Lisboa',
@@ -150,7 +2257,15 @@ values (
         'https://i.imgur.com/X5okuwp.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'IADE',
         'Av. Dom Carlos i 4, 1200-649 Lisboa',
@@ -162,7 +2277,15 @@ values (
         'https://i.imgur.com/YzVHqOJ.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
 values (
         'Rua cor de Rosa',
         'R. Nova do Carvalho, 1200-370 Lisboa',
@@ -173,8 +2296,18 @@ values (
         'https://i.imgur.com/rK37VGk.jpg'
     );
 
-insert into poi (location_name, location_address, longitude, latitude, info, image_url)
-values ('Teatro da Trindade INATEL', 'R. Nova da Trindade 9, 1200-301 Lisboa',
+insert into
+    poi (
+        location_name,
+        location_address,
+        longitude,
+        latitude,
+        info,
+        image_url
+    )
+values (
+        'Teatro da Trindade INATEL',
+        'R. Nova da Trindade 9, 1200-301 Lisboa',
         '-9.14248954471498',
         '38.71202888351289',
         'Em 1866, Francisco Palha, escritor e dramaturgo, decidiu construir o seu próprio teatro. <br>
