@@ -1429,8 +1429,8 @@ insert into
         location
     )
 values (
-        'ines',
-        'ines_br123',
+        'aurora',
+        'aurora_br123',
         'users',
         'F',
         'brasileira',
