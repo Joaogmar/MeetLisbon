@@ -1669,8 +1669,8 @@ insert into
         location
     )
 values (
-        'amelia',
-        'amelia_uk123',
+        'avenna',
+        'avenna_uk123',
         'users',
         'F',
         'inglesa',
@@ -1929,8 +1929,8 @@ insert into
         location
     )
 values (
-        'lucas',
-        'lucas_mx123',
+        'luccas',
+        'luccas_mx123',
         'users',
         'M',
         'mexicano',
@@ -2049,8 +2049,8 @@ insert into
         location
     )
 values (
-        'pedro',
-        'pedro_bo123',
+        'julio',
+        'julio_bo123',
         'users',
         'M',
         'boliviano',
