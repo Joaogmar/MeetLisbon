@@ -1349,8 +1349,8 @@ insert into
         location
     )
 values (
-        'maria',
-        'maria_sp123',
+        'mariah',
+        'mariah_sp123',
         'users',
         'F',
         'espanhola',
