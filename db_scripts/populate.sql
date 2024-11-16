@@ -1069,8 +1069,8 @@ insert into
         location
     )
 values (
-        'gabriel',
-        'gabriel123',
+        'gustavo',
+        'gustavo123',
         'users',
         'M',
         'brasileiro',
