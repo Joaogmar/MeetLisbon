@@ -1609,8 +1609,8 @@ insert into
         location
     )
 values (
-        'miguel',
-        'miguel_sp123',
+        'michel',
+        'michel_sp123',
         'users',
         'M',
         'espanhol',
