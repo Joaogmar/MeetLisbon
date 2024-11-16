@@ -1049,8 +1049,8 @@ insert into
         location
     )
 values (
-        'sofia',
-        'sofia123',
+        'aline',
+        'aline123',
         'users',
         'F',
         'brasileira',
@@ -1389,8 +1389,8 @@ insert into
         location
     )
 values (
-        'sofia',
-        'sofia_arg123',
+        'marcio',
+        'marcio_arg123',
         'users',
         'F',
         'argentina',
