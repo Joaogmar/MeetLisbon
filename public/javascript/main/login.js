@@ -21,7 +21,7 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
             if (data.role === "admin") {
                 window.location.href = "/pages/admin/admin.html";
             } else if (data.role === "user") {
-                window.location.href = "/pages/user/user.html";
+                window.location.href = "/pages/user/usermap.html";
             }
         } else {
             alert(data.message || "Login failed. Please try again.");
