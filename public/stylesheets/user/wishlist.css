@@ -205,3 +205,31 @@ body {
     background-color: #56B24B;
     color: white;
 }
+
+.wishlist-container {
+    padding: 20px;
+  }
+  
+  .poi-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .poi-info {
+    flex: 1;
+  }
+  
+  .poi-actions button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .poi-actions button:hover {
+    background-color: darkred;
+  }
