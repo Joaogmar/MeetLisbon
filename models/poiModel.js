@@ -68,4 +68,18 @@ async function removeFavorite(userId, poiId) {
     }
 }
 
-module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavorite };
+async function checkFavorite(userId, poiId) {
+    try {
+        const result = await pool.query(
+            `SELECT * FROM favorite_places WHERE user_id = $1 AND poi_id = $2`,
+            [userId, poiId]
+        );
+        return result.rows.length > 0;  // Returns true if the user has favorited the POI
+    } catch (error) {
+        console.error('Error checking favorite:', error.message);
+        throw error;
+    }
+}
+
+
+module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavorite, checkFavorite };

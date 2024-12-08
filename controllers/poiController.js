@@ -52,7 +52,7 @@ const deletePOI = async (req, res) => {
 
 async function favoritePOI(req, res) {
     try {
-        const userId = req.user.userId; // Extract user ID from JWT (ensure this is correct)
+        const userId = req.user.user_id; // Extract user ID from JWT
         let { poi_id } = req.body;
 
         console.log('Favorite POI request body:', req.body);
@@ -73,27 +73,34 @@ async function favoritePOI(req, res) {
             return res.status(400).json({ message: 'User ID is required' });
         }
 
-        console.log('Calling favoritePOI with:', { userId, poi_id });
+        // Check if the POI is already favorited
+        const existingFavorite = await POI.checkFavorite(userId, poi_id);
 
-        // Call the model to handle favoriting the POI
-        const favorite = await POI.favoritePOI(userId, poi_id);
-        console.log('Favorite POI result:', favorite);
-
-        // Send the success response
-        res.status(201).json({ message: 'POI favorited successfully', favorite });
+        if (existingFavorite) {
+            // If it's already favorited, remove it (unfavorite)
+            await POI.removeFavorite(userId, poi_id);
+            console.log('POI unfavorited');
+            return res.status(200).json({ message: 'POI unfavorited successfully' });
+        } else {
+            // If it's not favorited, add it (favorite)
+            const favorite = await POI.favoritePOI(userId, poi_id);
+            console.log('POI favorited');
+            return res.status(201).json({ message: 'POI favorited successfully', favorite });
+        }
 
     } catch (error) {
-        console.error('Error favoriting POI:', error.message);
+        console.error('Error favoriting/unfavoriting POI:', error.message);
 
         // Check if response has already been sent
         if (!res.headersSent) {
-            res.status(500).json({ message: 'Error favoriting POI', error: error.message });
+            res.status(500).json({ message: 'Error favoriting/unfavoriting POI', error: error.message });
         }
     }
 }
 
+// Function to get the favorited POIs
 const getFavoritedPOIs = async (req, res) => {
-    const user_id = req.user.user_id; 
+    const user_id = req.user.user_id; // Ensure that user_id is extracted correctly
 
     console.log('Controller received user_id:', user_id);
 
@@ -106,18 +113,26 @@ const getFavoritedPOIs = async (req, res) => {
     }
 };
 
-
+// Function to remove a POI from favorites
 async function removeFavoritePOI(req, res) {
     try {
-        const userId = req.user.userId; // Extract user ID from the token
+        const userId = req.user.user_id; // Extract user ID from the token (fix inconsistency here)
         const { poi_id } = req.params; // Extract poi_id from the URL
 
-        if (!poi_id || isNaN(parseInt(poi_id, 10))) {
+        // Parse the poi_id and ensure it's a valid number
+        const parsedPoiId = parseInt(poi_id, 10);
+
+        if (!parsedPoiId || isNaN(parsedPoiId)) {
             return res.status(400).json({ message: 'Valid poi_id is required' });
         }
 
+        // Check if userId is valid
+        if (!userId) {
+            return res.status(400).json({ message: 'User ID is required' });
+        }
+
         // Call the model to remove the favorite
-        const removedFavorite = await POI.removeFavorite(userId, parseInt(poi_id, 10));
+        const removedFavorite = await POI.removeFavorite(userId, parsedPoiId);
 
         if (removedFavorite) {
             return res.status(200).json({ message: 'POI removed from favorites', removedFavorite });

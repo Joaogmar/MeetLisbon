@@ -51,19 +51,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function favoritePlace(event) {
     const button = event.currentTarget; // Save a reference to the button element
     const placeId = button.dataset.id;
-    const isFavorited = button.innerText.trim() === 'Favorited'; // Check if the place is already favorited
+    const isFavorited = button.classList.contains('favorited'); // Use the 'favorited' class to determine if it's favorited
 
     try {
         // Determine the URL and method based on the favorite state
         const url = `/api/poi/${isFavorited ? 'removeFavoritePOI/' + placeId : 'favoritePOI'}`;
         const method = isFavorited ? 'DELETE' : 'POST';
 
+        // Log the token to see if it's being sent
+        const token = localStorage.getItem('token');
+        console.log('Sending request with token:', token); // Check if the token is correct
+
         // Send the request to favorite or remove the favorite
         const response = await fetch(url, {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Authorization': `Bearer ${token}`, // Ensure the token is set here
             },
             ...(isFavorited ? {} : { body: JSON.stringify({ poi_id: placeId }) }), // Only include body for POST
         });
@@ -74,9 +78,11 @@ async function favoritePlace(event) {
             // Update button based on whether it's being added or removed from favorites
             if (isFavorited) {
                 alert('Place removed from favorites!');
+                button.classList.remove('favorited');
                 button.innerHTML = '<span class="material-icons">favorite_border</span> Favorite'; // Change button to show un-favorited
             } else {
                 alert('Place favorited successfully!');
+                button.classList.add('favorited');
                 button.innerHTML = '<span class="material-icons">favorite</span> Favorited'; // Change button to show favorited
             }
         } else {
