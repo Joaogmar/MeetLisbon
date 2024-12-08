@@ -106,10 +106,10 @@ html, body {
 
 #map {
     height: 100%;
-    width: 100%;
+    width: 97%;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 1;
 }
 

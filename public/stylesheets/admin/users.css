@@ -6,8 +6,9 @@
 
 html, body {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #FAF5EF);
 }
 
 .navbar-admin {
@@ -54,7 +55,7 @@ html, body {
 
 .navbar-admin:hover .avatar-img {
     width: 8vh;
-    height: 8vh; 
+    height: 8vh;
 }
 
 .nav-buttons-admin {
@@ -104,93 +105,68 @@ html, body {
     background-color: #D27F38;
 }
 
-.meet-lisbon {
-    color: #f2f2f2;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    margin-right: 50px;
+.content-wrapper h1 {
+    margin-left: 20vh;
+    margin-top: 2.5vh;
 }
 
-.logo {
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
+h2 {
+    margin-bottom: 2vh;
+    margin-top: 1vh;
 }
 
-.logo img {
-    max-height: 100px;
-    width: auto;
-    margin-right: 10px;
-}
-
-.logout {
-    display: flex;
-    align-items: center;
-}
-
-.logout button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.search-container {
-    margin-bottom: 20px;
-}
-
-.error-message {
-    color: red;
-    margin-top: 10px;
-}
-
-#users-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-#users-list-container {
-    max-height: 400px;
-    overflow-y: auto;
-    margin-top: 20px;
-}
-
-#search-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.user-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.table-container-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-left: 15vh;
+    padding: 2vh;
+    gap: 2vh;
 }
 
-.delete-user {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
+.table-container {
+    flex: 1;
+    min-width: 45%; 
+    max-width: 48%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2vh;
+}
+
+th, td {
+    text-align: left;
+    padding: 1.2vh;
+    border: 0.1vh solid #ddd;
+}
+
+th {
+    background-color: #0076A8;
+    color: #FAF5EF;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-icon {
     cursor: pointer;
+    margin: 0 0.5vh;
+    font-size: 2vh;
+    border: 0.1vh solid #ddd;
+    border-radius: 0.4vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.action-icon:hover {
+    color: #fff;
+    background-color: #D27F38;
+}
+
+td.icon {
+    text-align: center;
+    vertical-align: middle;
+    padding: 1vh; 
 }

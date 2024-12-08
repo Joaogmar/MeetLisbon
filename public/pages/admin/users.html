@@ -7,7 +7,7 @@
     <title>Users Management</title>
     <link rel="stylesheet" href="/stylesheets/admin/users.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,10 +22,6 @@
                 <span class="material-icons icon">dashboard</span>
                 <span class="nav-text">Dashboard</span>
             </div>
-            <div class="nav-item-admin" onclick="location.href='places-admin.html'">
-                <span class="material-icons icon">place</span>
-                <span class="nav-text">Places</span>
-            </div>
             <div class="nav-item-admin" onclick="location.href='users.html'">
                 <span class="material-icons icon">manage_accounts</span>
                 <span class="nav-text">Users Management</span>
@@ -38,15 +34,79 @@
         </div>
     </div>
 
-    <div class="container">
-        <h2>Users</h2>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search users...">
+    <div class="content-wrapper">
+        <h1>User Management</h1>
+        
+        <div class="table-container-wrapper">
+            <!-- User Table -->
+            <div class="table-container">
+                <h2>User Table</h2>
+                <table id="userTable">
+                    <thead class="table-head">
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>User1</td>
+                            <td>password123</td>
+                            <td class="icon">
+                                <span class="material-icons action-icon">arrow_upward</span>
+                                <span class="material-icons action-icon">close</span>
+                                <span class="material-icons action-icon">edit</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User2</td>
+                            <td>password456</td>
+                            <td class="icon">
+                                <span class="material-icons action-icon">arrow_upward</span>
+                                <span class="material-icons action-icon">close</span>
+                                <span class="material-icons action-icon">edit</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Admin Table -->
+            <div class="table-container">
+                <h2>Admin Table</h2>
+                <table id="adminTable">
+                    <thead class="table-head">
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Admin1</td>
+                            <td>adminpass123</td>
+                            <td class="icon">
+                                <span class="material-icons action-icon">arrow_downward</span>
+                                <span class="material-icons action-icon">close</span>
+                                <span class="material-icons action-icon">edit</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Admin2</td>
+                            <td>adminpass456</td>
+                            <td class="icon">
+                                <span class="material-icons action-icon">arrow_downward</span>
+                                <span class="material-icons action-icon">close</span>
+                                <span class="material-icons action-icon">edit</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div id="users-list-container">
-            <div id="users-list"></div>
-        </div>
-    </div>
+        
 
     <script src="/javascript/admin/users.js"></script>
 </body>

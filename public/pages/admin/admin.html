@@ -12,6 +12,12 @@
 </head>
 
 <body>
+    <img class="background-image" src="/img/bck-admin2.jpg" alt="background">
+
+    <div class="title">
+        <p>Dashboard</p>
+    </div>
+
     <div class="navbar-admin">
         <div class="avatar">
             <img src="/img/avatar.jpg" alt="Avatar" class="avatar-img">
@@ -22,10 +28,6 @@
             <div class="nav-item-admin" onclick="location.href='admin.html'">
                 <span class="material-icons icon">dashboard</span>
                 <span class="nav-text">Dashboard</span>
-            </div>
-            <div class="nav-item-admin" onclick="location.href='places-admin.html'">
-                <span class="material-icons icon">place</span>
-                <span class="nav-text">Places</span>
             </div>
             <div class="nav-item-admin" onclick="location.href='users.html'">
                 <span class="material-icons icon">manage_accounts</span>
@@ -39,7 +41,39 @@
         </div>
     </div>
 
-    <div id="map"></div>
+    <br>
+
+    <div class="main-container">
+        <div class="form-container">
+            <h2>Adicionar novo ponto</h2>
+            <form id="add-point-form">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" placeholder="Nome">
+                
+                <label for="address">Morada</label>
+                <input type="text" id="address" name="address" placeholder="Morada">
+                
+                <label for="latitude">Latitude</label>
+                <input type="text" id="latitude" name="latitude" placeholder="Latitude">
+                
+                <label for="longitude">Longitude</label>
+                <input type="text" id="longitude" name="longitude" placeholder="Longitude">
+                
+                <label for="image">URL Imagem</label>
+                <input type="text" id="image" name="image" placeholder="URL da imagem">
+                
+                <label for="info">Info</label>
+                <textarea id="info" name="info" placeholder="Informações adicionais" rows="4"></textarea>
+                
+                <button type="submit">Criar ponto</button>
+            </form>
+        </div>
+
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
+    
 
     <script src="/javascript/admin.js"></script>
 

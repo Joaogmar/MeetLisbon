@@ -1,3 +1,10 @@
+const textarea = document.getElementById('info');
+
+textarea.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+});
+
 document.addEventListener('DOMContentLoaded', async function () {
     try {
         const response = await fetch('/admin');
