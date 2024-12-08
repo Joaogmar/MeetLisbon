@@ -1,100 +1,91 @@
-const addPlaceContainer = document.querySelector('.add-place-container');
-const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-const wishlistElement = document.getElementById('wishlist');
+document.addEventListener('DOMContentLoaded', async () => {
+    const placeList = document.getElementById('place-list');
 
-addPlaceContainer.addEventListener('click', (event) => {
-  if (event.target.tagName === 'SPAN' && event.target.classList.contains('add-icon')) {
-    const name = event.target.dataset.name;
-    if (!wishlist.includes(name)) {
-      wishlist.push(name);
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
-      alert('Local adicionado à wishlist!');
+    try {
+        const response = await fetch('/api/poi/getAllPOI');
+        const places = await response.json();
+
+        const favoritesResponse = await fetch('/api/poi/getFavoritedPOIs', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        });        
+
+        const favoritedPlaces = await favoritesResponse.json();
+        const favoritedPlaceIds = favoritedPlaces.map(place => place.location_id);
+
+        if (response.ok) {
+            places.forEach(place => {
+                const placeDiv = document.createElement('div');
+                placeDiv.className = 'place';
+
+                const isFavorited = favoritedPlaceIds.includes(place.location_id); // Check if the place is already favorited
+
+                placeDiv.innerHTML = `
+                    <img src="${place.image_url}" alt="${place.location_name}" class="place-image">
+                    <div class="place-details">
+                        <h3>${place.location_name}</h3>
+                        <p>${place.info}</p>
+                        <button class="favorite-btn" data-id="${place.location_id}">
+                            <span class="material-icons">${isFavorited ? 'favorite' : 'favorite_border'}</span>
+                            ${isFavorited ? 'Favorited' : 'Favorite'}
+                        </button>
+                    </div>
+                `;
+
+                placeList.appendChild(placeDiv);
+            });
+
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+            favoriteButtons.forEach(button => {
+                button.addEventListener('click', favoritePlace);
+            });
+        } else {
+            alert('Failed to fetch places: ' + places.message);
+        }
+    } catch (error) {
+        console.error('Error fetching places:', error);
     }
-    window.location.href = 'wishlist.html';
-  }
 });
 
-function displayWishlist() {
-  wishlistElement.innerHTML = '';
-  for (let i = 0; i < wishlist.length; i++) {
-    const wishlistItem = document.createElement('div');
-    wishlistItem.textContent = wishlist[i];
-    wishlistItem.appendChild(removeButton);
-    wishlistElement.appendChild(wishlistItem);
-  }
-}
+async function favoritePlace(event) {
+    const button = event.currentTarget; // Save a reference to the button element
+    const placeId = button.dataset.id;
+    const isFavorited = button.innerText.trim() === 'Favorited'; // Check if the place is already favorited
 
-const placeList = document.getElementById('place-list');
+    try {
+        // Determine the URL and method based on the favorite state
+        const url = `/api/poi/${isFavorited ? 'removeFavoritePOI/' + placeId : 'favoritePOI'}`;
+        const method = isFavorited ? 'DELETE' : 'POST';
 
-async function fetchPlaces() {
-  const response = await fetch('/locations');
-  const places = await response.json();
-  displayPlaces(places);
-}
+        // Send the request to favorite or remove the favorite
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+            ...(isFavorited ? {} : { body: JSON.stringify({ poi_id: placeId }) }), // Only include body for POST
+        });
 
-function displayPlaces(places) {
-  placeList.innerHTML = '';
-  places.forEach(place => {
-    const placeItem = document.createElement('div');
-    placeItem.innerHTML = `
-      <h3>
-        <a href="#" data-id="${place.location_id}">${place.location_name}</a>
-        <div class="icons">
-          <span class="material-icons add-icon" data-name="${place.location_name}">add_circle_outline</span>
-        </div>
-      </h3>
-    `;
-    placeList.appendChild(placeItem);
-  });
-}
+        const responseData = await response.json();
 
-placeList.addEventListener('click', async (event) => {
-  if (event.target.classList.contains('add-icon')) {
-    const name = event.target.dataset.name;
-    addToWishlist(name);
-  }
-});
-
-function addToWishlist(name) {
-  if (!wishlist.includes(name)) {
-    wishlist.push(name);
-    localStorage.setItem('wishlist', JSON.stringify(wishlist));
-    alert('Local adicionado à wishlist!');
-  }
-  window.location.href = 'wishlist.html';
-}
-
-placeList.addEventListener('click', async (event) => {
-  if (event.target.tagName === 'A') {
-    event.preventDefault();
-    const placeId = event.target.dataset.id;
-    if (placeId) {
-      const place = await fetchPlaceDetails(placeId);
-      showPlacePopup(place);
+        if (response.ok) {
+            // Update button based on whether it's being added or removed from favorites
+            if (isFavorited) {
+                alert('Place removed from favorites!');
+                button.innerHTML = '<span class="material-icons">favorite_border</span> Favorite'; // Change button to show un-favorited
+            } else {
+                alert('Place favorited successfully!');
+                button.innerHTML = '<span class="material-icons">favorite</span> Favorited'; // Change button to show favorited
+            }
+        } else {
+            const errorMessage = responseData?.message || 'Unknown error occurred.';
+            console.error('Error toggling favorite place:', errorMessage);
+            alert('Error toggling favorite place: ' + errorMessage);
+        }
+    } catch (networkError) {
+        console.error('Network error or unexpected issue:', networkError);
+        alert('An error occurred while toggling the place. Please try again.');
     }
-  }
-});
-
-async function fetchPlaceDetails(placeId) {
-  const response = await fetch(`/locations/${placeId}`);
-  if (response.ok) {
-    return await response.json();
-  } else {
-    throw new Error('Failed to fetch place details');
-  }
 }
-
-function showPlacePopup(place) {
-  const popup = document.getElementById('place-popup');
-  document.getElementById('popup-name').innerHTML = place.location_name;
-  document.getElementById('popup-info').innerHTML = place.info;
-  document.getElementById('popup-image').src = place.image_url;
-  popup.style.display = 'block';
-}
-
-document.querySelector('.close-btn').addEventListener('click', () => {
-  document.getElementById('place-popup').style.display = 'none';
-});
-
-fetchPlaces();
-displayWishlist();
