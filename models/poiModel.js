@@ -81,5 +81,61 @@ async function checkFavorite(userId, poiId) {
     }
 }
 
+const saveUserRoute = async (userId, routeName, routePoints) => {
+    try {
+        console.log('Save user route function called with:', { userId, routeName, routePoints });
 
-module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavorite, checkFavorite };
+        const nextIdResult = await pool.query(`SELECT COALESCE(MAX(fr_id), 0) + 1 AS next_id FROM favorite_routes`);
+        const nextId = nextIdResult.rows[0].next_id;
+
+        console.log('Generated next ID for favorite_routes:', nextId);
+
+        const result = await pool.query(
+            `INSERT INTO favorite_routes (fr_id, user_id, route_name, route_points) 
+             VALUES ($1, $2, $3, $4) 
+             RETURNING *`,
+            [nextId, userId, routeName, JSON.stringify(routePoints)]
+        );
+
+        console.log('Successfully inserted favorite route:', result.rows[0]);
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error in saveUserRoute function:', error.message);
+        throw error;
+    }
+};
+
+const deleteUserRoute = async (userId, frId) => {
+    const query = `
+        DELETE FROM favorite_routes
+        WHERE fr_id = $1 AND user_id = $2
+        RETURNING *;
+    `;
+    const values = [frId, userId];
+
+    try {
+        const result = await pool.query(query, values);  // Use pool.query instead of db.query
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error deleting user route:', error);
+        throw new Error('Database error while deleting route');
+    }
+};
+
+const getUserRoutes = async (userId) => {
+    const query = `
+        SELECT * FROM favorite_routes
+        WHERE user_id = $1;
+    `;
+    const values = [userId];
+
+    try {
+        const result = await pool.query(query, values);  // Use pool.query instead of db.query
+        return result.rows;
+    } catch (error) {
+        console.error('Error fetching user routes:', error);
+        throw new Error('Database error while fetching routes');
+    }
+};
+
+module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavorite, checkFavorite, saveUserRoute, deleteUserRoute, getUserRoutes };

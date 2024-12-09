@@ -10,4 +10,8 @@ router.get('/getFavoritedPOIs', authenticateToken, poiController.getFavoritedPOI
 router.post('/favoritePOI', authenticateToken, poiController.favoritePOI);
 router.delete('/removeFavoritePOI/:poi_id', authenticateToken, poiController.removeFavoritePOI);
 
+router.post('/routes/save', authenticateToken, poiController.saveUserRoute);
+router.delete('/routes/delete/:fr_id', authenticateToken, poiController.deleteUserRoute);
+router.get('/routes', authenticateToken, poiController.showUserRoutes);  
+
 module.exports = router;

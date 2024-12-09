@@ -26,7 +26,7 @@ CREATE TABLE favorite_routes (
     fr_id INT NOT NULL PRIMARY KEY, 
     user_id INT NOT NULL,
     route_name VARCHAR NOT NULL,
-    route_points INT NOT NULL,
+    route_points JSONB NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE
 );
 

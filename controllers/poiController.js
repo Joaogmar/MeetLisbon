@@ -98,7 +98,6 @@ async function favoritePOI(req, res) {
     }
 }
 
-// Function to get the favorited POIs
 const getFavoritedPOIs = async (req, res) => {
     const user_id = req.user.user_id; // Ensure that user_id is extracted correctly
 
@@ -113,7 +112,6 @@ const getFavoritedPOIs = async (req, res) => {
     }
 };
 
-// Function to remove a POI from favorites
 async function removeFavoritePOI(req, res) {
     try {
         const userId = req.user.user_id; // Extract user ID from the token (fix inconsistency here)
@@ -145,4 +143,66 @@ async function removeFavoritePOI(req, res) {
     }
 }
 
-module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavoritePOI };
+const saveUserRoute = async (req, res) => {
+    const userId = req.user.user_id; 
+    const { route_name, route_points } = req.body;
+
+    if (!route_name || !Array.isArray(route_points) || route_points.length === 0) {
+        return res.status(400).json({ message: 'Route name and points are required' });
+    }
+
+    try {
+        const savedRoute = await POI.saveUserRoute(userId, route_name, route_points);
+        res.status(201).json({
+            message: 'Route saved successfully',
+            route: savedRoute,
+        });
+    } catch (error) {
+        console.error('Error saving user route:', error.message);
+        res.status(500).json({ message: 'Failed to save the route', error: error.message });
+    }
+};
+
+const deleteUserRoute = async (req, res) => {
+    const userId = req.user.user_id; 
+    const { fr_id } = req.params;
+
+    if (!fr_id) {
+        return res.status(400).json({ message: 'Route ID is required' });
+    }
+
+    try {
+        const deletedRoute = await POI.deleteUserRoute(userId, fr_id);
+        if (deletedRoute) {
+            res.status(200).json({
+                message: 'Route deleted successfully',
+                route: deletedRoute,
+            });
+        } else {
+            res.status(404).json({ message: 'Route not found' });
+        }
+    } catch (error) {
+        console.error('Error deleting user route:', error.message);
+        res.status(500).json({ message: 'Failed to delete the route', error: error.message });
+    }
+};
+
+const showUserRoutes = async (req, res) => {
+    const userId = req.user.user_id; 
+
+    try {
+        const routes = await POI.getUserRoutes(userId);
+        if (routes.length > 0) {
+            res.status(200).json({
+                routes,
+            });
+        } else {
+            res.status(404).json({ message: 'No routes found for this user' });
+        }
+    } catch (error) {
+        console.error('Error fetching user routes:', error.message);
+        res.status(500).json({ message: 'Failed to fetch routes', error: error.message });
+    }
+};
+
+module.exports = { getAllPOI, createPOI, deletePOI, favoritePOI, getFavoritedPOIs, removeFavoritePOI, saveUserRoute, deleteUserRoute, showUserRoutes };
