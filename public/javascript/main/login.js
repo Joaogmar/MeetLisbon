@@ -19,7 +19,7 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
             localStorage.setItem("token", data.token);
 
             if (data.role === "admin") {
-                window.location.href = "/pages/admin/admin.html";
+                window.location.href = "/pages/admin/dashboard.html";
             } else if (data.role === "user") {
                 window.location.href = "/pages/user/usermap.html";
             }
