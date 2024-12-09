@@ -7,5 +7,6 @@ router.get('/getAllAdmins', userController.getAllAdmins);
 router.delete('/deleteUser/:id', userController.deleteUser);
 router.patch('/promoteToAdmin/:id', userController.promoteToAdmin);
 router.patch('/demoteToUser/:id', userController.demoteToUser);
+router.patch('/changePassword/:id', userController.changePassword);
 
 module.exports = router;

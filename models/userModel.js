@@ -23,4 +23,12 @@ async function updateUserRole(id, role) {
     return result.rows[0];
 }
 
-module.exports = { getAllUsers, getAllAdmins, deleteUser, updateUserRole };
+async function updateUserPassword(id, hashedPassword) {
+    const result = await pool.query(
+        'UPDATE users SET password = $1 WHERE user_id = $2 RETURNING *',
+        [hashedPassword, id]
+    );
+    return result.rows[0];
+}
+
+module.exports = { getAllUsers, getAllAdmins, deleteUser, updateUserRole, updateUserPassword };

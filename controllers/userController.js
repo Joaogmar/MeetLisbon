@@ -1,4 +1,5 @@
 const userModel = require('../models/userModel');
+const bcrypt = require('bcrypt');
 
 const getAllUsers = async (req, res) => {
     try {
@@ -65,10 +66,28 @@ const demoteToUser = async (req, res) => {
     }
 };
 
-module.exports = {
-    getAllUsers,
-    getAllAdmins,
-    deleteUser,
-    promoteToAdmin,
-    demoteToUser
+const changePassword = async (req, res) => {
+    const { id } = req.params;
+    const { password } = req.body;
+
+    if (!password || password.length < 3) {
+        return res.status(400).json({ message: 'Password must be at least 3 characters long.' });
+    }
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const result = await userModel.updateUserPassword(id, hashedPassword);
+
+        if (result) {
+            res.status(200).json({ message: `Password for user with ID ${id} updated successfully.` });
+        } else {
+            res.status(404).json({ message: `User with ID ${id} not found.` });
+        }
+    } catch (error) {
+        console.error('Error updating password:', error);
+        res.status(500).json({ message: 'Server error. Could not update password.' });
+    }
 };
+
+module.exports = { getAllUsers, getAllAdmins, deleteUser, promoteToAdmin, demoteToUser, changePassword };
