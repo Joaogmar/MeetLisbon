@@ -1,29 +1,26 @@
 const pool = require('../config/dbConfig');
-const bcrypt = require('bcrypt');
 
-async function registerUser(username, password, role, age_group, gender, location, nationality) {
-    const hashedPassword = await bcrypt.hash(password, 10);
+async function getAllUsers() {
+    const result = await pool.query('SELECT * FROM users WHERE role = $1', ['user']);
+    return result.rows;
+}
+
+async function getAllAdmins() {
+    const result = await pool.query('SELECT * FROM users WHERE role = $1', ['admin']);
+    return result.rows;
+}
+
+async function deleteUser(id) {
+    const result = await pool.query('DELETE FROM users WHERE user_id = $1 RETURNING *', [id]);
+    return result.rows[0];
+}
+
+async function updateUserRole(id, role) {
     const result = await pool.query(
-        'INSERT INTO users (username, password, role, age_group, gender, location, nationality) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-        [username, hashedPassword, role, age_group, gender, location, nationality]
+        'UPDATE users SET role = $1 WHERE user_id = $2 RETURNING *',
+        [role, id]
     );
     return result.rows[0];
 }
 
-async function authenticateUser(username, password) {
-    const result = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
-    const user = result.rows[0];
-
-    if (!user) {
-        throw new Error('User not found');
-    }
-
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-        throw new Error('Invalid credentials');
-    }
-
-    return user;
-}
-
-module.exports = { registerUser, authenticateUser };
+module.exports = { getAllUsers, getAllAdmins, deleteUser, updateUserRole };

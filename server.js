@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const poiRoutes = require('./routes/poiRoutes');
+const userRoutes = require('./routes/userRoutes');
 const { authenticateToken } = require('./middleware/authMiddleware'); 
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/poi', poiRoutes);
+app.use('/api/user', userRoutes);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'pages', 'main', 'homepage.html'));

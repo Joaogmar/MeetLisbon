@@ -1,4 +1,4 @@
-const userModel = require('../models/userModel');
+const authModel = require('../models/authModel');
 const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const register = async (req, res) => {
     try {
         const { username, password, role, age_group, gender, location, nationality } = req.body;
-        const user = await userModel.registerUser(username, password, role, age_group, gender, location, nationality);
+        const user = await authModel.registerUser(username, password, role, age_group, gender, location, nationality);
         
         res.status(201).json({ message: 'User registered successfully', user });
     } catch (error) {
@@ -17,7 +17,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     try {
         const { username, password } = req.body;
-        const user = await userModel.authenticateUser(username, password);
+        const user = await authModel.authenticateUser(username, password);
 
         console.log('User during login:', user);
 
