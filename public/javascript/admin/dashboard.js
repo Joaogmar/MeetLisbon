@@ -94,6 +94,46 @@ async function initMap() {
         }
     };
 
+    document.getElementById("add-point-form").addEventListener("submit", async (event) => {
+        event.preventDefault();
+    
+        const formData = {
+            location_name: document.getElementById("name").value,
+            location_address: document.getElementById("address").value,
+            latitude: parseFloat(document.getElementById("latitude").value),
+            longitude: parseFloat(document.getElementById("longitude").value),
+            info: document.getElementById("info").value,
+            image_url: document.getElementById("image").value
+        };
+    
+        if (!formData.location_name || !formData.location_address || !formData.latitude || !formData.longitude) {
+            alert("Please fill out all required fields.");
+            return;
+        }
+    
+        try {
+            const response = await fetch('/api/poi/createPOI', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || "Failed to create POI.");
+            }
+    
+            fetchAndPlacePoiMarkers();
+    
+            alert("Point added successfully!");
+    
+            document.getElementById("add-point-form").reset();
+        } catch (error) {
+            console.error("Error creating POI:", error);
+            alert("An error occurred while creating the point. Please try again.");
+        }
+    });    
+
     initializeMap(fallbackPosition);
     fetchAndPlacePoiMarkers();
 }
