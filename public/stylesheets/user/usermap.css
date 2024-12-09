@@ -132,3 +132,57 @@ html, body {
 .button-locate:hover {
     background-color: #b66e2f;
 }
+
+.button-custom-routes {
+    position: absolute;
+    top: 5vh; /* Place it near the top of the page */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.3vh 2.8vh;
+    font-size: 1.7vh;
+    border-radius: 1vh;
+    background-color: #D27F38;
+    color: white;
+    cursor: pointer;
+    z-index: 21; /* Ensure it appears above the locate button */
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.button-custom-routes:hover {
+    background-color: #b66e2f;
+}
+
+#custom-routes-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup-content {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    margin: 50px auto;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+#closePopupButton {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #D27F38;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#closePopupButton:hover {
+    background-color: #b66e2f;
+}

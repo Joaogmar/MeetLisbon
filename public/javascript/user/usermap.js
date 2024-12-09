@@ -17,7 +17,7 @@ async function initMap() {
 
         directionsService = new google.maps.DirectionsService();
         directionsRenderer = new google.maps.DirectionsRenderer();
-        directionsRenderer.setMap(map); 
+        directionsRenderer.setMap(map);
     };
 
     const createUserMarker = () => {
@@ -130,6 +130,133 @@ async function initMap() {
             }
         });
     };
+
+    const fetchAndDisplayCustomRoutes = async () => {
+        try {
+            const response = await fetch('/api/poi/routes', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}` // Send the token
+                }
+            });
+            const data = await response.json();
+    
+            if (Array.isArray(data.routes)) {
+                displayRoutesInPopup(data.routes); // Pass the array of routes to the popup display function
+            } else {
+                console.error("Invalid route data format:", data);
+            }
+        } catch (error) {
+            console.error("Failed to fetch custom routes:", error);
+        }
+    };
+    
+    const displayRoutesInPopup = (routes) => {
+        const routesList = document.getElementById('custom-routes-list');
+        routesList.innerHTML = ''; // Clear the list before adding new routes
+    
+        routes.forEach(route => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('route-item');
+            listItem.innerHTML = `
+                <h4>${route.route_name}</h4>
+                <button class="view-route-button" data-route-id="${route.fr_id}">View Route</button>
+            `;
+            routesList.appendChild(listItem);
+    
+            // Add event listener to view route button
+            listItem.querySelector('.view-route-button').addEventListener('click', () => {
+                viewRoute(route);
+                // Close the popup when a route is viewed
+                document.getElementById('custom-routes-popup').style.display = 'none';
+            });
+        });
+    
+        // Show the popup after the routes have been added
+        document.getElementById('custom-routes-popup').style.display = 'block';
+    };    
+    
+    const viewRoute = async (route) => {
+        try {
+            // Fetch the POI data (all locations)
+            const response = await fetch('http://localhost:3000/api/poi/getAllPOI');
+            const poiData = await response.json();
+    
+            // Get the route points (which are location IDs)
+            const routePointsIds = route.route_points;
+    
+            // Map the route point IDs to their respective coordinates
+            const routePoints = routePointsIds.map(id => {
+                // Find the POI that matches the ID
+                const poi = poiData.find(location => location.location_id === id);
+    
+                if (poi) {
+                    return {
+                        lat: parseFloat(poi.latitude),
+                        lng: parseFloat(poi.longitude)
+                    };
+                }
+                return null; // If no POI is found for the ID, return null
+            }).filter(point => point !== null); // Remove any null values
+    
+            if (routePoints.length === 0) {
+                console.error("No valid route points found.");
+                return;
+            }
+    
+            // Create the waypoints for the Directions API
+            const waypoints = routePoints.map(point => ({
+                location: new google.maps.LatLng(point.lat, point.lng),
+                stopover: false
+            }));
+    
+            // Set up the Directions request
+            const request = {
+                origin: currentUserPosition, // Make sure to set currentUserPosition
+                destination: waypoints[waypoints.length - 1].location,
+                waypoints: waypoints.slice(0, -1), // Exclude the destination from waypoints
+                travelMode: google.maps.TravelMode.WALKING
+            };
+    
+            // Clear previous route (if any)
+            directionsRenderer.setDirections({ routes: [] });
+    
+            // Request the route from the Directions Service
+            directionsService.route(request, (result, status) => {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    console.error("Failed to calculate the route:", status);
+                    alert(`Failed to calculate route: ${status}`);
+                }
+            });
+    
+            // Close the popup after the button is clicked
+            closePopup();
+    
+        } catch (error) {
+            console.error("Error fetching POI data or rendering route:", error);
+        }
+    };
+    
+    // Function to close the popup
+    const closePopup = () => {
+        const popup = document.getElementById('popup');
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    };
+
+    // Show custom routes popup when button is clicked
+    document.getElementById("customRoutesButton").addEventListener("click", () => {
+        fetchAndDisplayCustomRoutes();  // Fetch routes and display them
+        document.getElementById("custom-routes-popup").style.display = "block"; // Show popup
+    });
+
+    // Close popup when "Close" button is clicked
+    document.getElementById("closePopupButton").addEventListener("click", () => {
+        document.getElementById("custom-routes-popup").style.display = "none"; // Hide popup
+    });
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
