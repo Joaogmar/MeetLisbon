@@ -13,12 +13,12 @@
 <body>
     <div class="navbar">
         <div class="avatar">
-            <img src="/img/avatar.jpg" alt="Avatar" class="avatar-img">
+            <img src="/img/avatar-user.jpg" alt="Avatar" class="avatar-img">
             <span class="user-name">User</span>
         </div>
-
+        
         <div class="nav-buttons">
-            <div class="nav-item" onclick="location.href='/pages/user/user.html'">
+            <div class="nav-item" onclick="location.href='/pages/user/usermap.html'">
                 <span class="material-icons icon">map</span>
                 <span class="nav-text">Map</span>
             </div>
@@ -39,8 +39,8 @@
                 <span class="nav-text">Wishlist</span>
             </div>
         </div>
-
-        <div class="nav-item logout" onclick="location.href=''">
+        
+        <div class="nav-item logout" onclick="logout()">
             <span class="material-icons icon">logout</span>
             <span class="nav-text">Logout</span>
         </div>
@@ -78,6 +78,13 @@
     </div>
 
     <script src="/javascript/user/favroutes.js"></script>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/pages/main/homepage.html';
+        }
+    </script>
 </body>
 
 </html>

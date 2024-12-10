@@ -13,7 +13,7 @@
 <body>
     <div class="navbar-admin">
         <div class="avatar">
-            <img src="/img/avatar.jpg" alt="Avatar" class="avatar-img">
+            <img src="/img/avatar-admin.jpg" alt="Avatar" class="avatar-img">
             <span class="admin-name">Admin</span>
         </div>
         
@@ -27,7 +27,7 @@
                 <span class="nav-text">User Management</span>
             </div>
         
-            <div class="nav-item-admin logout" onclick="location.href=''">
+            <div class="nav-item-admin logout" onclick="logout()">
                 <span class="material-icons icon">logout</span>
                 <span class="nav-text">Logout</span>
             </div>
@@ -82,6 +82,13 @@
     </div>
 
     <script src="/javascript/admin/userManagement.js"></script>
+    
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/pages/main/homepage.html';
+        }
+    </script>
 </body>
 
 </html>
