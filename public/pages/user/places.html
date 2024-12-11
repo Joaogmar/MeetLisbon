@@ -15,51 +15,41 @@
 <body>
   <div class="navbar">
     <div class="avatar">
-        <img src="/img/avatar-user.jpg" alt="Avatar" class="avatar-img">
-        <span class="user-name">User</span>
+      <img src="/img/avatar-user.jpg" alt="Avatar" class="avatar-img">
+      <span class="user-name">User</span>
     </div>
-    
-    <div class="nav-buttons">
-        <div class="nav-item" onclick="location.href='/pages/user/usermap.html'">
-            <span class="material-icons icon">map</span>
-            <span class="nav-text">Map</span>
-        </div>
-        <div class="nav-item" onclick="location.href='/pages/user/places.html'">
-            <span class="material-icons icon">place</span>
-            <span class="nav-text">Places</span>
-        </div>
-        <div class="nav-item" onclick="location.href='/pages/user/favroutes.html'">
-            <span class="material-icons icon">favorite</span>
-            <span class="nav-text">Favourite Routes</span>
-        </div>
-        <div class="nav-item" onclick="location.href='/pages/user/customroutes.html'">
-            <span class="material-icons icon">edit_road</span>
-            <span class="nav-text">Custom Route</span>
-        </div>
-        <div class="nav-item" onclick="location.href='/pages/user/wishlist.html'">
-            <span class="material-icons icon">list_alt</span>
-            <span class="nav-text">Wishlist</span>
-        </div>
-    </div>
-    
-    <div class="nav-item logout" onclick="logout()">
-        <span class="material-icons icon">logout</span>
-        <span class="nav-text">Logout</span>
-    </div>
-</div>
 
-  <div class="container">
-    <div id="place-popup" class="popup">
-      <div class="popup-content">
-        <span class="close-btn">&times;</span>
-        <h2 id="popup-name"></h2>
-        <p id="popup-info"></p>
-        <img id="popup-image" alt="Place Image">
+    <div class="nav-buttons">
+      <div class="nav-item" onclick="location.href='/pages/user/usermap.html'">
+        <span class="material-icons icon">map</span>
+        <span class="nav-text">Map</span>
+      </div>
+      <div class="nav-item" onclick="location.href='/pages/user/places.html'">
+        <span class="material-icons icon">place</span>
+        <span class="nav-text">Places</span>
+      </div>
+      <div class="nav-item" onclick="location.href='/pages/user/favroutes.html'">
+        <span class="material-icons icon">favorite</span>
+        <span class="nav-text">Favourite Routes</span>
+      </div>
+      <div class="nav-item" onclick="location.href='/pages/user/customroutes.html'">
+        <span class="material-icons icon">edit_road</span>
+        <span class="nav-text">Custom Route</span>
+      </div>
+      <div class="nav-item" onclick="location.href='/pages/user/wishlist.html'">
+        <span class="material-icons icon">list_alt</span>
+        <span class="nav-text">Wishlist</span>
       </div>
     </div>
 
-    <div class="add-place-container">
-      <div id="place-list" class="place-list">
+    <div class="nav-item logout" onclick="logout()">
+      <span class="material-icons icon">logout</span>
+      <span class="nav-text">Logout</span>
+    </div>
+  </div>
+
+  <div class="add-place-container">
+    <div id="place-list" class="place-list">
     </div>
 
     <div id="wishlist"></div>
@@ -69,10 +59,10 @@
 
   <script>
     function logout() {
-        localStorage.removeItem('token');
-        window.location.href = '/pages/main/homepage.html';
+      localStorage.removeItem('token');
+      window.location.href = '/pages/main/homepage.html';
     }
-</script>
+  </script>
 
 </body>
 
