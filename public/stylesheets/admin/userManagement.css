@@ -106,45 +106,66 @@ html, body {
 }
 
 .content-wrapper h1 {
-    margin-left: 20vh;
+    margin-left: 23vh;
     margin-top: 2.5vh;
 }
 
 h2 {
-    margin-bottom: 2vh;
     margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 1vh;
 }
 
 .table-container-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-left: 15vh;
+    margin-left: 20vh;
     padding: 2vh;
     gap: 2vh;
 }
 
 .table-container {
     flex: 1;
-    min-width: 45%; 
-    max-width: 48%;
-    overflow-x: auto;
+    width: 45%;
+    max-height: 80vh;
+    height: auto;
+    overflow-y: auto;
+    margin-top: 1.5vh;
+    position: relative;
+}
+
+.table-container::-webkit-scrollbar {
+    display: none; 
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 2vh;
 }
 
 th, td {
     text-align: left;
     padding: 1.2vh;
     border: 0.1vh solid #ddd;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.table-head {
+    position: sticky;
+    top: 0; 
+    background-color: #0076A8;
+    color: #FAF5EF; 
+    z-index: 2; 
 }
 
 th {
     background-color: #0076A8;
     color: #FAF5EF;
+}
+
+#userTable th, #adminTable th {
+    width: 33%;
 }
 
 tbody tr:hover {
@@ -172,7 +193,7 @@ td.icon {
 }
 
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
