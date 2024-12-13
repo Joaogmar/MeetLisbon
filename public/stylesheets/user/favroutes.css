@@ -1,62 +1,63 @@
-body {
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #76BAD7;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Navbar styling */
+html, body {
+    height: 100%;
+    overflow: auto;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #FAF5EF);
+}
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 6.2vh; /* Collapsed width */
+    width: 6.2vh;
     background-color: #0076A8;
     transition: width 0.3s;
     overflow-x: hidden;
-    z-index: 10; /* Mantém a navbar acima do mapa */
+    z-index: 10;
 }
 
 .navbar:hover {
-    width: 20vh; /* Expanded width */
+    width: 20vh;
 }
 
-/* Avatar styling */
 .avatar {
     display: flex;
-    flex-direction: column; /* Alinha os itens verticalmente */
-    align-items: center; /* Centraliza o conteúdo */
+    flex-direction: column;
+    align-items: center;
     padding: 1.7vh;
-    transition: padding 0.3s; /* Transição suave ao espaçamento */
+    transition: padding 0.3s;
 }
 
 .avatar-img {
-    width: 4.5vh; /* Tamanho padrão do avatar */
+    width: 4.5vh;
     height: 4.5vh;
     border-radius: 50%;
-    transition: width 0.3s, height 0.3s; /* Transição suave ao aumentar */
+    transition: width 0.3s, height 0.3s;
 }
 
-/* Estilo do nome do usuário */
 .user-name {
-    display: none; /* Oculta por padrão */
-    font-size: 1.7vh; /* Tamanho do texto */
-    color: white; /* Cor do texto */
-    margin-top: 0.7vh; /* Espaço entre o avatar e o nome */
+    display: none;
+    font-size: 1.7vh;
+    color: white;
+    margin-top: 0.7vh;
 }
 
-/* Mostrar nome do usuário ao expandir a navbar */
 .navbar:hover .user-name {
-    display: block; /* Mostra o nome quando a navbar está expandida */
+    display: block;
 }
 
-/* Classe para aumentar o tamanho do avatar ao expandir a navbar */
 .navbar:hover .avatar-img {
-    width: 8vh; /* Tamanho do avatar quando a navbar está expandida */
+    width: 8vh;
     height: 8vh; 
 }
 
-/* Navigation buttons */
 .nav-buttons {
     margin-top: 4vh;
 }
@@ -80,22 +81,21 @@ body {
 }
 
 .nav-text {
-    display: none; /* Hide text initially */
+    display: none;
     font-size: 1.7vh;
 }
 
 .navbar:hover .nav-text {
-    display: inline; /* Show text on hover */
+    display: inline;
 }
 
-/* Logout button styling */
 .logout {
     position: absolute;
-    bottom: 2.2vh; /* Distância do fundo da navbar */
+    bottom: 2.2vh;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
     padding: 1.1vh;
     cursor: pointer;
     color: white;
@@ -105,50 +105,17 @@ body {
     background-color: #D27F38;
 }
 
-.meet-lisbon {
-    color: #f2f2f2;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    margin-right: 50px;
-}
-
-.logo {
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-.logo img {
-    max-height: 100px;
-    width: auto;
-    margin-right: 10px;
-}
-
-.logout {
-    display: flex;
-    align-items: center;
-}
-
-.logout button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 17px;
-}
-
 .container {
     text-align: center;
-    margin-top: 50px;
-    width: 80%; 
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-top: 5vh;
+    margin-left: 23vh;
+    max-width: 150vh;
+}
+
+h1, h2 {
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    margin-left: 1vh;
 }
 
 #routes-body {
@@ -162,109 +129,109 @@ body {
 }
 
 #routes-table th, #routes-table td {
-    border: 1px solid #dddddd;
-    padding: 8px; 
+    border: 0.1vh solid #dddddd;
+    padding: 1.2vh;
     text-align: center; 
 }
 
 #routes-table th {
-    background-color: #f2f2f2;
+    background-color: #0076A8;
+    color: #FAF5EF;
+}
+
+#routes-table th:nth-child(1),
+#routes-table td:nth-child(1) {
+    width: 70%;
+}
+
+#routes-table th:nth-child(2),
+#routes-table td:nth-child(2) {
+    width: 30%;
 }
 
 #new-route-btn {
-    margin-top: 10px; 
+    margin-top: 2vh;
+    margin-left: 6vh;
+    padding: 0.7vh 2vh;
+    background-color: #D27F38;
+    color: white;
+    border: none;
+    border-radius: 0.4vh;
+    cursor: pointer;
+    box-shadow: 0 0.2vh 0.2vh rgba(0, 0, 0, 0.2);
 }
 
-.popup {
+#new-route-btn:hover {
+    background-color: rgb(184, 100, 27);
+}
+
+.popup, #create-route-popup {
     display: none; 
     position: fixed; 
     top: 50%; 
     left: 50%;
     transform: translate(-50%, -50%); 
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 2vh;
+    border-radius: 0.5vh;
+    box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.2);
     z-index: 1000;
-  }
-  
-  .popup-content {
-    text-align: center;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-  }
-
-  /* Adjust the popup to display available and selected POIs side by side */
-#create-route-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 2px solid #ccc;
-    padding: 20px;
-    width: 600px; /* Increased width to accommodate both lists */
-    display: none;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: none; /* Use flexbox */
-    justify-content: space-between; /* Space out the two columns */
+    width: 50vh;
 }
 
-/* Title of the popup */
+.popup-content {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1vh;
+    right: 1.2vh;
+    width: 3vh;  /* Define o tamanho do botão */
+    height: 3vh;  /* Define o tamanho do botão */
+    background-color: transparent;  /* Fundo transparente */
+    padding: 0;  /* Remove o preenchimento extra */
+    border-radius: 50%;  /* Botão redondo */
+    cursor: pointer;
+    display: flex;
+    align-items: center;  /* Alinha o conteúdo verticalmente */
+    justify-content: center;  /* Alinha o conteúdo horizontalmente */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #D27F38;  /* Cor de fundo azul ao passar o mouse */
+    transform: scale(1.1);  /* Aumento suave de tamanho */
+}
+
+.close-btn span {
+    color: #D27F38;  /* Cor inicial do ícone */
+    font-size: 1.8vh;  /* Ajuste o tamanho do ícone */
+    transition: color 0.3s;
+}
+
+.close-btn:hover span {
+    color: white;  /* Cor do ícone muda para branco quando o botão é pressionado */
+}
+
+
 #create-route-popup h2 {
     text-align: center;
-    width: 100%;
     margin-bottom: 15px;
 }
 
-/* Flex containers for available and selected POIs */
-#poi-list, #selected-pois {
-    list-style-type: none;
-    padding: 0;
-    width: 45%; /* Take up 45% of the container width */
-    max-height: 300px;
-    overflow-y: auto; /* Allow scrolling if list is too long */
-}
-
-/* List items styling */
-#poi-list li, #selected-pois li {
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Buttons in the list */
-#poi-list li button, #selected-pois li button {
-    padding: 5px;
-    cursor: pointer;
-}
-
-/* Additional styling for selected POIs (optional) */
-#selected-pois li {
-    background-color: #f1f1f1; /* Light background for selected items */
-    border-radius: 4px;
-}
-
-/* Adjust the input and buttons in the popup */
-#create-route-popup input[type="text"] {
+#create-route-popup input[type="text"], #poi-list, #selected-pois {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+    padding: 0.8vh;
+    margin: 1vh 0;
+    border: 0.1vh solid #ccc;
     border-radius: 4px;
 }
 
 #create-route-popup button {
-    width: 100%;
     padding: 10px;
-    margin: 10px 0;
-    background-color: #4CAF50;
+    margin-top: 10px;
+    background-color: #0076A8;
     color: white;
     border: none;
     border-radius: 4px;
@@ -272,20 +239,71 @@ body {
 }
 
 #create-route-popup button:hover {
-    background-color: #45a049;
+    background-color: #00577c;
 }
 
-/* Styling for close button */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+#poi-list, #selected-pois {
+    list-style: none;
+    max-height: 30vh;
+    overflow-y: scroll;
+}
+
+#poi-list::-webkit-scrollbar {
+    display: none;
+}
+
+#selected-pois::-webkit-scrollbar {
+    display: none;
+}
+
+#poi-list li, #selected-pois li {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#poi-list li button, #selected-pois li button {
+    padding: 5px;
     cursor: pointer;
-    background-color: #f44336;
-    padding: 5px 10px;
-    border-radius: 50%;
 }
 
-.close-btn:hover {
-    background-color: #e57373;
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-button .material-icons {
+    font-size: 2.5vh;
+    color: #D27F38;
+}
+
+.delete-button:hover .material-icons {
+    color: #ee8b34;
+}
+
+#save-create-route-btn.save-route-btn {
+    background-color: #D27F38;
+    color: white;
+    border: none;
+    border-radius: 0.4vh;
+    cursor: pointer;
+    box-shadow: 0 0.2vh 0.2vh rgba(0, 0, 0, 0.2);
+    padding: 0.7vh 2vh;
+}
+
+#save-create-route-btn.save-route-btn:hover {
+    background-color: rgb(184, 100, 27);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor escura e semitransparente */
+    display: none; /* Inicialmente oculto */
+    z-index: 999; /* Fica atrás do pop-up */
 }

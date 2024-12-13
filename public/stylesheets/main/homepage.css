@@ -221,3 +221,10 @@ body::-webkit-scrollbar {
     position: fixed;
     width: 100%;
 }
+
+@media screen and (max-width: 768px) {
+    .team-members{
+        flex-direction: column;
+        margin-left: 4.7vh;
+    }   
+}

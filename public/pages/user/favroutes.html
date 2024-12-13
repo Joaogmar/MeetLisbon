@@ -55,12 +55,12 @@
                 </tr>
             </thead>
             <tbody id="routes-body">
-                <!-- Routes will be dynamically inserted here -->
             </tbody>
         </table>
         <button id="new-route-btn">Create New Route</button>
     </div>
 
+    <div id="overlay"></div>
     <div id="create-route-popup">
         <div>
             <h2>Create Route</h2>
@@ -73,8 +73,10 @@
             <ul id="selected-pois"></ul> <!-- Selected POIs list -->
         </div>
         
-        <button id="save-create-route-btn">Save Route</button>
-        <span class="close-btn">X</span>
+        <button id="save-create-route-btn" class="save-route-btn">Save Route</button>
+        <span class="close-btn">
+            <span class="material-icons">close</span>
+        </span>
     </div>
 
     <script src="/javascript/user/favroutes.js"></script>

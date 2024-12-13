@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function openCreateRoutePopup() {
+    document.getElementById("overlay").style.display = "block";
     document.getElementById("create-route-popup").style.display = "block";
     fetchPOIs(); 
 
@@ -29,6 +30,7 @@ function openCreateRoutePopup() {
 }
 
 function closePopup() {
+    document.getElementById("overlay").style.display = "none";
     document.getElementById("create-route-popup").style.display = "none";
 }
 
@@ -96,11 +98,12 @@ function fetchUserRoutes() {
 
                 const deleteCell = document.createElement("td");
                 const deleteButton = document.createElement("button");
-                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("delete-button");
+                deleteButton.innerHTML = '<span class="material-icons">delete</span>';
                 deleteButton.addEventListener("click", () => {
-                    deleteRoute(route.fr_id);
-                });
-                deleteCell.appendChild(deleteButton);
+                deleteRoute(route.fr_id);
+});
+deleteCell.appendChild(deleteButton);
 
                 row.appendChild(routeCell);
                 row.appendChild(deleteCell);
