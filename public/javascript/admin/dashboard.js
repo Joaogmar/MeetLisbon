@@ -34,9 +34,9 @@ async function initMap() {
         const infoWindowContent = document.createElement("div");
         infoWindowContent.innerHTML = `
             <div>
-                <h3>${poi.location_name}</h3>
-                <p>${poi.info}</p>
-                <img src="${poi.image_url}" alt="${poi.location_name}" style="width:100%; height:auto;">
+                <h3 style="margin-bottom: 1vh;">${poi.location_name}</h3>
+                <p style="margin-bottom: 1vh;">${poi.info}</p>
+                <img src="${poi.image_url}" alt="${poi.location_name}" style="width:100%; height:auto; margin-bottom: 1vh;">
                 <p><strong>Address:</strong> ${poi.location_address}</p>
                 <button class="delete-poi-button" style="background-color: red; color: white; padding: 8px 12px; border: none; cursor: pointer; margin-top: 10px;">
                     Delete
