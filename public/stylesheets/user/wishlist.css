@@ -1,62 +1,66 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #76BAD7;
+    background-color: #FAF5EF;
+    overflow: hidden;
 }
 
-/* Navbar styling */
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    scrollbar-width: none;
+}
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 6.2vh; /* Collapsed width */
+    width: 6.2vh;
     background-color: #0076A8;
     transition: width 0.3s;
     overflow-x: hidden;
-    z-index: 10; /* Mantém a navbar acima do mapa */
+    z-index: 10;
 }
 
 .navbar:hover {
-    width: 20vh; /* Expanded width */
+    width: 20vh;
 }
 
-/* Avatar styling */
 .avatar {
     display: flex;
-    flex-direction: column; /* Alinha os itens verticalmente */
-    align-items: center; /* Centraliza o conteúdo */
+    flex-direction: column;
+    align-items: center;
     padding: 1.7vh;
-    transition: padding 0.3s; /* Transição suave ao espaçamento */
+    transition: padding 0.3s;
 }
 
 .avatar-img {
-    width: 4.5vh; /* Tamanho padrão do avatar */
+    width: 4.5vh;
     height: 4.5vh;
     border-radius: 50%;
-    transition: width 0.3s, height 0.3s; /* Transição suave ao aumentar */
+    transition: width 0.3s, height 0.3s;
 }
 
-/* Estilo do nome do usuário */
 .user-name {
-    display: none; /* Oculta por padrão */
-    font-size: 1.7vh; /* Tamanho do texto */
-    color: white; /* Cor do texto */
-    margin-top: 0.7vh; /* Espaço entre o avatar e o nome */
+    display: none;
+    font-size: 1.7vh;
+    color: white;
+    margin-top: 0.7vh; 
 }
 
-/* Mostrar nome do usuário ao expandir a navbar */
 .navbar:hover .user-name {
-    display: block; /* Mostra o nome quando a navbar está expandida */
+    display: block;
 }
 
-/* Classe para aumentar o tamanho do avatar ao expandir a navbar */
 .navbar:hover .avatar-img {
-    width: 8vh; /* Tamanho do avatar quando a navbar está expandida */
+    width: 8vh; 
     height: 8vh; 
 }
 
-/* Navigation buttons */
 .nav-buttons {
     margin-top: 4vh;
 }
@@ -80,22 +84,21 @@ body {
 }
 
 .nav-text {
-    display: none; /* Hide text initially */
+    display: none;
     font-size: 1.7vh;
 }
 
 .navbar:hover .nav-text {
-    display: inline; /* Show text on hover */
+    display: inline;
 }
 
-/* Logout button styling */
 .logout {
     position: absolute;
-    bottom: 2.2vh; /* Distância do fundo da navbar */
+    bottom: 2.2vh;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: center;
     padding: 1.1vh;
     cursor: pointer;
     color: white;
@@ -105,131 +108,76 @@ body {
     background-color: #D27F38;
 }
 
-.meet-lisbon {
-    color: #f2f2f2;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-weight: bold;
-    margin-right: 50px;
-}
-
-.logo {
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-}
-
-.logo img {
-    max-height: 100px;
-    width: auto;
-    margin-right: 10px;
-}
-
-.logout {
-    display: flex;
-    align-items: center;
-}
-
-.logout button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-.container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.remove-place {
-    background-color: #56B24B;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.remove-place:hover {
-    background-color: #4CAF50;
-}
-
-.remove-place-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    text-align: center;
-    margin: 20px auto;
-}
-
-.remove-place-container h3 {
-    margin-top: 0;
-}
-
-.remove-place-container .add-icon {
-    font-size: 24px;
-    color: #56B24B;
-    margin-left: 5px;
-    vertical-align: middle;
-    margin-bottom: -2px;
-    cursor: pointer;
-}
-
-.navigation {
-    margin-bottom: 20px;
-}
-
-.navigation button {
-    background-color: #f2f2f2;
-    color: #333;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-.navigation button.active {
-    background-color: #56B24B;
-    color: white;
-}
-
 .wishlist-container {
-    padding: 20px;
-  }
-  
-  .poi-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 0;
+    margin-left: 20vh;
+    padding: 4vh;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin-top: -2vh;
+    max-height: calc(100vh - 4vh);
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+}
+
+.wishlist-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.wishlist-container h2 {
+    font-size: 2.2em;
+    color: #0076A8;
+    margin-bottom: 4vh;
+    text-align: center;
+}
+
+.poi-item {
+    background: #FFFFFF;
+    border: 0.1vh solid #CCC;
+    border-radius: 0.8vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
-  }
-  
-  .poi-info {
+    padding: 1.5vh;
+    margin-bottom: 2vh;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poi-item:hover {
+    transform: translateY(-0.5vh);
+    box-shadow: 0 0.6vh 1.2vh rgba(0, 0, 0, 0.2);
+}
+
+.poi-info {
     flex: 1;
-  }
-  
-  .poi-actions button {
-    background-color: red;
+    margin-right: 2vh;
+    color: #555;
+    margin-bottom: 1vh;
+}
+
+.poi-info h3 {
+    font-size: 1.5em;
+    margin-bottom: 1vh;
+    color: #0076A8;
+}
+
+.poi-info p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.poi-actions button {
+    background-color: #FF5252;
     color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 0.8vh 1.6vh;
     cursor: pointer;
-  }
-  
-  .poi-actions button:hover {
-    background-color: darkred;
-  }
+    border-radius: 0.5vh;
+    font-size: 1em;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.poi-actions button:hover {
+    background-color: #D32F2F;
+    transform: scale(1.05);
+}

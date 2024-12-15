@@ -174,15 +174,54 @@ html, body {
     border-radius: 10px;
 }
 
+.popup-content h3 {
+    margin-bottom: 1vh;
+}
+
 #closePopupButton {
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 2vh;
+    padding: 1vh;
     background-color: #D27F38;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 1vh;
 }
 
 #closePopupButton:hover {
     background-color: #b66e2f;
+}
+
+.route-button, .view-route-button {
+    padding: 1.2vh 2vh;
+    font-size: 1.2vh;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 1vh;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+    margin-top: 0.2vh;
+}
+
+.route-button {
+    margin-top: 1.3vh;
+    background: linear-gradient(45deg, #D27F38, #b66e2f);
+}
+
+.view-route-button {
+    margin-bottom: 1vh;
+    background: linear-gradient(45deg, #0076A8, #00648f);
+}
+
+.route-button:hover, .view-route-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.2);
+}
+
+.route-button:active, .view-route-button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }

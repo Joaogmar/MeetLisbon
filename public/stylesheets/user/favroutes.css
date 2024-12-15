@@ -187,31 +187,31 @@ h1, h2 {
     position: absolute;
     top: 1vh;
     right: 1.2vh;
-    width: 3vh;  /* Define o tamanho do botão */
-    height: 3vh;  /* Define o tamanho do botão */
-    background-color: transparent;  /* Fundo transparente */
-    padding: 0;  /* Remove o preenchimento extra */
-    border-radius: 50%;  /* Botão redondo */
+    width: 3vh;
+    height: 3vh;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
-    align-items: center;  /* Alinha o conteúdo verticalmente */
-    justify-content: center;  /* Alinha o conteúdo horizontalmente */
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .close-btn:hover {
-    background-color: #D27F38;  /* Cor de fundo azul ao passar o mouse */
-    transform: scale(1.1);  /* Aumento suave de tamanho */
+    background-color: #D27F38;
+    transform: scale(1.1);
 }
 
 .close-btn span {
-    color: #D27F38;  /* Cor inicial do ícone */
-    font-size: 1.8vh;  /* Ajuste o tamanho do ícone */
+    color: #D27F38;
+    font-size: 1.8vh;
     transition: color 0.3s;
 }
 
 .close-btn:hover span {
-    color: white;  /* Cor do ícone muda para branco quando o botão é pressionado */
+    color: white;
 }
 
 
@@ -276,11 +276,11 @@ h1, h2 {
 
 .delete-button .material-icons {
     font-size: 2.5vh;
-    color: #D27F38;
+    color: #FF5252;
 }
 
 .delete-button:hover .material-icons {
-    color: #ee8b34;
+    color: #D32F2F;
 }
 
 #save-create-route-btn.save-route-btn {
@@ -303,7 +303,7 @@ h1, h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor escura e semitransparente */
-    display: none; /* Inicialmente oculto */
-    z-index: 999; /* Fica atrás do pop-up */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999; 
 }
